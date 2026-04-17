@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { SearchIcon } from '../components/Icons'
+import AnimateOnScroll from '../components/AnimateOnScroll'
 
 interface Role {
   title: string
@@ -48,18 +49,20 @@ export default function RolesPage() {
     <>
       {/* Header */}
       <section className="bg-brand-800 py-14 px-6">
-        <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-white text-4xl md:text-5xl font-bold mb-3 font-display">Roles We Source</h1>
-          <p className="text-white/55">Find the perfect remote talent for your business</p>
-        </div>
+        <AnimateOnScroll variant="fade-up" threshold={0.1}>
+          <div className="max-w-7xl mx-auto text-center">
+            <h1 className="text-white text-4xl md:text-5xl font-bold mb-3 font-display">Roles We Source</h1>
+            <p className="text-white/55">Find the perfect remote talent for your business</p>
+          </div>
+        </AnimateOnScroll>
       </section>
 
       {/* Content */}
       <section className="py-12 px-6 bg-white">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-10">
           {/* Sidebar */}
-          <aside className="md:w-64 flex-shrink-0">
-            <div className="sticky top-24 space-y-6">
+          <AnimateOnScroll variant="fade-right" duration={600} className="md:w-64 flex-shrink-0">
+            <aside className="sticky top-24 space-y-6">
               <div>
                 <h3 className="font-semibold text-gray-900 mb-3 flex items-center justify-between text-sm">
                   Search
@@ -98,81 +101,86 @@ export default function RolesPage() {
                   ))}
                 </div>
               </div>
-            </div>
-          </aside>
+            </aside>
+          </AnimateOnScroll>
 
           {/* Grid */}
           <div className="flex-1">
-            <div className="flex items-center justify-between mb-6">
-              <p className="text-sm text-gray-500">
-                Showing {filtered.length} of {allRoles.length} roles
-              </p>
-              <select className="text-sm border border-gray-200 rounded-lg px-3 py-1.5 text-gray-600 focus:outline-none">
-                <option>Sort by</option>
-                <option>Savings: High to Low</option>
-                <option>Savings: Low to High</option>
-                <option>Price: Low to High</option>
-              </select>
-            </div>
+            <AnimateOnScroll variant="fade-in" duration={400}>
+              <div className="flex items-center justify-between mb-6">
+                <p className="text-sm text-gray-500">
+                  Showing {filtered.length} of {allRoles.length} roles
+                </p>
+                <select className="text-sm border border-gray-200 rounded-lg px-3 py-1.5 text-gray-600 focus:outline-none">
+                  <option>Sort by</option>
+                  <option>Savings: High to Low</option>
+                  <option>Savings: Low to High</option>
+                  <option>Price: Low to High</option>
+                </select>
+              </div>
+            </AnimateOnScroll>
 
             <div className="grid md:grid-cols-2 gap-6">
               {filtered.map((role, i) => (
-                <div
-                  key={role.title}
-                  className="border border-gray-100 rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300 cursor-pointer group hover:-translate-y-0.5"
-                >
-                  <div className="h-44 relative overflow-hidden" style={{ background: GRADIENTS[i % GRADIENTS.length] }}>
-                    <img
-                      src={role.image}
-                      alt={role.title}
-                      loading="lazy"
-                      className="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
-                    <span className="absolute bottom-3 right-3 bg-white text-black text-xs font-bold px-3 py-1 rounded-full shadow-sm">
-                      {role.savings} average savings
-                    </span>
-                  </div>
-                  <div className="p-6">
-                    <div className="flex flex-wrap gap-2 mb-3">
-                      <span className="text-xs bg-gray-50 text-black px-2.5 py-1 rounded-full font-medium">{role.price}</span>
-                      <span className="text-xs bg-gray-100 text-gray-600 px-2.5 py-1 rounded-full font-medium">{role.category}</span>
+                <AnimateOnScroll key={role.title} variant="fade-up" delay={i * 60} duration={500} threshold={0.08}>
+                  <div className="border border-gray-100 rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300 cursor-pointer group hover:-translate-y-0.5 h-full">
+                    <div className="h-44 relative overflow-hidden" style={{ background: GRADIENTS[i % GRADIENTS.length] }}>
+                      <img
+                        src={role.image}
+                        alt={role.title}
+                        loading="lazy"
+                        className="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+                      <span className="absolute bottom-3 right-3 bg-white text-black text-xs font-bold px-3 py-1 rounded-full shadow-sm">
+                        {role.savings} average savings
+                      </span>
                     </div>
-                    <h3 className="font-bold text-gray-900 text-lg mb-4 group-hover:text-black transition-colors">
-                      {role.title}
-                    </h3>
-                    <div className="space-y-2 text-sm">
-                      <div className="flex justify-between">
-                        <span className="font-semibold text-black">Philippine Average Salary</span>
-                        <span className="text-gray-500">{role.salaries.PH}/month</span>
+                    <div className="p-6">
+                      <div className="flex flex-wrap gap-2 mb-3">
+                        <span className="text-xs bg-gray-50 text-black px-2.5 py-1 rounded-full font-medium">{role.price}</span>
+                        <span className="text-xs bg-gray-100 text-gray-600 px-2.5 py-1 rounded-full font-medium">{role.category}</span>
                       </div>
-                      <div className="flex justify-between">
-                        <span className="font-semibold text-black">LatAm Average Salary</span>
-                        <span className="text-gray-500">{role.salaries.LatAm}/month</span>
-                      </div>
-                      <div className="flex justify-between">
-                        <span className="font-semibold text-black">South Africa Average Salary</span>
-                        <span className="text-gray-500">{role.salaries.SA}/month</span>
+                      <h3 className="font-bold text-gray-900 text-lg mb-4 group-hover:text-black transition-colors">
+                        {role.title}
+                      </h3>
+                      <div className="space-y-2 text-sm">
+                        <div className="flex justify-between">
+                          <span className="font-semibold text-black">Philippine Average Salary</span>
+                          <span className="text-gray-500">{role.salaries.PH}/month</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span className="font-semibold text-black">LatAm Average Salary</span>
+                          <span className="text-gray-500">{role.salaries.LatAm}/month</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span className="font-semibold text-black">South Africa Average Salary</span>
+                          <span className="text-gray-500">{role.salaries.SA}/month</span>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
+                </AnimateOnScroll>
               ))}
             </div>
 
             {filtered.length > 0 && (
-              <div className="text-center mt-12">
-                <button className="bg-brand-800 hover:bg-brand-700 text-white px-8 py-3 rounded-xl font-semibold text-sm transition-colors inline-flex items-center gap-2">
-                  Load more <span className="text-lg leading-none">+</span>
-                </button>
-              </div>
+              <AnimateOnScroll variant="fade-up" delay={200}>
+                <div className="text-center mt-12">
+                  <button className="bg-brand-800 hover:bg-brand-700 text-white px-8 py-3 rounded-xl font-semibold text-sm transition-colors inline-flex items-center gap-2">
+                    Load more <span className="text-lg leading-none">+</span>
+                  </button>
+                </div>
+              </AnimateOnScroll>
             )}
 
             {filtered.length === 0 && (
-              <div className="text-center py-20">
-                <p className="text-gray-400 text-lg">No roles match your search.</p>
-                <button onClick={() => { setFilter('All'); setSearch(''); }} className="text-black text-sm mt-2 hover:underline">Clear filters</button>
-              </div>
+              <AnimateOnScroll variant="fade-in">
+                <div className="text-center py-20">
+                  <p className="text-gray-400 text-lg">No roles match your search.</p>
+                  <button onClick={() => { setFilter('All'); setSearch(''); }} className="text-black text-sm mt-2 hover:underline">Clear filters</button>
+                </div>
+              </AnimateOnScroll>
             )}
           </div>
         </div>

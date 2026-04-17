@@ -1,6 +1,7 @@
 import ProcessSteps, { type Step } from '../components/ProcessSteps'
 import CTABanner from '../components/CTABanner'
 import { UsersIcon, ClockIcon, ShieldCheck } from '../components/Icons'
+import AnimateOnScroll from '../components/AnimateOnScroll'
 
 const features = [
   {
@@ -35,32 +36,35 @@ export default function DirectHirePage() {
       {/* ──── Hero ──────────────────────────────── */}
       <section className="py-24 px-6 bg-white">
         <div className="max-w-4xl mx-auto text-center">
-          <span className="inline-block border border-black text-black text-xs font-semibold px-5 py-1.5 rounded-full mb-6">
-            Axis Direct Hire
-          </span>
-          <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-5 font-display leading-tight">
-            What Axis Direct Hire Can Do For You
-          </h1>
-          <p className="text-gray-500 mb-16 text-lg">
-            Here's why companies choose us over traditional recruiters.
-          </p>
+          <AnimateOnScroll variant="fade-up">
+            <span className="inline-block border border-black text-black text-xs font-semibold px-5 py-1.5 rounded-full mb-6">
+              Axis Direct Hire
+            </span>
+            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-5 font-display leading-tight">
+              What Axis Direct Hire Can Do For You
+            </h1>
+            <p className="text-gray-500 mb-16 text-lg">
+              Here's why companies choose us over traditional recruiters.
+            </p>
+          </AnimateOnScroll>
 
           <div className="grid md:grid-cols-3 gap-6">
             {features.map((f, i) => (
-              <div
-                key={i}
-                className="bg-gray-50 rounded-2xl p-8 text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-1 group"
-              >
-                <div className="flex justify-center mb-6 opacity-70 group-hover:opacity-100 transition-opacity">
-                  {f.icon}
+              <AnimateOnScroll key={i} variant="fade-up" delay={i * 100} duration={550}>
+                <div className="bg-gray-50 rounded-2xl p-8 text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-1 group h-full">
+                  <div className="flex justify-center mb-6 opacity-70 group-hover:opacity-100 transition-opacity">
+                    {f.icon}
+                  </div>
+                  <h3 className="font-bold text-gray-900 mb-3 text-lg">{f.title}</h3>
+                  <p className="text-gray-500 text-sm leading-relaxed">{f.desc}</p>
                 </div>
-                <h3 className="font-bold text-gray-900 mb-3 text-lg">{f.title}</h3>
-                <p className="text-gray-500 text-sm leading-relaxed">{f.desc}</p>
-              </div>
+              </AnimateOnScroll>
             ))}
           </div>
 
-          <CTABanner />
+          <AnimateOnScroll variant="fade-up" delay={200}>
+            <CTABanner />
+          </AnimateOnScroll>
         </div>
       </section>
 
