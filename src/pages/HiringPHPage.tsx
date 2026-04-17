@@ -1,13 +1,5 @@
-import RoleCarousel, { type RoleCard } from '../components/RoleCarousel'
-
-const roles: RoleCard[] = [
-  { title: 'Executive Assistant', desc: 'Hire trusted, experienced remote executive assistants from the Philippines.', savings: '86%', price: '$1,200/mo' },
-  { title: 'Customer Support Rep', desc: 'Fluent English-speaking customer support professionals ready to delight your customers.', savings: '85%', price: '$1,000/mo' },
-  { title: 'Sales Development Rep', desc: 'Qualifies leads and drives pipeline from the Philippines with US timezone overlap.', savings: '82%', price: '$1,300/mo' },
-  { title: 'Full-Stack Developer', desc: 'Expert developers with world-class technical skills and strong communication.', savings: '70%', price: '$2,200/mo' },
-  { title: 'Social Media Manager', desc: 'Creative social media managers who understand US audiences and platforms.', savings: '80%', price: '$1,400/mo' },
-  { title: 'Graphic Designer', desc: 'Talented designers skilled in modern tools — Figma, Adobe Suite, Canva, and more.', savings: '78%', price: '$1,200/mo' },
-]
+import RoleCarousel from '../components/RoleCarousel'
+import { hiringPHRoles } from '../data/roles'
 
 const whyPhilippines = [
   { icon: 'record_voice_over', title: 'English Fluency', desc: 'The Philippines is the 3rd largest English-speaking country in the world.' },
@@ -95,7 +87,7 @@ export default function HiringPHPage() {
             </h2>
             <p className="text-gray-500">Here are some of the roles we can fill with amazing people</p>
           </div>
-          <RoleCarousel roles={roles} />
+          <RoleCarousel roles={hiringPHRoles} />
         </div>
       </section>
     </>

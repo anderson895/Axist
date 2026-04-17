@@ -6,6 +6,9 @@ export interface RoleCard {
   desc: string
   savings: string
   price?: string
+  /** Custom image path (e.g. '/images/roles/executive-assistant.jpg').
+   *  If omitted, falls back to a grayscale placeholder. */
+  image?: string
 }
 
 interface RoleCarouselProps {
@@ -83,7 +86,7 @@ const RoleCarousel: React.FC<RoleCarouselProps> = ({ roles }) => {
               style={{ background: FALLBACK_GRADIENTS[i % FALLBACK_GRADIENTS.length] }}
             >
               <img
-                src={imageFor(role.title)}
+                src={role.image ?? imageFor(role.title)}
                 alt={role.title}
                 loading="lazy"
                 className="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"

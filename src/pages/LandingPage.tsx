@@ -1,17 +1,10 @@
 import { Link } from 'react-router-dom'
 import ProcessSteps, { type Step } from '../components/ProcessSteps'
-import RoleCarousel, { type RoleCard } from '../components/RoleCarousel'
+import RoleCarousel from '../components/RoleCarousel'
+import { landingRoles } from '../data/roles'
 import CTABanner from '../components/CTABanner'
 import { CheckIcon } from '../components/Icons'
 
-const roles: RoleCard[] = [
-  { title: 'Executive Assistant', desc: 'Hire trusted, experienced remote executive assistants from the Philippines, Latin America, and more.', savings: '86%' },
-  { title: 'Sales Development Rep (SDR)', desc: 'Qualifies leads for the sales team and drives pipeline growth across regions.', savings: '86%' },
-  { title: 'Product Manager', desc: 'Hire elite remote product managers from the Philippines, Latin America, and South Africa.', savings: '86%' },
-  { title: 'Social Media Manager', desc: "Axis' expert team of global recruiters sources, vets, and connects business leaders.", savings: '86%' },
-  { title: 'Account Executive', desc: 'Hire experienced remote Account Executives from the Philippines, Latin America, and South Africa.', savings: '86%' },
-  { title: 'Sales Manager', desc: 'Hire trusted, experienced remote sales managers from the Philippines, Latin America.', savings: '82%' },
-]
 
 const steps: Step[] = [
   { num: '1', title: 'Book a Call & Start Hiring', desc: "Tell us what roles you're hiring for in a quick intro call. We'll align on countries, salary ranges, and skill needs. A $500 refundable deposit secures your search and goes toward your final invoice.", note: "Zero Risk: You pay nothing if you don't hire anyone." },
@@ -134,7 +127,7 @@ export default function LandingPage() {
             </h2>
             <p className="text-gray-500">Here are some of the roles we can fill with amazing people</p>
           </div>
-          <RoleCarousel roles={roles} />
+          <RoleCarousel roles={landingRoles} />
           <div className="text-center mt-12">
             <Link
               to="/roles"

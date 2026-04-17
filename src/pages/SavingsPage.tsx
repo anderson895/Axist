@@ -1,14 +1,6 @@
 import { Link } from 'react-router-dom'
-import RoleCarousel, { type RoleCard } from '../components/RoleCarousel'
-
-const roles: RoleCard[] = [
-  { title: 'Remote Draftsman', desc: 'Hire remote draftsmen for up to 75% less from the Philippines, Latin America, and South Africa.', savings: '75%', price: '$1,400/mo' },
-  { title: 'Construction Estimator', desc: 'Hire remote construction estimators for up to 70% less from global talent pools.', savings: '70%', price: '$1,800/mo' },
-  { title: 'Remote Architect', desc: 'Hire remote architects for up to 72% less from the Philippines and Latin America.', savings: '72%', price: '$1,800/mo' },
-  { title: 'Portfolio Manager', desc: 'Hire remote portfolio managers for up to 68% less from top global talent.', savings: '68%', price: '$2,200/mo' },
-  { title: 'Tax Specialist', desc: 'Hire expert remote Tax Specialists from Philippines, Latin America, and South Africa.', savings: '74%', price: '$1,600/mo' },
-  { title: 'Bookkeeper', desc: 'Hire remote bookkeepers skilled in QuickBooks, Xero, and more for a fraction of US costs.', savings: '82%', price: '$1,100/mo' },
-]
+import RoleCarousel from '../components/RoleCarousel'
+import { savingsRoles } from '../data/roles'
 
 const savingsExamples = [
   { role: 'Executive Assistant', us: '$4,500', global: '$1,200', savings: '73%' },
@@ -88,7 +80,7 @@ export default function SavingsPage() {
               with amazing people
             </p>
           </div>
-          <RoleCarousel roles={roles} />
+          <RoleCarousel roles={savingsRoles} />
           <div className="text-center mt-12">
             <Link
               to="/roles"
