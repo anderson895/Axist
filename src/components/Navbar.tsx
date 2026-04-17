@@ -14,7 +14,7 @@ export default function Navbar() {
   return (
     <>
       {/* Referral banner */}
-      <div className="bg-black text-white text-center py-2.5 px-4 text-sm border-b border-white/10">
+      {/* <div className="bg-black text-white text-center py-2.5 px-4 text-sm border-b border-white/10">
         <span className="opacity-90 inline-flex items-center gap-2">
           Refer a client to Axis and we'll pay you $500! Click here to sign up.
           <span className="material-icons" style={{ fontSize: '16px' }}>east</span>
@@ -22,7 +22,7 @@ export default function Navbar() {
         <button className="ml-3 bg-white text-black px-4 py-1 rounded text-xs font-semibold hover:bg-gray-100 transition-colors">
           Sign up
         </button>
-      </div>
+      </div> */}
 
       {/* Main navbar */}
       <nav className="sticky top-0 z-50 border-b border-white/10 bg-black">
