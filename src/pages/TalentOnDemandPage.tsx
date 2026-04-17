@@ -6,7 +6,7 @@ const benefits = [
   { icon: <HandshakeIcon />, title: 'Fully Managed', desc: 'We handle payroll, compliance, equipment, and HR — so you can focus on your business.' },
 ]
 
-const candidateIcons = ['person', 'code', 'palette', 'badge']
+const candidateAvatars = [1, 5, 12, 32]
 
 export default function TalentOnDemandPage() {
   return (
@@ -39,10 +39,15 @@ export default function TalentOnDemandPage() {
               <div className="bg-white rounded-2xl p-5 shadow-2xl">
                 <p className="text-sm font-semibold text-gray-800 mb-3">Candidates Available</p>
                 <div className="flex -space-x-2">
-                  {candidateIcons.map((name, i) => (
-                    <span key={i} className="w-10 h-10 rounded-full bg-gray-100 text-gray-700 flex items-center justify-center border-2 border-white shadow-sm">
-                      <span className="material-icons" style={{ fontSize: '20px' }}>{name}</span>
-                    </span>
+                  {candidateAvatars.map((n, i) => (
+                    <img
+                      key={i}
+                      src={`https://i.pravatar.cc/80?img=${n}`}
+                      alt={`Candidate ${i + 1}`}
+                      loading="lazy"
+                      className="w-10 h-10 rounded-full object-cover border-2 border-white shadow-sm bg-gray-100"
+                      style={{ filter: 'grayscale(1)' }}
+                    />
                   ))}
                   <span className="w-10 h-10 rounded-full bg-black text-white text-xs flex items-center justify-center font-bold border-2 border-white shadow-sm">+42</span>
                 </div>
