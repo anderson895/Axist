@@ -7,21 +7,18 @@ interface Role {
   price: string
   savings: string
   salaries: { PH: string; LatAm: string; SA: string }
+  image: string
 }
 
-const categories = ['All', 'Assistant', 'CSR', 'Sales', 'Finance', 'Construction', 'Technology', 'Creative', 'Marketing', 'Operations']
+const categories = ['All', 'Assistant', 'Sales', 'Technology', 'Marketing']
 
 const allRoles: Role[] = [
-  { title: 'M&A Investment Analyst', category: 'Finance', price: '$3,650–$9,800/mo', savings: '78%', salaries: { PH: '$1,900', LatAm: '$2,400', SA: '$2,220' } },
-  { title: 'Remote Draftsman', category: 'Operations', price: '$5,500–$8,000+/mo', savings: '75%', salaries: { PH: '$1,400', LatAm: '$1,800', SA: '$1,700' } },
-  { title: 'Executive Assistant', category: 'Assistant', price: '$2,500–$5,000/mo', savings: '86%', salaries: { PH: '$1,200', LatAm: '$1,600', SA: '$1,400' } },
-  { title: 'Sales Development Rep', category: 'Sales', price: '$3,000–$6,000/mo', savings: '82%', salaries: { PH: '$1,300', LatAm: '$1,700', SA: '$1,500' } },
-  { title: 'Social Media Manager', category: 'Marketing', price: '$3,500–$7,000/mo', savings: '80%', salaries: { PH: '$1,400', LatAm: '$1,800', SA: '$1,600' } },
-  { title: 'Full-Stack Developer', category: 'Technology', price: '$5,000–$10,000/mo', savings: '70%', salaries: { PH: '$2,200', LatAm: '$3,000', SA: '$2,500' } },
-  { title: 'Customer Support Rep', category: 'CSR', price: '$2,000–$4,000/mo', savings: '85%', salaries: { PH: '$1,000', LatAm: '$1,300', SA: '$1,100' } },
-  { title: 'Construction Estimator', category: 'Construction', price: '$4,000–$7,500/mo', savings: '72%', salaries: { PH: '$1,800', LatAm: '$2,200', SA: '$1,900' } },
-  { title: 'Graphic Designer', category: 'Creative', price: '$3,000–$6,000/mo', savings: '78%', salaries: { PH: '$1,200', LatAm: '$1,600', SA: '$1,400' } },
-  { title: 'Account Executive', category: 'Sales', price: '$3,500–$7,000/mo', savings: '80%', salaries: { PH: '$1,500', LatAm: '$2,000', SA: '$1,700' } },
+  { title: 'Executive Assistant', category: 'Assistant', price: '$2,500–$5,000/mo', savings: '86%', salaries: { PH: '$1,200', LatAm: '$1,600', SA: '$1,400' }, image: '/images/roles/executive-assistant.png' },
+  { title: 'Sales Development Rep (SDR)', category: 'Sales', price: '$3,000–$6,000/mo', savings: '86%', salaries: { PH: '$1,300', LatAm: '$1,700', SA: '$1,500' }, image: '/images/roles/sales-development-rep.png' },
+  { title: 'Product Manager', category: 'Technology', price: '$4,500–$9,000/mo', savings: '86%', salaries: { PH: '$1,800', LatAm: '$2,400', SA: '$2,000' }, image: '/images/roles/product-manager.png' },
+  { title: 'Social Media Manager', category: 'Marketing', price: '$3,500–$7,000/mo', savings: '86%', salaries: { PH: '$1,400', LatAm: '$1,800', SA: '$1,600' }, image: '/images/roles/social-media-manager.png' },
+  { title: 'Account Executive', category: 'Sales', price: '$3,500–$7,000/mo', savings: '86%', salaries: { PH: '$1,500', LatAm: '$2,000', SA: '$1,700' }, image: '/images/roles/account-executive.png' },
+  { title: 'Sales Manager', category: 'Sales', price: '$4,000–$8,000/mo', savings: '82%', salaries: { PH: '$1,600', LatAm: '$2,100', SA: '$1,800' }, image: '/images/roles/sales-manager.png' },
 ]
 
 const GRADIENTS = [
@@ -126,7 +123,7 @@ export default function RolesPage() {
                 >
                   <div className="h-44 relative overflow-hidden" style={{ background: GRADIENTS[i % GRADIENTS.length] }}>
                     <img
-                      src={`https://picsum.photos/seed/${encodeURIComponent(role.title)}/560/280?grayscale`}
+                      src={role.image}
                       alt={role.title}
                       loading="lazy"
                       className="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
