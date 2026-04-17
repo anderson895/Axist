@@ -25,16 +25,16 @@ const allRoles: Role[] = [
 ]
 
 const GRADIENTS = [
-  'linear-gradient(135deg, #1a6b5a 0%, #0a3325 100%)',
-  'linear-gradient(135deg, #2d8b7a 0%, #0c3c2d 100%)',
-  'linear-gradient(135deg, #0f766e 0%, #0a3325 100%)',
-  'linear-gradient(135deg, #115e59 0%, #0c3c2d 100%)',
-  'linear-gradient(135deg, #134e4a 0%, #0a3325 100%)',
-  'linear-gradient(135deg, #167060 0%, #0c3c2d 100%)',
-  'linear-gradient(135deg, #1b7a68 0%, #0a3325 100%)',
-  'linear-gradient(135deg, #1d8c78 0%, #0c3c2d 100%)',
-  'linear-gradient(135deg, #0d5f4f 0%, #0a3325 100%)',
-  'linear-gradient(135deg, #19876f 0%, #0c3c2d 100%)',
+  'linear-gradient(135deg, #3f3f46 0%, #09090b 100%)',
+  'linear-gradient(135deg, #52525b 0%, #000000 100%)',
+  'linear-gradient(135deg, #27272a 0%, #09090b 100%)',
+  'linear-gradient(135deg, #18181b 0%, #000000 100%)',
+  'linear-gradient(135deg, #27272a 0%, #09090b 100%)',
+  'linear-gradient(135deg, #3f3f46 0%, #000000 100%)',
+  'linear-gradient(135deg, #52525b 0%, #09090b 100%)',
+  'linear-gradient(135deg, #52525b 0%, #000000 100%)',
+  'linear-gradient(135deg, #18181b 0%, #09090b 100%)',
+  'linear-gradient(135deg, #3f3f46 0%, #000000 100%)',
 ]
 
 export default function RolesPage() {
@@ -66,7 +66,7 @@ export default function RolesPage() {
               <div>
                 <h3 className="font-semibold text-gray-900 mb-3 flex items-center justify-between text-sm">
                   Search
-                  {search && <button onClick={() => setSearch('')} className="text-teal-600 text-xs hover:underline">Clear</button>}
+                  {search && <button onClick={() => setSearch('')} className="text-black text-xs hover:underline">Clear</button>}
                 </h3>
                 <div className="relative">
                   <span className="absolute left-3 top-1/2 -translate-y-1/2"><SearchIcon /></span>
@@ -75,7 +75,7 @@ export default function RolesPage() {
                     placeholder="Search roles..."
                     value={search}
                     onChange={(e) => setSearch(e.target.value)}
-                    className="w-full pl-10 pr-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500/20 bg-gray-50 transition-colors"
+                    className="w-full pl-10 pr-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:border-gray-500 focus:ring-1 focus:ring-black/15 bg-gray-50 transition-colors"
                   />
                 </div>
               </div>
@@ -83,7 +83,7 @@ export default function RolesPage() {
               <div>
                 <h3 className="font-semibold text-gray-900 mb-3 flex items-center justify-between text-sm">
                   Category
-                  {filter !== 'All' && <button onClick={() => setFilter('All')} className="text-teal-600 text-xs hover:underline">Clear</button>}
+                  {filter !== 'All' && <button onClick={() => setFilter('All')} className="text-black text-xs hover:underline">Clear</button>}
                 </h3>
                 <div className="flex flex-wrap gap-2">
                   {categories.map((c) => (
@@ -92,8 +92,8 @@ export default function RolesPage() {
                       onClick={() => setFilter(c)}
                       className={`px-3.5 py-1.5 rounded-full text-xs font-medium border transition-all ${
                         filter === c
-                          ? 'bg-teal-700 text-white border-teal-700 shadow-sm'
-                          : 'border-gray-200 text-gray-600 hover:border-teal-500 hover:text-teal-700'
+                          ? 'bg-black text-white border-black shadow-sm'
+                          : 'border-gray-200 text-gray-600 hover:border-gray-500 hover:text-black'
                       }`}
                     >
                       {c}
@@ -124,33 +124,37 @@ export default function RolesPage() {
                   key={role.title}
                   className="border border-gray-100 rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300 cursor-pointer group hover:-translate-y-0.5"
                 >
-                  <div className="h-44 relative" style={{ background: GRADIENTS[i % GRADIENTS.length] }}>
-                    <div className="absolute inset-0 flex items-center justify-center text-white/10 text-8xl font-bold font-display">
-                      {role.title.charAt(0)}
-                    </div>
-                    <span className="absolute bottom-3 right-3 bg-teal-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-sm">
+                  <div className="h-44 relative overflow-hidden" style={{ background: GRADIENTS[i % GRADIENTS.length] }}>
+                    <img
+                      src={`https://picsum.photos/seed/${encodeURIComponent(role.title)}/560/280?grayscale`}
+                      alt={role.title}
+                      loading="lazy"
+                      className="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+                    <span className="absolute bottom-3 right-3 bg-white text-black text-xs font-bold px-3 py-1 rounded-full shadow-sm">
                       {role.savings} average savings
                     </span>
                   </div>
                   <div className="p-6">
                     <div className="flex flex-wrap gap-2 mb-3">
-                      <span className="text-xs bg-teal-50 text-teal-700 px-2.5 py-1 rounded-full font-medium">{role.price}</span>
+                      <span className="text-xs bg-gray-50 text-black px-2.5 py-1 rounded-full font-medium">{role.price}</span>
                       <span className="text-xs bg-gray-100 text-gray-600 px-2.5 py-1 rounded-full font-medium">{role.category}</span>
                     </div>
-                    <h3 className="font-bold text-gray-900 text-lg mb-4 group-hover:text-teal-700 transition-colors">
+                    <h3 className="font-bold text-gray-900 text-lg mb-4 group-hover:text-black transition-colors">
                       {role.title}
                     </h3>
                     <div className="space-y-2 text-sm">
                       <div className="flex justify-between">
-                        <span className="font-semibold text-teal-700">Philippine Average Salary</span>
+                        <span className="font-semibold text-black">Philippine Average Salary</span>
                         <span className="text-gray-500">{role.salaries.PH}/month</span>
                       </div>
                       <div className="flex justify-between">
-                        <span className="font-semibold text-teal-700">LatAm Average Salary</span>
+                        <span className="font-semibold text-black">LatAm Average Salary</span>
                         <span className="text-gray-500">{role.salaries.LatAm}/month</span>
                       </div>
                       <div className="flex justify-between">
-                        <span className="font-semibold text-teal-700">South Africa Average Salary</span>
+                        <span className="font-semibold text-black">South Africa Average Salary</span>
                         <span className="text-gray-500">{role.salaries.SA}/month</span>
                       </div>
                     </div>
@@ -170,7 +174,7 @@ export default function RolesPage() {
             {filtered.length === 0 && (
               <div className="text-center py-20">
                 <p className="text-gray-400 text-lg">No roles match your search.</p>
-                <button onClick={() => { setFilter('All'); setSearch(''); }} className="text-teal-600 text-sm mt-2 hover:underline">Clear filters</button>
+                <button onClick={() => { setFilter('All'); setSearch(''); }} className="text-black text-sm mt-2 hover:underline">Clear filters</button>
               </div>
             )}
           </div>

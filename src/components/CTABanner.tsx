@@ -11,7 +11,7 @@ const CTABanner: React.FC<CTABannerProps> = ({
 }) => {
   return (
     <div className="text-center py-8">
-      <button className="bg-teal-700 hover:bg-teal-600 text-white px-8 py-3.5 rounded-full font-semibold transition-all hover:shadow-lg hover:shadow-teal-600/25 text-sm">
+      <button className="bg-black hover:bg-gray-800 text-white px-8 py-3.5 rounded-full font-semibold transition-all hover:shadow-lg hover:shadow-black/20 text-sm">
         {btnText}
       </button>
       <p className="text-gray-400 text-sm mt-3 italic">{subText}</p>

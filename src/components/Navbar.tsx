@@ -14,14 +14,25 @@ export default function Navbar() {
   return (
     <>
       {/* Referral banner */}
-      
+      <div className="bg-black text-white text-center py-2.5 px-4 text-sm border-b border-white/10">
+        <span className="opacity-90 inline-flex items-center gap-2">
+          Refer a client to Axis and we'll pay you $500! Click here to sign up.
+          <span className="material-icons" style={{ fontSize: '16px' }}>east</span>
+        </span>
+        <button className="ml-3 bg-white text-black px-4 py-1 rounded text-xs font-semibold hover:bg-gray-100 transition-colors">
+          Sign up
+        </button>
+      </div>
 
       {/* Main navbar */}
-      <nav className="sticky top-0 z-50 border-b border-white/10 bg-brand-800">
+      <nav className="sticky top-0 z-50 border-b border-white/10 bg-black">
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-16">
           {/* Logo */}
-          <Link to="/" className="text-white text-2xl tracking-tight font-display italic font-bold">
-            Somewhere
+          <Link to="/" className="flex items-baseline gap-2.5 text-white group">
+            <span className="text-2xl tracking-tight font-display font-bold">Axis</span>
+            <span className="hidden sm:inline text-[10px] tracking-[0.2em] uppercase text-white/55 group-hover:text-white/80 transition-colors">
+              Embedded Ops
+            </span>
           </Link>
 
           {/* Desktop links */}
@@ -39,13 +50,13 @@ export default function Navbar() {
                 <div className="absolute top-full left-0 bg-white rounded-xl shadow-2xl py-2 w-52 animate-fade-in border border-gray-100">
                   <Link
                     to="/direct-hire"
-                    className="block px-5 py-2.5 text-gray-700 hover:bg-brand-50 hover:text-brand-700 text-sm transition-colors"
+                    className="block px-5 py-2.5 text-gray-700 hover:bg-gray-50 hover:text-black text-sm transition-colors"
                   >
                     Direct Hire
                   </Link>
                   <Link
                     to="/talent-on-demand"
-                    className="block px-5 py-2.5 text-gray-700 hover:bg-brand-50 hover:text-brand-700 text-sm transition-colors"
+                    className="block px-5 py-2.5 text-gray-700 hover:bg-gray-50 hover:text-black text-sm transition-colors"
                   >
                     Talent On-Demand
                   </Link>
@@ -69,14 +80,6 @@ export default function Navbar() {
             >
               Pricing
             </Link>
-            <Link
-              to="/blog"
-              className={`px-4 py-2 text-sm transition-colors ${
-                isActive('/blog') ? 'text-white' : 'text-white/80 hover:text-white'
-              }`}
-            >
-              Blog
-            </Link>
 
             {/* Resources dropdown */}
             <div
@@ -91,13 +94,13 @@ export default function Navbar() {
                 <div className="absolute top-full right-0 bg-white rounded-xl shadow-2xl py-2 w-60 animate-fade-in border border-gray-100">
                   <Link
                     to="/hiring-philippines"
-                    className="block px-5 py-2.5 text-gray-700 hover:bg-brand-50 hover:text-brand-700 text-sm transition-colors"
+                    className="block px-5 py-2.5 text-gray-700 hover:bg-gray-50 hover:text-black text-sm transition-colors"
                   >
                     Hiring in the Philippines
                   </Link>
                   <Link
                     to="/savings"
-                    className="block px-5 py-2.5 text-gray-700 hover:bg-brand-50 hover:text-brand-700 text-sm transition-colors"
+                    className="block px-5 py-2.5 text-gray-700 hover:bg-gray-50 hover:text-black text-sm transition-colors"
                   >
                     How much you can save
                   </Link>
@@ -107,7 +110,7 @@ export default function Navbar() {
 
             <Link
               to="/find-a-job"
-              className="ml-3 bg-teal-600 hover:bg-teal-500 text-white px-6 py-2 rounded-full text-sm font-semibold transition-all hover:shadow-lg hover:shadow-teal-500/25"
+              className="ml-3 bg-white hover:bg-gray-200 text-black px-6 py-2 rounded-full text-sm font-semibold transition-all hover:shadow-lg hover:shadow-white/10"
             >
               Find a Job
             </Link>
@@ -127,7 +130,7 @@ export default function Navbar() {
 
         {/* Mobile menu */}
         {mobileOpen && (
-          <div className="lg:hidden bg-brand-900 border-t border-white/10 px-6 py-5 space-y-1 animate-fade-in">
+          <div className="lg:hidden bg-zinc-950 border-t border-white/10 px-6 py-5 space-y-1 animate-fade-in">
             <p className="text-white/40 text-xs uppercase tracking-wider mb-2 font-semibold">Products & Services</p>
             <Link onClick={closeMobile} to="/direct-hire" className="block text-white/75 hover:text-white text-sm py-2 pl-3">
               Direct Hire
@@ -142,9 +145,6 @@ export default function Navbar() {
             <Link onClick={closeMobile} to="/pricing" className="block text-white/75 hover:text-white text-sm py-2">
               Pricing
             </Link>
-            <Link onClick={closeMobile} to="/blog" className="block text-white/75 hover:text-white text-sm py-2">
-              Blog
-            </Link>
             <div className="border-t border-white/10 my-3" />
             <p className="text-white/40 text-xs uppercase tracking-wider mb-2 font-semibold">Resources</p>
             <Link onClick={closeMobile} to="/hiring-philippines" className="block text-white/75 hover:text-white text-sm py-2 pl-3">
@@ -157,7 +157,7 @@ export default function Navbar() {
             <Link
               onClick={closeMobile}
               to="/find-a-job"
-              className="block bg-teal-600 text-white text-sm px-5 py-2.5 rounded-full font-semibold text-center mt-3"
+              className="block bg-white text-black text-sm px-5 py-2.5 rounded-full font-semibold text-center mt-3"
             >
               Find a Job
             </Link>

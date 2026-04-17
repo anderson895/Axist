@@ -38,7 +38,7 @@ export default function FindJobPage() {
       {/* ──── Hero ──────────────────────────────── */}
       <section
         className="py-24 px-6 text-center"
-        style={{ background: 'linear-gradient(160deg, #0c3c2d, #0d4535)' }}
+        style={{ background: 'linear-gradient(160deg, #000000, #18181b)' }}
       >
         <h1 className="text-white text-4xl md:text-6xl font-bold mb-5 font-display">
           Find Your Next Remote Job
@@ -55,7 +55,7 @@ export default function FindJobPage() {
             placeholder="Search roles, skills, or keywords..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-full pl-13 pr-6 py-4 rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-teal-400 shadow-xl"
+            className="w-full pl-13 pr-6 py-4 rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-white/40 shadow-xl"
             style={{ paddingLeft: '3rem' }}
           />
         </div>
@@ -72,28 +72,24 @@ export default function FindJobPage() {
             {filtered.map((job, i) => (
               <div
                 key={i}
-                className="border border-gray-100 rounded-2xl p-6 hover:shadow-lg transition-all duration-300 cursor-pointer group flex items-center justify-between hover:border-teal-200"
+                className="border border-gray-100 rounded-2xl p-6 hover:shadow-lg transition-all duration-300 cursor-pointer group flex items-center justify-between hover:border-gray-300"
               >
                 <div className="flex items-center gap-4">
-                  <div
-                    className="w-12 h-12 rounded-xl flex items-center justify-center text-white text-sm font-bold font-display flex-shrink-0"
-                    style={{
-                      background: `linear-gradient(135deg, ${
-                        ['#1a6b5a', '#2d8b7a', '#0f766e', '#115e59', '#134e4a', '#167060', '#1b7a68', '#0d5f4f', '#19876f', '#1a6b5a'][i % 10]
-                      }, #0a3325)`,
-                    }}
-                  >
-                    {job.title.charAt(0)}
-                  </div>
+                  <img
+                    src={`https://picsum.photos/seed/${encodeURIComponent(job.title + job.location)}/96/96?grayscale`}
+                    alt={job.title}
+                    loading="lazy"
+                    className="w-12 h-12 rounded-xl object-cover flex-shrink-0 bg-gray-900"
+                  />
                   <div>
-                    <h3 className="font-bold text-gray-900 text-lg group-hover:text-teal-700 transition-colors">
+                    <h3 className="font-bold text-gray-900 text-lg group-hover:text-black transition-colors">
                       {job.title}
                     </h3>
                     <p className="text-gray-500 text-sm mt-0.5">{job.location}</p>
                   </div>
                 </div>
                 <div className="text-right flex-shrink-0 ml-4">
-                  <span className="text-teal-700 font-semibold text-sm">{job.salary}</span>
+                  <span className="text-black font-semibold text-sm">{job.salary}</span>
                   <p className="text-gray-400 text-xs mt-1">{job.type}</p>
                 </div>
               </div>
@@ -105,7 +101,7 @@ export default function FindJobPage() {
               <p className="text-gray-400 text-lg">No jobs match your search.</p>
               <button
                 onClick={() => setSearch('')}
-                className="text-teal-600 text-sm mt-2 hover:underline"
+                className="text-black text-sm mt-2 hover:underline"
               >
                 Clear search
               </button>

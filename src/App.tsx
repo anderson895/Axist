@@ -5,7 +5,6 @@ import DirectHirePage from './pages/DirectHirePage'
 import TalentOnDemandPage from './pages/TalentOnDemandPage'
 import RolesPage from './pages/RolesPage'
 import PricingPage from './pages/PricingPage'
-import BlogPage from './pages/BlogPage'
 import HiringPHPage from './pages/HiringPHPage'
 import SavingsPage from './pages/SavingsPage'
 import FindJobPage from './pages/FindJobPage'
@@ -19,7 +18,6 @@ export default function App() {
         <Route path="/talent-on-demand" element={<TalentOnDemandPage />} />
         <Route path="/roles" element={<RolesPage />} />
         <Route path="/pricing" element={<PricingPage />} />
-        <Route path="/blog" element={<BlogPage />} />
         <Route path="/hiring-philippines" element={<HiringPHPage />} />
         <Route path="/savings" element={<SavingsPage />} />
         <Route path="/find-a-job" element={<FindJobPage />} />

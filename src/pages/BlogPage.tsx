@@ -19,14 +19,14 @@ const posts: BlogPost[] = [
 ]
 
 const GRADIENTS = [
-  'linear-gradient(135deg, #1a6b5a, #0a3325)',
-  'linear-gradient(135deg, #2d8b7a, #0c3c2d)',
-  'linear-gradient(135deg, #0f766e, #0a3325)',
-  'linear-gradient(135deg, #115e59, #0c3c2d)',
-  'linear-gradient(135deg, #134e4a, #0a3325)',
-  'linear-gradient(135deg, #167060, #0c3c2d)',
-  'linear-gradient(135deg, #1b7a68, #0a3325)',
-  'linear-gradient(135deg, #0d5f4f, #0c3c2d)',
+  'linear-gradient(135deg, #3f3f46, #09090b)',
+  'linear-gradient(135deg, #52525b, #000000)',
+  'linear-gradient(135deg, #27272a, #09090b)',
+  'linear-gradient(135deg, #18181b, #000000)',
+  'linear-gradient(135deg, #27272a, #09090b)',
+  'linear-gradient(135deg, #3f3f46, #000000)',
+  'linear-gradient(135deg, #52525b, #09090b)',
+  'linear-gradient(135deg, #18181b, #000000)',
 ]
 
 export default function BlogPage() {
@@ -53,8 +53,8 @@ export default function BlogPage() {
               onClick={() => setTagFilter(null)}
               className={`px-4 py-1.5 rounded-full text-xs font-medium border transition-all ${
                 !tagFilter
-                  ? 'bg-teal-700 text-white border-teal-700'
-                  : 'border-gray-200 text-gray-600 hover:border-teal-500 hover:text-teal-700'
+                  ? 'bg-black text-white border-black'
+                  : 'border-gray-200 text-gray-600 hover:border-gray-500 hover:text-black'
               }`}
             >
               All
@@ -65,8 +65,8 @@ export default function BlogPage() {
                 onClick={() => setTagFilter(tag)}
                 className={`px-4 py-1.5 rounded-full text-xs font-medium border transition-all ${
                   tagFilter === tag
-                    ? 'bg-teal-700 text-white border-teal-700'
-                    : 'border-gray-200 text-gray-600 hover:border-teal-500 hover:text-teal-700'
+                    ? 'bg-black text-white border-black'
+                    : 'border-gray-200 text-gray-600 hover:border-gray-500 hover:text-black'
                 }`}
               >
                 {tag}
@@ -88,12 +88,12 @@ export default function BlogPage() {
                 </div>
                 <div className="p-6">
                   <div className="flex items-center gap-2 mb-3">
-                    <span className="text-xs border border-teal-200 text-teal-700 px-3 py-1 rounded-full font-medium">
+                    <span className="text-xs border border-gray-300 text-black px-3 py-1 rounded-full font-medium">
                       {post.tag}
                     </span>
                     <span className="text-xs text-gray-400">{post.date}</span>
                   </div>
-                  <h2 className="font-bold text-gray-900 text-lg group-hover:text-teal-700 transition-colors leading-snug mb-2">
+                  <h2 className="font-bold text-gray-900 text-lg group-hover:text-black transition-colors leading-snug mb-2">
                     {post.title}
                   </h2>
                   <p className="text-gray-500 text-sm leading-relaxed line-clamp-2">{post.excerpt}</p>

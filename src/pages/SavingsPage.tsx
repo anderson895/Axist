@@ -28,7 +28,7 @@ export default function SavingsPage() {
             See How Much You Can Save
           </h1>
           <p className="text-white/55 text-lg max-w-xl mx-auto">
-            Companies using Somewhere save an average of 70–80% on payroll compared to US equivalents.
+            Companies using Axis save an average of 70–80% on payroll compared to US equivalents.
           </p>
         </div>
       </section>
@@ -53,13 +53,13 @@ export default function SavingsPage() {
                 key={i}
                 className={`grid grid-cols-4 text-sm ${
                   i % 2 === 0 ? 'bg-white' : 'bg-gray-50'
-                } hover:bg-teal-50/50 transition-colors`}
+                } hover:bg-gray-100/60 transition-colors`}
               >
                 <div className="p-4 font-medium text-gray-800">{row.role}</div>
                 <div className="p-4 text-center text-gray-500">{row.us}</div>
-                <div className="p-4 text-center text-teal-700 font-semibold">{row.global}</div>
+                <div className="p-4 text-center text-black font-semibold">{row.global}</div>
                 <div className="p-4 text-center">
-                  <span className="bg-teal-100 text-teal-800 text-xs font-bold px-2.5 py-1 rounded-full">
+                  <span className="bg-gray-100 text-black text-xs font-bold px-2.5 py-1 rounded-full">
                     {row.savings}
                   </span>
                 </div>
@@ -84,7 +84,7 @@ export default function SavingsPage() {
             </h2>
             <p className="text-gray-500">
               Here are some of the roles we can{' '}
-              <span className="underline decoration-teal-500 underline-offset-2">fill</span>{' '}
+              <span className="underline decoration-black underline-offset-2">fill</span>{' '}
               with amazing people
             </p>
           </div>
@@ -92,7 +92,7 @@ export default function SavingsPage() {
           <div className="text-center mt-12">
             <Link
               to="/roles"
-              className="inline-block bg-teal-700 hover:bg-teal-600 text-white px-8 py-3.5 rounded-full font-semibold transition-all hover:shadow-lg text-sm"
+              className="inline-block bg-black hover:bg-gray-800 text-white px-8 py-3.5 rounded-full font-semibold transition-all hover:shadow-lg text-sm"
             >
               View All Roles
             </Link>

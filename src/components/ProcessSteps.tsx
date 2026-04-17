@@ -1,6 +1,7 @@
 import React from 'react'
 
 export interface Step {
+  /** Either a step number ("1", "2", …) or a Material Icon name (e.g. "check"). */
   num: string
   title: string
   desc: string
@@ -13,9 +14,11 @@ interface ProcessStepsProps {
   steps: Step[]
 }
 
+const isNumericStep = (s: string) => /^[0-9]+$/.test(s)
+
 const ProcessSteps: React.FC<ProcessStepsProps> = ({ title, subtitle, steps }) => {
   return (
-    <section className="bg-brand-800 py-20 px-6">
+    <section className="bg-black py-20 px-6">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-white text-center text-4xl md:text-5xl font-bold mb-4 font-display">
           {title}
@@ -32,15 +35,21 @@ const ProcessSteps: React.FC<ProcessStepsProps> = ({ title, subtitle, steps }) =
                 className={`rounded-2xl p-7 transition-all duration-300 hover:-translate-y-1 ${
                   isLast
                     ? 'bg-white text-gray-900 shadow-xl'
-                    : 'border border-teal-600/30 bg-teal-900/20 text-white backdrop-blur-sm'
+                    : 'border border-white/15 bg-white/5 text-white backdrop-blur-sm'
                 }`}
               >
                 <span
                   className={`inline-flex items-center justify-center w-9 h-9 rounded-lg text-sm font-bold mb-5 ${
-                    isLast ? 'bg-brand-700 text-white' : 'bg-teal-600 text-white'
+                    isLast ? 'bg-black text-white' : 'bg-white text-black'
                   }`}
                 >
-                  {step.num}
+                  {isNumericStep(step.num) ? (
+                    step.num
+                  ) : (
+                    <span className="material-icons" style={{ fontSize: '18px' }}>
+                      {step.num}
+                    </span>
+                  )}
                 </span>
                 <h3 className="text-lg font-bold mb-3 leading-tight">{step.title}</h3>
                 <p

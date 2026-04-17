@@ -16,18 +16,18 @@ const candidates = [
 ]
 
 const GRADIENTS = [
-  'linear-gradient(180deg, #1a6b5a, #0a3325)',
-  'linear-gradient(180deg, #2d8b7a, #0c3c2d)',
-  'linear-gradient(180deg, #0f766e, #0a3325)',
-  'linear-gradient(180deg, #115e59, #0c3c2d)',
-  'linear-gradient(180deg, #167060, #0a3325)',
+  'linear-gradient(180deg, #3f3f46, #09090b)',
+  'linear-gradient(180deg, #52525b, #000000)',
+  'linear-gradient(180deg, #27272a, #09090b)',
+  'linear-gradient(180deg, #18181b, #000000)',
+  'linear-gradient(180deg, #3f3f46, #09090b)',
 ]
 
 export default function PricingPage() {
   return (
     <>
       {/* ──── Hero ──────────────────────────────── */}
-      <section className="py-24 px-6 text-center" style={{ background: 'linear-gradient(160deg, #0c3c2d, #0d4535)' }}>
+      <section className="py-24 px-6 text-center" style={{ background: 'linear-gradient(160deg, #000000, #18181b)' }}>
         <h1 className="text-white text-4xl md:text-6xl font-bold leading-tight max-w-4xl mx-auto font-display">
           Last month we helped over 275 companies save 80% on hiring costs.
         </h1>
@@ -43,17 +43,17 @@ export default function PricingPage() {
             How Direct Hire Pricing Works
           </h2>
           <p className="text-gray-500 max-w-xl mx-auto mb-16 leading-relaxed">
-            Pay only when you hire — no subscriptions, no retainers, no risk. Here's exactly what to expect when you work with Somewhere.
+            Pay only when you hire — no subscriptions, no retainers, no risk. Here's exactly what to expect when you work with Axis.
           </p>
 
           {/* Timeline */}
           <div className="hidden md:block relative mb-16">
             {/* Connecting line */}
-            <div className="absolute top-6 left-[12%] right-[12%] h-0.5 bg-teal-200" />
+            <div className="absolute top-6 left-[12%] right-[12%] h-0.5 bg-gray-200" />
             <div className="grid grid-cols-4 gap-6">
               {pricingSteps.map((step, i) => (
                 <div key={i} className="flex flex-col items-center text-center relative z-10">
-                  <div className="w-12 h-12 rounded-xl border-2 border-teal-600 bg-white flex items-center justify-center mb-5 shadow-sm text-teal-600">
+                  <div className="w-12 h-12 rounded-xl border-2 border-black bg-white flex items-center justify-center mb-5 shadow-sm text-black">
                     {step.icon}
                   </div>
                   <h3 className="font-bold text-gray-900 text-sm mb-2">{step.title}</h3>
@@ -67,7 +67,7 @@ export default function PricingPage() {
           <div className="md:hidden space-y-6 mb-12">
             {pricingSteps.map((step, i) => (
               <div key={i} className="flex gap-4 text-left">
-                <div className="w-10 h-10 rounded-lg border-2 border-teal-600 bg-white flex items-center justify-center flex-shrink-0 text-teal-600">
+                <div className="w-10 h-10 rounded-lg border-2 border-black bg-white flex items-center justify-center flex-shrink-0 text-black">
                   {step.icon}
                 </div>
                 <div>
@@ -78,7 +78,7 @@ export default function PricingPage() {
             ))}
           </div>
 
-          <button className="bg-teal-700 hover:bg-teal-600 text-white px-8 py-3.5 rounded-full font-semibold text-sm transition-all hover:shadow-lg hover:shadow-teal-600/25">
+          <button className="bg-black hover:bg-gray-800 text-white px-8 py-3.5 rounded-full font-semibold text-sm transition-all hover:shadow-lg hover:shadow-black/15">
             Get Started
           </button>
         </div>
@@ -97,12 +97,18 @@ export default function PricingPage() {
                 className="min-w-[220px] rounded-2xl overflow-hidden flex-shrink-0 group cursor-pointer hover:-translate-y-1 transition-transform duration-300"
                 style={{ background: GRADIENTS[i % GRADIENTS.length] }}
               >
-                <div className="h-56 flex items-center justify-center text-white/15 text-9xl font-bold font-display">
-                  {c.name.charAt(0)}
+                <div className="h-56 relative overflow-hidden">
+                  <img
+                    src={`https://picsum.photos/seed/${encodeURIComponent(c.name + c.role)}/440/448?grayscale`}
+                    alt={c.name}
+                    loading="lazy"
+                    className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
                 </div>
                 <div className="p-5 text-white">
                   <p className="font-bold text-lg">{c.name}</p>
-                  <p className="text-teal-200 font-semibold text-lg">
+                  <p className="text-white/80 font-semibold text-lg">
                     {c.price} <span className="text-white/40 text-sm font-normal">/ month</span>
                   </p>
                   <p className="text-white/40 text-xs mt-1">{c.role}</p>

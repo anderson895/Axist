@@ -23,23 +23,11 @@ const columns: FooterColumn[] = [
     ],
   },
   {
-    title: 'Content',
-    links: [
-      { label: 'Blog', to: '/blog' },
-      { label: 'Webinars', to: '/blog' },
-      { label: 'Workshops', to: '/blog' },
-      { label: 'Salary Calculator', to: '/pricing' },
-      { label: 'Success Stories', to: '/blog' },
-      { label: 'Global Hiring Guide', to: '/blog' },
-      { label: 'Workshops', to: '/blog' },
-    ],
-  },
-  {
     title: 'Services',
     links: [
       { label: 'Direct Hire', to: '/direct-hire' },
       { label: 'Talent On-Demand', to: '/talent-on-demand' },
-      { label: 'Somewhere EOR', to: '/' },
+      { label: 'Axis EOR', to: '/' },
     ],
   },
   {
@@ -70,17 +58,20 @@ const socials = [
 
 export default function Footer() {
   return (
-    <footer className="bg-brand-800 text-white pt-16 pb-8">
+    <footer className="bg-black text-white pt-16 pb-8 border-t border-white/10">
       <div className="max-w-7xl mx-auto px-6">
         {/* Logo */}
         <div className="mb-12">
-          <Link to="/" className="text-3xl tracking-tight font-display italic font-bold">
-            Somewhere
+          <Link to="/" className="inline-flex items-baseline gap-3 text-white">
+            <span className="text-3xl tracking-tight font-display font-bold">Axis</span>
+            <span className="text-[11px] tracking-[0.2em] uppercase text-white/55">
+              Embedded Ops
+            </span>
           </Link>
         </div>
 
         {/* Link columns */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-7 gap-8 mb-14">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 mb-14">
           {columns.map((col) => (
             <div key={col.title}>
               <h4 className="font-semibold text-sm mb-4 text-white">{col.title}</h4>
@@ -129,8 +120,8 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="border-t border-white/10 pt-6 flex flex-col md:flex-row justify-between items-center text-sm text-white/35 gap-2">
-          <span>© Copyright 2026 • Somewhere, LLC</span>
-          <span>Developed by Somewhere Team</span>
+          <span>© Copyright 2026 • Axis Embedded Ops, LLC</span>
+          <span>Developed by the Axis Team</span>
         </div>
       </div>
     </footer>

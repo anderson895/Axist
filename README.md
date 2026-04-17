@@ -1,6 +1,6 @@
-# Somewhere Website
+# Axis — Embedded Ops
 
-A multi-page marketing website for **Somewhere** — a global talent sourcing and recruitment platform. Built with React, TypeScript, Tailwind CSS, and React Router.
+A multi-page marketing website for **Axis** — a global talent sourcing and recruitment platform. Built with React, TypeScript, Tailwind CSS, and React Router.
 
 ## Pages
 

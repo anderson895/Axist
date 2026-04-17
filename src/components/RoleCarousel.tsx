@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { ChevronLeft, ChevronRight } from './Icons'
 
 export interface RoleCard {
@@ -12,17 +12,56 @@ interface RoleCarouselProps {
   roles: RoleCard[]
 }
 
-const GRADIENTS = [
-  'linear-gradient(135deg, #1a6b5a 0%, #0c3c2d 100%)',
-  'linear-gradient(135deg, #2d8b7a 0%, #0a3325 100%)',
-  'linear-gradient(135deg, #0f766e 0%, #0c3c2d 100%)',
-  'linear-gradient(135deg, #115e59 0%, #0a3325 100%)',
-  'linear-gradient(135deg, #134e4a 0%, #0c3c2d 100%)',
-  'linear-gradient(135deg, #167060 0%, #0a3325 100%)',
+const FALLBACK_GRADIENTS = [
+  'linear-gradient(135deg, #3f3f46 0%, #000000 100%)',
+  'linear-gradient(135deg, #52525b 0%, #09090b 100%)',
+  'linear-gradient(135deg, #27272a 0%, #000000 100%)',
+  'linear-gradient(135deg, #18181b 0%, #09090b 100%)',
+  'linear-gradient(135deg, #404040 0%, #000000 100%)',
+  'linear-gradient(135deg, #1c1c1f 0%, #09090b 100%)',
 ]
+
+const imageFor = (title: string) =>
+  `https://picsum.photos/seed/${encodeURIComponent(title)}/520/260?grayscale`
 
 const RoleCarousel: React.FC<RoleCarouselProps> = ({ roles }) => {
   const scrollRef = useRef<HTMLDivElement>(null)
+
+  const [thumb, setThumb] = useState({ width: 30, left: 0 })
+  const [atStart, setAtStart] = useState(true)
+  const [atEnd, setAtEnd] = useState(false)
+
+  const updateThumb = () => {
+    const el = scrollRef.current
+    if (!el) return
+    const { scrollLeft, scrollWidth, clientWidth } = el
+    if (scrollWidth <= clientWidth) {
+      setThumb({ width: 100, left: 0 })
+      setAtStart(true)
+      setAtEnd(true)
+      return
+    }
+    const maxScroll = scrollWidth - clientWidth
+    const widthPct = (clientWidth / scrollWidth) * 100
+    const scrollPct = scrollLeft / maxScroll
+    const leftPct = scrollPct * (100 - widthPct)
+    setThumb({ width: widthPct, left: leftPct })
+    setAtStart(scrollLeft <= 1)
+    setAtEnd(scrollLeft >= maxScroll - 1)
+  }
+
+  useEffect(() => {
+    const el = scrollRef.current
+    if (!el) return
+    updateThumb()
+    el.addEventListener('scroll', updateThumb, { passive: true })
+    window.addEventListener('resize', updateThumb)
+    return () => {
+      el.removeEventListener('scroll', updateThumb)
+      window.removeEventListener('resize', updateThumb)
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [roles.length])
 
   const scroll = (dir: number) => {
     scrollRef.current?.scrollBy({ left: dir * 300, behavior: 'smooth' })
@@ -41,24 +80,26 @@ const RoleCarousel: React.FC<RoleCarouselProps> = ({ roles }) => {
           >
             <div
               className="relative h-40 overflow-hidden"
-              style={{ background: GRADIENTS[i % GRADIENTS.length] }}
+              style={{ background: FALLBACK_GRADIENTS[i % FALLBACK_GRADIENTS.length] }}
             >
-              <div
-                className="absolute inset-0 flex items-center justify-center text-white/15 text-7xl font-bold font-display"
-              >
-                {role.title.charAt(0)}
-              </div>
-              <span className="absolute bottom-3 left-3 bg-white text-teal-700 text-xs font-semibold px-3 py-1 rounded-full shadow-sm">
+              <img
+                src={imageFor(role.title)}
+                alt={role.title}
+                loading="lazy"
+                className="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+              <span className="absolute bottom-3 left-3 bg-white text-black text-xs font-semibold px-3 py-1 rounded-full shadow-sm">
                 {role.savings} average savings
               </span>
               {role.price && (
-                <span className="absolute top-3 right-3 bg-white/90 text-teal-800 text-xs font-bold px-2.5 py-1 rounded-full">
+                <span className="absolute top-3 right-3 bg-white/90 text-black text-xs font-bold px-2.5 py-1 rounded-full">
                   {role.price}
                 </span>
               )}
             </div>
             <div className="p-5">
-              <h3 className="font-bold text-gray-900 mb-2 group-hover:text-teal-700 transition-colors">
+              <h3 className="font-bold text-gray-900 mb-2 group-hover:text-black transition-colors">
                 {role.title}
               </h3>
               <p className="text-gray-500 text-sm leading-relaxed line-clamp-2">{role.desc}</p>
@@ -71,17 +112,25 @@ const RoleCarousel: React.FC<RoleCarouselProps> = ({ roles }) => {
       <div className="flex items-center justify-center gap-4 mt-6">
         <button
           onClick={() => scroll(-1)}
-          className="w-10 h-10 rounded-full border-2 border-teal-600 flex items-center justify-center text-teal-600 hover:bg-teal-600 hover:text-white transition-all"
+          disabled={atStart}
+          className="w-10 h-10 rounded-full border-2 border-black flex items-center justify-center text-black hover:bg-black hover:text-white transition-all disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:bg-transparent disabled:hover:text-black"
           aria-label="Scroll left"
         >
           <ChevronLeft />
         </button>
-        <div className="w-64 h-1 bg-gray-200 rounded-full overflow-hidden">
-          <div className="h-full w-1/3 bg-teal-600 rounded-full transition-all" />
+        <div className="w-64 h-1 bg-gray-200 rounded-full overflow-hidden relative">
+          <div
+            className="absolute h-full bg-black rounded-full transition-[left,width] duration-100 ease-out"
+            style={{
+              width: `${thumb.width}%`,
+              left: `${thumb.left}%`,
+            }}
+          />
         </div>
         <button
           onClick={() => scroll(1)}
-          className="w-10 h-10 rounded-full border-2 border-teal-600 flex items-center justify-center text-teal-600 hover:bg-teal-600 hover:text-white transition-all"
+          disabled={atEnd}
+          className="w-10 h-10 rounded-full border-2 border-black flex items-center justify-center text-black hover:bg-black hover:text-white transition-all disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:bg-transparent disabled:hover:text-black"
           aria-label="Scroll right"
         >
           <ChevronRight />

@@ -32,27 +32,27 @@ export const SearchIcon: React.FC = () => (
 )
 
 export const ShieldCheck: React.FC<{ size?: number }> = ({ size = 40 }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="#0f766e" strokeWidth="1.5">
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="#111827" strokeWidth="1.5">
     <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
   </svg>
 )
 
 export const ClockIcon: React.FC<{ size?: number }> = ({ size = 40 }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="#0f766e" strokeWidth="1.5">
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="#111827" strokeWidth="1.5">
     <circle cx="12" cy="12" r="10" />
     <path d="M12 6v6l4 2" />
   </svg>
 )
 
 export const DollarSign: React.FC<{ size?: number }> = ({ size = 40 }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="#0f766e" strokeWidth="1.5">
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="#111827" strokeWidth="1.5">
     <line x1="12" y1="1" x2="12" y2="23" />
     <path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6" />
   </svg>
 )
 
 export const UsersIcon: React.FC<{ size?: number }> = ({ size = 40 }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="#0f766e" strokeWidth="1.5">
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="#111827" strokeWidth="1.5">
     <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
     <circle cx="9" cy="7" r="4" />
     <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" />
@@ -60,7 +60,7 @@ export const UsersIcon: React.FC<{ size?: number }> = ({ size = 40 }) => (
 )
 
 export const GlobeIcon: React.FC<{ size?: number }> = ({ size = 40 }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="#0f766e" strokeWidth="1.5">
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="#111827" strokeWidth="1.5">
     <circle cx="12" cy="12" r="10" />
     <line x1="2" y1="12" x2="22" y2="12" />
     <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z" />
@@ -68,7 +68,7 @@ export const GlobeIcon: React.FC<{ size?: number }> = ({ size = 40 }) => (
 )
 
 export const HandshakeIcon: React.FC<{ size?: number }> = ({ size = 40 }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="#0f766e" strokeWidth="1.5">
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="#111827" strokeWidth="1.5">
     <path d="M20.42 4.58a5.4 5.4 0 00-7.65 0l-.77.78-.77-.78a5.4 5.4 0 00-7.65 0C1.46 6.7 1.33 10.28 4 13l8 8 8-8c2.67-2.72 2.54-6.3.42-8.42z" />
   </svg>
 )
