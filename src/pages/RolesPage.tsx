@@ -1,0 +1,181 @@
+import { useState } from 'react'
+import { SearchIcon } from '../components/Icons'
+
+interface Role {
+  title: string
+  category: string
+  price: string
+  savings: string
+  salaries: { PH: string; LatAm: string; SA: string }
+}
+
+const categories = ['All', 'Assistant', 'CSR', 'Sales', 'Finance', 'Construction', 'Technology', 'Creative', 'Marketing', 'Operations']
+
+const allRoles: Role[] = [
+  { title: 'M&A Investment Analyst', category: 'Finance', price: '$3,650–$9,800/mo', savings: '78%', salaries: { PH: '$1,900', LatAm: '$2,400', SA: '$2,220' } },
+  { title: 'Remote Draftsman', category: 'Operations', price: '$5,500–$8,000+/mo', savings: '75%', salaries: { PH: '$1,400', LatAm: '$1,800', SA: '$1,700' } },
+  { title: 'Executive Assistant', category: 'Assistant', price: '$2,500–$5,000/mo', savings: '86%', salaries: { PH: '$1,200', LatAm: '$1,600', SA: '$1,400' } },
+  { title: 'Sales Development Rep', category: 'Sales', price: '$3,000–$6,000/mo', savings: '82%', salaries: { PH: '$1,300', LatAm: '$1,700', SA: '$1,500' } },
+  { title: 'Social Media Manager', category: 'Marketing', price: '$3,500–$7,000/mo', savings: '80%', salaries: { PH: '$1,400', LatAm: '$1,800', SA: '$1,600' } },
+  { title: 'Full-Stack Developer', category: 'Technology', price: '$5,000–$10,000/mo', savings: '70%', salaries: { PH: '$2,200', LatAm: '$3,000', SA: '$2,500' } },
+  { title: 'Customer Support Rep', category: 'CSR', price: '$2,000–$4,000/mo', savings: '85%', salaries: { PH: '$1,000', LatAm: '$1,300', SA: '$1,100' } },
+  { title: 'Construction Estimator', category: 'Construction', price: '$4,000–$7,500/mo', savings: '72%', salaries: { PH: '$1,800', LatAm: '$2,200', SA: '$1,900' } },
+  { title: 'Graphic Designer', category: 'Creative', price: '$3,000–$6,000/mo', savings: '78%', salaries: { PH: '$1,200', LatAm: '$1,600', SA: '$1,400' } },
+  { title: 'Account Executive', category: 'Sales', price: '$3,500–$7,000/mo', savings: '80%', salaries: { PH: '$1,500', LatAm: '$2,000', SA: '$1,700' } },
+]
+
+const GRADIENTS = [
+  'linear-gradient(135deg, #1a6b5a 0%, #0a3325 100%)',
+  'linear-gradient(135deg, #2d8b7a 0%, #0c3c2d 100%)',
+  'linear-gradient(135deg, #0f766e 0%, #0a3325 100%)',
+  'linear-gradient(135deg, #115e59 0%, #0c3c2d 100%)',
+  'linear-gradient(135deg, #134e4a 0%, #0a3325 100%)',
+  'linear-gradient(135deg, #167060 0%, #0c3c2d 100%)',
+  'linear-gradient(135deg, #1b7a68 0%, #0a3325 100%)',
+  'linear-gradient(135deg, #1d8c78 0%, #0c3c2d 100%)',
+  'linear-gradient(135deg, #0d5f4f 0%, #0a3325 100%)',
+  'linear-gradient(135deg, #19876f 0%, #0c3c2d 100%)',
+]
+
+export default function RolesPage() {
+  const [filter, setFilter] = useState('All')
+  const [search, setSearch] = useState('')
+
+  const filtered = allRoles.filter((r) => {
+    const matchCategory = filter === 'All' || r.category === filter
+    const matchSearch = !search || r.title.toLowerCase().includes(search.toLowerCase())
+    return matchCategory && matchSearch
+  })
+
+  return (
+    <>
+      {/* Header */}
+      <section className="bg-brand-800 py-14 px-6">
+        <div className="max-w-7xl mx-auto text-center">
+          <h1 className="text-white text-4xl md:text-5xl font-bold mb-3 font-display">Roles We Source</h1>
+          <p className="text-white/55">Find the perfect remote talent for your business</p>
+        </div>
+      </section>
+
+      {/* Content */}
+      <section className="py-12 px-6 bg-white">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-10">
+          {/* Sidebar */}
+          <aside className="md:w-64 flex-shrink-0">
+            <div className="sticky top-24 space-y-6">
+              <div>
+                <h3 className="font-semibold text-gray-900 mb-3 flex items-center justify-between text-sm">
+                  Search
+                  {search && <button onClick={() => setSearch('')} className="text-teal-600 text-xs hover:underline">Clear</button>}
+                </h3>
+                <div className="relative">
+                  <span className="absolute left-3 top-1/2 -translate-y-1/2"><SearchIcon /></span>
+                  <input
+                    type="text"
+                    placeholder="Search roles..."
+                    value={search}
+                    onChange={(e) => setSearch(e.target.value)}
+                    className="w-full pl-10 pr-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500/20 bg-gray-50 transition-colors"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <h3 className="font-semibold text-gray-900 mb-3 flex items-center justify-between text-sm">
+                  Category
+                  {filter !== 'All' && <button onClick={() => setFilter('All')} className="text-teal-600 text-xs hover:underline">Clear</button>}
+                </h3>
+                <div className="flex flex-wrap gap-2">
+                  {categories.map((c) => (
+                    <button
+                      key={c}
+                      onClick={() => setFilter(c)}
+                      className={`px-3.5 py-1.5 rounded-full text-xs font-medium border transition-all ${
+                        filter === c
+                          ? 'bg-teal-700 text-white border-teal-700 shadow-sm'
+                          : 'border-gray-200 text-gray-600 hover:border-teal-500 hover:text-teal-700'
+                      }`}
+                    >
+                      {c}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </aside>
+
+          {/* Grid */}
+          <div className="flex-1">
+            <div className="flex items-center justify-between mb-6">
+              <p className="text-sm text-gray-500">
+                Showing {filtered.length} of {allRoles.length} roles
+              </p>
+              <select className="text-sm border border-gray-200 rounded-lg px-3 py-1.5 text-gray-600 focus:outline-none">
+                <option>Sort by</option>
+                <option>Savings: High to Low</option>
+                <option>Savings: Low to High</option>
+                <option>Price: Low to High</option>
+              </select>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-6">
+              {filtered.map((role, i) => (
+                <div
+                  key={role.title}
+                  className="border border-gray-100 rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300 cursor-pointer group hover:-translate-y-0.5"
+                >
+                  <div className="h-44 relative" style={{ background: GRADIENTS[i % GRADIENTS.length] }}>
+                    <div className="absolute inset-0 flex items-center justify-center text-white/10 text-8xl font-bold font-display">
+                      {role.title.charAt(0)}
+                    </div>
+                    <span className="absolute bottom-3 right-3 bg-teal-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-sm">
+                      {role.savings} average savings
+                    </span>
+                  </div>
+                  <div className="p-6">
+                    <div className="flex flex-wrap gap-2 mb-3">
+                      <span className="text-xs bg-teal-50 text-teal-700 px-2.5 py-1 rounded-full font-medium">{role.price}</span>
+                      <span className="text-xs bg-gray-100 text-gray-600 px-2.5 py-1 rounded-full font-medium">{role.category}</span>
+                    </div>
+                    <h3 className="font-bold text-gray-900 text-lg mb-4 group-hover:text-teal-700 transition-colors">
+                      {role.title}
+                    </h3>
+                    <div className="space-y-2 text-sm">
+                      <div className="flex justify-between">
+                        <span className="font-semibold text-teal-700">Philippine Average Salary</span>
+                        <span className="text-gray-500">{role.salaries.PH}/month</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="font-semibold text-teal-700">LatAm Average Salary</span>
+                        <span className="text-gray-500">{role.salaries.LatAm}/month</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="font-semibold text-teal-700">South Africa Average Salary</span>
+                        <span className="text-gray-500">{role.salaries.SA}/month</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {filtered.length > 0 && (
+              <div className="text-center mt-12">
+                <button className="bg-brand-800 hover:bg-brand-700 text-white px-8 py-3 rounded-xl font-semibold text-sm transition-colors inline-flex items-center gap-2">
+                  Load more <span className="text-lg leading-none">+</span>
+                </button>
+              </div>
+            )}
+
+            {filtered.length === 0 && (
+              <div className="text-center py-20">
+                <p className="text-gray-400 text-lg">No roles match your search.</p>
+                <button onClick={() => { setFilter('All'); setSearch(''); }} className="text-teal-600 text-sm mt-2 hover:underline">Clear filters</button>
+              </div>
+            )}
+          </div>
+        </div>
+      </section>
+    </>
+  )
+}

@@ -1,0 +1,99 @@
+import RoleCarousel, { type RoleCard } from '../components/RoleCarousel'
+
+const roles: RoleCard[] = [
+  { title: 'Executive Assistant', desc: 'Hire trusted, experienced remote executive assistants from the Philippines.', savings: '86%', price: '$1,200/mo' },
+  { title: 'Customer Support Rep', desc: 'Fluent English-speaking customer support professionals ready to delight your customers.', savings: '85%', price: '$1,000/mo' },
+  { title: 'Sales Development Rep', desc: 'Qualifies leads and drives pipeline from the Philippines with US timezone overlap.', savings: '82%', price: '$1,300/mo' },
+  { title: 'Full-Stack Developer', desc: 'Expert developers with world-class technical skills and strong communication.', savings: '70%', price: '$2,200/mo' },
+  { title: 'Social Media Manager', desc: 'Creative social media managers who understand US audiences and platforms.', savings: '80%', price: '$1,400/mo' },
+  { title: 'Graphic Designer', desc: 'Talented designers skilled in modern tools — Figma, Adobe Suite, Canva, and more.', savings: '78%', price: '$1,200/mo' },
+]
+
+const whyPhilippines = [
+  { emoji: '🗣️', title: 'English Fluency', desc: 'The Philippines is the 3rd largest English-speaking country in the world.' },
+  { emoji: '🎓', title: 'Highly Educated', desc: 'Over 500,000 college graduates enter the workforce annually.' },
+  { emoji: '🌙', title: 'US Timezone Overlap', desc: 'Filipino professionals are experienced working US hours and graveyard shifts.' },
+  { emoji: '💰', title: 'Cost Savings', desc: 'Hire full-time employees for as little as $1,000/month with world-class quality.' },
+  { emoji: '🤝', title: 'Cultural Alignment', desc: 'Strong Western cultural influence makes collaboration smooth and natural.' },
+  { emoji: '📈', title: 'Proven Track Record', desc: 'The BPO industry in the Philippines generates over $30 billion annually.' },
+]
+
+export default function HiringPHPage() {
+  return (
+    <>
+      {/* ──── Hero ──────────────────────────────── */}
+      <section className="py-20 px-6" style={{ background: 'linear-gradient(160deg, #0c3c2d, #0d4535)' }}>
+        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-14 items-center">
+          <div>
+            <span className="inline-block border border-teal-400 text-teal-300 text-xs font-semibold px-5 py-1.5 rounded-full mb-6">
+              Hiring Service
+            </span>
+            <h1 className="text-white text-4xl md:text-6xl font-bold mb-6 leading-tight font-display">
+              Hire Amazing Remote Staff From{' '}
+              <span className="underline decoration-teal-400 underline-offset-8 decoration-2">
+                Philippines
+              </span>
+            </h1>
+            <p className="text-white/55 text-lg mb-8 leading-relaxed max-w-lg">
+              Use Somewhere to find amazing staff from The Philippines for up to 80% less than US equivalents.
+            </p>
+            <p className="text-white/35 text-sm italic">
+              Zero Risk: You pay nothing if you don't hire anyone.
+            </p>
+          </div>
+          <div className="relative aspect-square rounded-3xl overflow-hidden" style={{ background: 'linear-gradient(135deg, #1a6b5a, #0a3325)' }}>
+            <div className="absolute inset-0 flex items-center justify-center text-[160px] opacity-30">
+              🇵🇭
+            </div>
+            <div className="absolute bottom-6 left-6 right-6 bg-white/10 backdrop-blur-md rounded-xl p-4">
+              <p className="text-white/80 text-sm font-semibold">Top Hiring Destination</p>
+              <p className="text-teal-300 text-xs mt-1">4,000+ placements and counting</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ──── Why Philippines ──────────────────── */}
+      <section className="py-24 px-6 bg-white">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-14">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 font-display">
+              Why Hire in the Philippines?
+            </h2>
+            <p className="text-gray-500 max-w-xl mx-auto">
+              The Philippines consistently ranks as one of the best countries for offshore hiring.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6">
+            {whyPhilippines.map((item, i) => (
+              <div
+                key={i}
+                className="bg-gray-50 rounded-2xl p-7 hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+              >
+                <span className="text-3xl mb-4 block">{item.emoji}</span>
+                <h3 className="font-bold text-gray-900 mb-2">{item.title}</h3>
+                <p className="text-gray-500 text-sm leading-relaxed">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ──── Roles ──────────────────────────────── */}
+      <section className="py-24 px-6 bg-gray-50">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-14">
+            <span className="inline-block border border-gray-300 text-gray-600 text-xs font-semibold px-4 py-1.5 rounded-full mb-4">
+              What's possible
+            </span>
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-3 font-display">
+              Lower your costs by up to 86%
+            </h2>
+            <p className="text-gray-500">Here are some of the roles we can fill with amazing people</p>
+          </div>
+          <RoleCarousel roles={roles} />
+        </div>
+      </section>
+    </>
+  )
+}
