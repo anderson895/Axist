@@ -5,6 +5,10 @@ import { ChevronDown } from './Icons'
 export default function Navbar() {
   const [dropdown, setDropdown] = useState<string | null>(null)
   const [mobileOpen, setMobileOpen] = useState(false)
+  const [mobileDropdown, setMobileDropdown] = useState<string | null>(null)
+
+  const toggleMobileDropdown = (key: string) =>
+    setMobileDropdown(prev => (prev === key ? null : key))
   const location = useLocation()
 
   const closeMobile = () => setMobileOpen(false)
@@ -128,42 +132,110 @@ export default function Navbar() {
           </button>
         </div>
 
-        {/* Mobile menu */}
-        {mobileOpen && (
-          <div className="lg:hidden bg-zinc-950 border-t border-white/10 px-6 py-5 space-y-1 animate-fade-in">
-            <p className="text-white/40 text-xs uppercase tracking-wider mb-2 font-semibold">Products & Services</p>
-            <Link onClick={closeMobile} to="/direct-hire" className="block text-white/75 hover:text-white text-sm py-2 pl-3">
-              Direct Hire
-            </Link>
-            <Link onClick={closeMobile} to="/talent-on-demand" className="block text-white/75 hover:text-white text-sm py-2 pl-3">
-              Talent On-Demand
-            </Link>
-            <div className="border-t border-white/10 my-3" />
-            <Link onClick={closeMobile} to="/roles" className="block text-white/75 hover:text-white text-sm py-2">
+      </nav>
+
+      {/* Mobile full-page overlay */}
+      {mobileOpen && (
+        <div className="lg:hidden fixed inset-0 z-40 bg-zinc-950 flex flex-col pt-20 pb-10 animate-fade-in overflow-y-auto">
+          <div className="flex flex-col flex-1 px-6">
+
+            {/* Products & Services accordion */}
+            <div className="border-b border-white/10">
+              <button
+                onClick={() => toggleMobileDropdown('products')}
+                className="flex items-center justify-between w-full py-4 group"
+              >
+                <span className={`text-base font-medium transition-colors ${mobileDropdown === 'products' ? 'text-white' : 'text-white/60 group-hover:text-white'}`}>
+                  Products & Services
+                </span>
+                <svg
+                  width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+                  className={`transition-all duration-300 ${mobileDropdown === 'products' ? 'rotate-180 text-white' : 'text-white/40 group-hover:text-white/80'}`}
+                >
+                  <path d="M6 9l6 6 6-6"/>
+                </svg>
+              </button>
+              <div className={`overflow-hidden transition-all duration-300 ${mobileDropdown === 'products' ? 'max-h-40 opacity-100' : 'max-h-0 opacity-0'}`}>
+                <div className="flex flex-col pb-3 pl-2 gap-0.5">
+                  <Link
+                    onClick={closeMobile} to="/direct-hire"
+                    className={`py-2.5 px-3 rounded-lg text-sm transition-colors ${isActive('/direct-hire') ? 'text-white bg-white/10' : 'text-white/50 hover:text-white hover:bg-white/5'}`}
+                  >
+                    Direct Hire
+                  </Link>
+                  <Link
+                    onClick={closeMobile} to="/talent-on-demand"
+                    className={`py-2.5 px-3 rounded-lg text-sm transition-colors ${isActive('/talent-on-demand') ? 'text-white bg-white/10' : 'text-white/50 hover:text-white hover:bg-white/5'}`}
+                  >
+                    Talent On-Demand
+                  </Link>
+                </div>
+              </div>
+            </div>
+
+            {/* Roles */}
+            <Link
+              onClick={closeMobile} to="/roles"
+              className={`flex items-center justify-between py-4 border-b border-white/10 text-base font-medium transition-colors group ${isActive('/roles') ? 'text-white' : 'text-white/60 hover:text-white'}`}
+            >
               Roles we source
             </Link>
-            <Link onClick={closeMobile} to="/pricing" className="block text-white/75 hover:text-white text-sm py-2">
+
+            {/* Pricing */}
+            <Link
+              onClick={closeMobile} to="/pricing"
+              className={`flex items-center justify-between py-4 border-b border-white/10 text-base font-medium transition-colors group ${isActive('/pricing') ? 'text-white' : 'text-white/60 hover:text-white'}`}
+            >
               Pricing
             </Link>
-            <div className="border-t border-white/10 my-3" />
-            <p className="text-white/40 text-xs uppercase tracking-wider mb-2 font-semibold">Resources</p>
-            <Link onClick={closeMobile} to="/hiring-philippines" className="block text-white/75 hover:text-white text-sm py-2 pl-3">
-              Hiring in the Philippines
-            </Link>
-            <Link onClick={closeMobile} to="/savings" className="block text-white/75 hover:text-white text-sm py-2 pl-3">
-              How much you can save
-            </Link>
-            <div className="border-t border-white/10 my-3" />
+
+            {/* Resources accordion */}
+            <div className="border-b border-white/10">
+              <button
+                onClick={() => toggleMobileDropdown('resources')}
+                className="flex items-center justify-between w-full py-4 group"
+              >
+                <span className={`text-base font-medium transition-colors ${mobileDropdown === 'resources' ? 'text-white' : 'text-white/60 group-hover:text-white'}`}>
+                  Resources
+                </span>
+                <svg
+                  width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
+                  className={`transition-all duration-300 ${mobileDropdown === 'resources' ? 'rotate-180 text-white' : 'text-white/40 group-hover:text-white/80'}`}
+                >
+                  <path d="M6 9l6 6 6-6"/>
+                </svg>
+              </button>
+              <div className={`overflow-hidden transition-all duration-300 ${mobileDropdown === 'resources' ? 'max-h-40 opacity-100' : 'max-h-0 opacity-0'}`}>
+                <div className="flex flex-col pb-3 pl-2 gap-0.5">
+                  <Link
+                    onClick={closeMobile} to="/hiring-philippines"
+                    className={`py-2.5 px-3 rounded-lg text-sm transition-colors ${isActive('/hiring-philippines') ? 'text-white bg-white/10' : 'text-white/50 hover:text-white hover:bg-white/5'}`}
+                  >
+                    Hiring in the Philippines
+                  </Link>
+                  <Link
+                    onClick={closeMobile} to="/savings"
+                    className={`py-2.5 px-3 rounded-lg text-sm transition-colors ${isActive('/savings') ? 'text-white bg-white/10' : 'text-white/50 hover:text-white hover:bg-white/5'}`}
+                  >
+                    How much you can save
+                  </Link>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          {/* CTA at bottom */}
+          <div className="px-6 mt-8">
             <Link
-              onClick={closeMobile}
-              to="/find-a-job"
-              className="block bg-white text-black text-sm px-5 py-2.5 rounded-full font-semibold text-center mt-3"
+              onClick={closeMobile} to="/find-a-job"
+              className="block w-full bg-white text-black text-sm font-semibold text-center py-3.5 rounded-2xl hover:bg-gray-100 active:scale-95 transition-all"
             >
               Find a Job
             </Link>
           </div>
-        )}
-      </nav>
+        </div>
+      )}
     </>
   )
 }
