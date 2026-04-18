@@ -40,7 +40,7 @@ export default function FindJobPage() {
         className="py-24 px-6 text-center"
         style={{ background: 'linear-gradient(160deg, #000000, #18181b)' }}
       >
-        <h1 className="text-white text-4xl md:text-6xl font-bold mb-5 font-display">
+        <h1 className="text-white text-3xl sm:text-4xl md:text-6xl font-bold mb-5 font-display">
           Find Your Next Remote Job
         </h1>
         <p className="text-white/55 max-w-2xl mx-auto mb-10 text-lg leading-relaxed">
@@ -72,25 +72,27 @@ export default function FindJobPage() {
             {filtered.map((job, i) => (
               <div
                 key={i}
-                className="border border-gray-100 rounded-2xl p-6 hover:shadow-lg transition-all duration-300 cursor-pointer group flex items-center justify-between hover:border-gray-300"
+                className="border border-gray-100 rounded-2xl p-4 sm:p-6 hover:shadow-lg transition-all duration-300 cursor-pointer group hover:border-gray-300"
               >
-                <div className="flex items-center gap-4">
-                  <img
-                    src={`https://picsum.photos/seed/${encodeURIComponent(job.title + job.location)}/96/96?grayscale`}
-                    alt={job.title}
-                    loading="lazy"
-                    className="w-12 h-12 rounded-xl object-cover flex-shrink-0 bg-gray-900"
-                  />
-                  <div>
-                    <h3 className="font-bold text-gray-900 text-lg group-hover:text-black transition-colors">
-                      {job.title}
-                    </h3>
-                    <p className="text-gray-500 text-sm mt-0.5">{job.location}</p>
+                <div className="flex items-center justify-between gap-3">
+                  <div className="flex items-center gap-3 min-w-0">
+                    <img
+                      src={`https://picsum.photos/seed/${encodeURIComponent(job.title + job.location)}/96/96?grayscale`}
+                      alt={job.title}
+                      loading="lazy"
+                      className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl object-cover flex-shrink-0 bg-gray-900"
+                    />
+                    <div className="min-w-0">
+                      <h3 className="font-bold text-gray-900 text-base sm:text-lg group-hover:text-black transition-colors truncate">
+                        {job.title}
+                      </h3>
+                      <p className="text-gray-500 text-xs sm:text-sm mt-0.5 truncate">{job.location}</p>
+                    </div>
                   </div>
-                </div>
-                <div className="text-right flex-shrink-0 ml-4">
-                  <span className="text-black font-semibold text-sm">{job.salary}</span>
-                  <p className="text-gray-400 text-xs mt-1">{job.type}</p>
+                  <div className="text-right flex-shrink-0">
+                    <span className="text-black font-semibold text-xs sm:text-sm whitespace-nowrap">{job.salary}</span>
+                    <p className="text-gray-400 text-xs mt-1">{job.type}</p>
+                  </div>
                 </div>
               </div>
             ))}

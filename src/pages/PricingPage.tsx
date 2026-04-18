@@ -30,7 +30,7 @@ export default function PricingPage() {
       {/* ──── Hero ──────────────────────────────── */}
       <section className="py-24 px-6 text-center" style={{ background: 'linear-gradient(160deg, #000000, #18181b)' }}>
         <AnimateOnScroll variant="fade-up" threshold={0.1}>
-          <h1 className="text-white text-4xl md:text-6xl font-bold leading-tight max-w-4xl mx-auto font-display">
+          <h1 className="text-white text-3xl sm:text-4xl md:text-6xl font-bold leading-tight max-w-4xl mx-auto font-display">
             Last month we helped over 275 companies save 80% on hiring costs.
           </h1>
         </AnimateOnScroll>

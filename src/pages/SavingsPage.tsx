@@ -18,7 +18,7 @@ export default function SavingsPage() {
       <section className="bg-brand-800 py-20 px-6 text-center">
         <AnimateOnScroll variant="fade-up" threshold={0.1}>
           <div className="max-w-3xl mx-auto">
-            <h1 className="text-white text-4xl md:text-6xl font-bold mb-5 font-display leading-tight">
+            <h1 className="text-white text-3xl sm:text-4xl md:text-6xl font-bold mb-5 font-display leading-tight">
               See How Much You Can Save
             </h1>
             <p className="text-white/55 text-lg max-w-xl mx-auto">
@@ -37,15 +37,14 @@ export default function SavingsPage() {
             </h2>
           </AnimateOnScroll>
           <AnimateOnScroll variant="fade-up" delay={100} duration={600}>
-            <div className="rounded-2xl border border-gray-100 overflow-hidden shadow-sm">
-              {/* Header */}
+            {/* Desktop table */}
+            <div className="hidden sm:block rounded-2xl border border-gray-100 overflow-hidden shadow-sm">
               <div className="grid grid-cols-4 bg-brand-800 text-white text-sm font-semibold">
                 <div className="p-4">Role</div>
                 <div className="p-4 text-center">US Salary/mo</div>
                 <div className="p-4 text-center">Global Salary/mo</div>
                 <div className="p-4 text-center">Savings</div>
               </div>
-              {/* Rows */}
               {savingsExamples.map((row, i) => (
                 <div
                   key={i}
@@ -60,6 +59,28 @@ export default function SavingsPage() {
                     <span className="bg-gray-100 text-black text-xs font-bold px-2.5 py-1 rounded-full">
                       {row.savings}
                     </span>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Mobile cards */}
+            <div className="sm:hidden space-y-3">
+              {savingsExamples.map((row, i) => (
+                <div key={i} className="bg-white rounded-2xl border border-gray-100 p-4 shadow-sm">
+                  <div className="flex items-center justify-between mb-3">
+                    <h3 className="font-bold text-gray-900 text-sm">{row.role}</h3>
+                    <span className="bg-gray-100 text-black text-xs font-bold px-2.5 py-1 rounded-full">{row.savings}</span>
+                  </div>
+                  <div className="flex justify-between text-xs">
+                    <div>
+                      <p className="text-gray-400 mb-0.5">US Salary/mo</p>
+                      <p className="text-gray-500 font-medium">{row.us}</p>
+                    </div>
+                    <div className="text-right">
+                      <p className="text-gray-400 mb-0.5">Global Salary/mo</p>
+                      <p className="text-black font-semibold">{row.global}</p>
+                    </div>
                   </div>
                 </div>
               ))}

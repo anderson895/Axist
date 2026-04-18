@@ -15,14 +15,14 @@ export default function HiringPHPage() {
   return (
     <>
       {/* ──── Hero ──────────────────────────────── */}
-      <section className="py-20 px-6" style={{ background: 'linear-gradient(160deg, #000000, #18181b)' }}>
-        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-14 items-center">
+      <section className="py-14 md:py-20 px-6 overflow-hidden" style={{ background: 'linear-gradient(160deg, #000000, #18181b)' }}>
+        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-8 md:gap-14 items-center">
           <AnimateOnScroll variant="fade-right" duration={700}>
             <div>
               <span className="inline-block border border-gray-400 text-white/80 text-xs font-semibold px-5 py-1.5 rounded-full mb-6">
                 Hiring Service
               </span>
-              <h1 className="text-white text-4xl md:text-6xl font-bold mb-6 leading-tight font-display">
+              <h1 className="text-white text-3xl sm:text-4xl md:text-6xl font-bold mb-6 leading-tight font-display">
                 Hire Amazing Remote Staff From{' '}
                 <span className="underline decoration-white underline-offset-8 decoration-2">
                   Philippines
@@ -36,8 +36,8 @@ export default function HiringPHPage() {
               </p>
             </div>
           </AnimateOnScroll>
-          <AnimateOnScroll variant="fade-left" delay={150} duration={700}>
-            <div className="relative aspect-square rounded-3xl overflow-hidden bg-gray-900">
+          <AnimateOnScroll variant="fade-up" delay={150} duration={700}>
+            <div className="relative w-full aspect-square rounded-3xl overflow-hidden bg-gray-900">
               <img
                 src="https://picsum.photos/seed/philippines-manila/720/720?grayscale"
                 alt="Philippines"

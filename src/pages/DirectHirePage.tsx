@@ -40,7 +40,7 @@ export default function DirectHirePage() {
             <span className="inline-block border border-black text-black text-xs font-semibold px-5 py-1.5 rounded-full mb-6">
               Axis Direct Hire
             </span>
-            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-5 font-display leading-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold text-gray-900 mb-5 font-display leading-tight">
               What Axis Direct Hire Can Do For You
             </h1>
             <p className="text-gray-500 mb-16 text-lg">

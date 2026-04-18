@@ -71,7 +71,7 @@ export default function Footer() {
         </div>
 
         {/* Link columns */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 mb-14">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6 sm:gap-8 mb-14">
           {columns.map((col) => (
             <div key={col.title}>
               <h4 className="font-semibold text-sm mb-4 text-white">{col.title}</h4>

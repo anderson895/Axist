@@ -22,14 +22,14 @@ const ProcessSteps: React.FC<ProcessStepsProps> = ({ title, subtitle, steps }) =
     <section className="bg-black py-20 px-6">
       <div className="max-w-7xl mx-auto">
         <AnimateOnScroll variant="fade-up">
-          <h2 className="text-white text-center text-4xl md:text-5xl font-bold mb-4 font-display">
+          <h2 className="text-white text-center text-3xl sm:text-4xl md:text-5xl font-bold mb-4 font-display">
             {title}
           </h2>
           <p className="text-white/55 text-center mb-14 max-w-2xl mx-auto leading-relaxed">
             {subtitle}
           </p>
         </AnimateOnScroll>
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-3 gap-4 md:gap-6">
           {steps.map((step, i) => {
             const isLast = i === steps.length - 1
             return (

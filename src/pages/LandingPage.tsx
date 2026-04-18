@@ -34,14 +34,14 @@ export default function LandingPage() {
           <div className="absolute top-20 left-10 w-72 h-72 rounded-full animate-pulse-slow" style={{ background: 'radial-gradient(circle, rgba(255,255,255,0.25) 0%, transparent 70%)' }} />
           <div className="absolute bottom-10 right-20 w-96 h-96 rounded-full animate-pulse-slow" style={{ background: 'radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%)', animationDelay: '2s' }} />
         </div>
-        <div className="max-w-4xl mx-auto text-center py-28 md:py-44 px-6 relative">
+        <div className="max-w-4xl mx-auto text-center py-20 md:py-44 px-6 relative">
           <p className="text-white/40 text-sm font-semibold tracking-widest uppercase mb-5 animate-fade-in-up" style={{ animationDelay: '0ms' }}>
             Global Talent Recruitment
           </p>
-          <h1 className="text-white text-5xl md:text-7xl font-bold leading-[1.1] mb-7 font-display animate-fade-in-up" style={{ animationDelay: '100ms' }}>
+          <h1 className="text-white text-4xl sm:text-5xl md:text-7xl font-bold leading-[1.1] mb-7 font-display animate-fade-in-up" style={{ animationDelay: '100ms' }}>
             Hire the Top 1% of Global Talent and Save 80% on Payroll
           </h1>
-          <p className="text-white/60 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed animate-fade-in-up" style={{ animationDelay: '200ms' }}>
+          <p className="text-white/60 text-base sm:text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed animate-fade-in-up" style={{ animationDelay: '200ms' }}>
             We've saved 4,000+ companies over $300 million in payroll and present candidates in 5 days.
           </p>
           <p className="text-white/40 text-sm italic animate-fade-in-up" style={{ animationDelay: '300ms' }}>You Don't Pay If You Don't Hire</p>
@@ -52,18 +52,18 @@ export default function LandingPage() {
       <section className="py-24 px-6 bg-white">
         <div className="max-w-3xl mx-auto text-center">
           <AnimateOnScroll variant="fade-up">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-5 font-display">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-5 font-display">
               Axis is Secure by Design
             </h2>
             <p className="text-gray-500 mb-14 max-w-xl mx-auto leading-relaxed">
               Thousands of customers trust Axis to process their data securely and reliably. Our robust security and privacy practices are deeply integrated into everything we do. Axis is fully SOC2, ISO27001, and GDPR compliant.
             </p>
           </AnimateOnScroll>
-          <div className="flex justify-center gap-10 md:gap-14 mb-12">
+          <div className="flex justify-center gap-6 md:gap-14 mb-12">
             {['SOC 2\nType II', 'ISO\n27001', 'GDPR\nCompliant'].map((badge, i) => (
               <AnimateOnScroll key={badge} variant="zoom-in" delay={i * 100} duration={500}>
                 <div className="relative">
-                  <div className="w-24 h-24 md:w-28 md:h-28 rounded-full flex items-center justify-center border-[5px] border-gray-300 shadow-lg transition-transform duration-300 hover:scale-105 hover:shadow-xl" style={{ background: 'linear-gradient(135deg, #000000, #3f3f46)' }}>
+                  <div className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-full flex items-center justify-center border-[4px] sm:border-[5px] border-gray-300 shadow-lg transition-transform duration-300 hover:scale-105 hover:shadow-xl" style={{ background: 'linear-gradient(135deg, #000000, #3f3f46)' }}>
                     <span className="text-white text-xs font-bold text-center leading-tight whitespace-pre-line">
                       {badge}
                     </span>
@@ -81,8 +81,8 @@ export default function LandingPage() {
       </section>
 
       {/* ──── Did you know? ──────────────────────────────── */}
-      <section className="py-24 px-6 bg-gray-50">
-        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-14 items-center">
+      <section className="py-24 px-6 bg-gray-50 overflow-hidden">
+        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-8 md:gap-14 items-center">
           <AnimateOnScroll variant="fade-right" duration={700}>
             <div>
               <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 font-display">
@@ -105,9 +105,9 @@ export default function LandingPage() {
               </ul>
             </div>
           </AnimateOnScroll>
-          <AnimateOnScroll variant="fade-left" duration={700} delay={150}>
-            <div className="relative">
-              <div className="aspect-[4/3] rounded-3xl overflow-hidden relative bg-gray-900">
+          <AnimateOnScroll variant="fade-up" duration={700} delay={150}>
+            <div className="relative w-full">
+              <div className="aspect-[4/3] w-full rounded-3xl overflow-hidden relative bg-gray-900">
                 <img
                   src="https://picsum.photos/seed/axis-global-team/960/720?grayscale"
                   alt="Global remote team"

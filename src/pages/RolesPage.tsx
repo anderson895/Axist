@@ -51,7 +51,7 @@ export default function RolesPage() {
       <section className="bg-brand-800 py-14 px-6">
         <AnimateOnScroll variant="fade-up" threshold={0.1}>
           <div className="max-w-7xl mx-auto text-center">
-            <h1 className="text-white text-4xl md:text-5xl font-bold mb-3 font-display">Roles We Source</h1>
+            <h1 className="text-white text-3xl sm:text-4xl md:text-5xl font-bold mb-3 font-display">Roles We Source</h1>
             <p className="text-white/55">Find the perfect remote talent for your business</p>
           </div>
         </AnimateOnScroll>
@@ -145,16 +145,16 @@ export default function RolesPage() {
                         {role.title}
                       </h3>
                       <div className="space-y-2 text-sm">
-                        <div className="flex justify-between">
-                          <span className="font-semibold text-black">Philippine Average Salary</span>
+                        <div className="flex flex-wrap justify-between gap-x-2">
+                          <span className="font-semibold text-black">Philippine Avg. Salary</span>
                           <span className="text-gray-500">{role.salaries.PH}/month</span>
                         </div>
-                        <div className="flex justify-between">
-                          <span className="font-semibold text-black">LatAm Average Salary</span>
+                        <div className="flex flex-wrap justify-between gap-x-2">
+                          <span className="font-semibold text-black">LatAm Avg. Salary</span>
                           <span className="text-gray-500">{role.salaries.LatAm}/month</span>
                         </div>
-                        <div className="flex justify-between">
-                          <span className="font-semibold text-black">South Africa Average Salary</span>
+                        <div className="flex flex-wrap justify-between gap-x-2">
+                          <span className="font-semibold text-black">South Africa Avg. Salary</span>
                           <span className="text-gray-500">{role.salaries.SA}/month</span>
                         </div>
                       </div>

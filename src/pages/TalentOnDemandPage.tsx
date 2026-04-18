@@ -13,11 +13,11 @@ export default function TalentOnDemandPage() {
   return (
     <>
       {/* ──── Hero ──────────────────────────────── */}
-      <section className="py-20 px-6" style={{ background: 'linear-gradient(160deg, #000000 0%, #18181b 100%)' }}>
-        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-14 items-center">
+      <section className="py-16 md:py-20 px-6 overflow-hidden" style={{ background: 'linear-gradient(160deg, #000000 0%, #18181b 100%)' }}>
+        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-8 md:gap-14 items-center">
           <AnimateOnScroll variant="fade-right" duration={700}>
             <div>
-              <h1 className="text-white text-4xl md:text-6xl font-bold mb-5 leading-tight font-display">
+              <h1 className="text-white text-3xl sm:text-4xl md:text-6xl font-bold mb-5 leading-tight font-display">
                 Hire Global Talent On&#8209;Demand
               </h1>
               <p className="text-white/90 text-xl font-semibold mb-4">
@@ -36,9 +36,9 @@ export default function TalentOnDemandPage() {
           </AnimateOnScroll>
 
           {/* Visual card */}
-          <AnimateOnScroll variant="fade-left" delay={150} duration={700}>
+          <AnimateOnScroll variant="fade-up" delay={150} duration={700}>
             <div className="relative flex items-center justify-center">
-              <div className="w-full max-w-md space-y-5">
+              <div className="w-full max-w-md mx-auto space-y-5">
                 {/* Candidates card */}
                 <div className="bg-white rounded-2xl p-5 shadow-2xl">
                   <p className="text-sm font-semibold text-gray-800 mb-3">Candidates Available</p>
@@ -91,7 +91,7 @@ export default function TalentOnDemandPage() {
       <section className="py-24 px-6 bg-white">
         <div className="max-w-5xl mx-auto text-center">
           <AnimateOnScroll variant="fade-up">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-14 font-display">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-14 font-display">
               Why Talent On-Demand?
             </h2>
           </AnimateOnScroll>
@@ -115,7 +115,7 @@ export default function TalentOnDemandPage() {
       <section className="bg-black py-20 px-6">
         <div className="max-w-5xl mx-auto text-center">
           <AnimateOnScroll variant="fade-up">
-            <h2 className="text-white text-4xl md:text-5xl font-bold mb-4 font-display">How It Works</h2>
+            <h2 className="text-white text-3xl sm:text-4xl md:text-5xl font-bold mb-4 font-display">How It Works</h2>
             <p className="text-white/50 mb-14 max-w-xl mx-auto">Three simple steps to build your on-demand global team.</p>
           </AnimateOnScroll>
           <div className="grid md:grid-cols-3 gap-8">

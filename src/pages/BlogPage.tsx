@@ -39,7 +39,7 @@ export default function BlogPage() {
       {/* Header */}
       <section className="bg-brand-800 py-14 px-6">
         <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-white text-4xl md:text-5xl font-bold mb-3 font-display">Blog</h1>
+          <h1 className="text-white text-3xl sm:text-4xl md:text-5xl font-bold mb-3 font-display">Blog</h1>
           <p className="text-white/55">Insights on global hiring, remote teams, and cost savings</p>
         </div>
       </section>
