@@ -69,7 +69,7 @@ export default function RolesPage() {
                   {search && <button onClick={() => setSearch('')} className="text-white text-xs hover:underline">Clear</button>}
                 </h3>
                 <div className="relative">
-                  <span className="absolute left-3 top-1/2 -translate-y-1/2"><SearchIcon /></span>
+                  <span className="absolute left-3 top-1/2 -translate-y-1/2 text-white/70"><SearchIcon /></span>
                   <input
                     type="text"
                     placeholder="Search roles..."

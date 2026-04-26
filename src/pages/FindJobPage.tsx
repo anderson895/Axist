@@ -44,7 +44,7 @@ export default function FindJobPage() {
           Join thousands of professionals working with top US companies remotely. Competitive salaries, flexible hours, and career growth.
         </p>
         <div className="max-w-xl mx-auto relative">
-          <span className="absolute left-5 top-1/2 -translate-y-1/2">
+          <span className="absolute left-5 top-1/2 -translate-y-1/2 text-white/70">
             <SearchIcon />
           </span>
           <input

@@ -48,7 +48,7 @@ export default function Navbar() {
               onMouseLeave={() => setDropdown(null)}
             >
               <button className="text-white/80 hover:text-white px-4 py-2 text-sm flex items-center gap-1 transition-colors">
-                Products & Services <ChevronDown />
+                Services <ChevronDown />
               </button>
               {dropdown === 'products' && (
                 <div className="glass-card absolute top-full left-0 rounded-xl py-2 w-52 animate-fade-in">
@@ -146,7 +146,7 @@ export default function Navbar() {
                 className="flex items-center justify-between w-full py-4 group"
               >
                 <span className={`text-base font-medium transition-colors ${mobileDropdown === 'products' ? 'text-white' : 'text-white/60 group-hover:text-white'}`}>
-                  Products & Services
+                  Services
                 </span>
                 <svg
                   width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
