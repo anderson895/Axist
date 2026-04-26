@@ -1,10 +1,28 @@
-import { GlobeIcon, DollarSign, HandshakeIcon } from '../components/Icons'
+import { GlobeIcon, DollarSign, HandshakeIcon, ShieldCheck, UsersIcon } from '../components/Icons'
 import AnimateOnScroll from '../components/AnimateOnScroll'
 
 const benefits = [
   { icon: <GlobeIcon />, title: 'Global Reach', desc: 'Access talent in 18+ countries. From Latin America to South Africa and Southeast Asia.' },
   { icon: <DollarSign />, title: 'No Upfront Costs', desc: 'Pay a simple monthly rate per contractor. No deposits, no long-term commitments required.' },
   { icon: <HandshakeIcon />, title: 'Fully Managed', desc: 'We handle payroll, compliance, equipment, and HR — so you can focus on your business.' },
+]
+
+const pricingSteps = [
+  { icon: <DollarSign size={24} />, title: 'Refundable Deposit and Search', desc: 'A deposit and signed MSA starts your search. The deposit is deducted from your first invoice.' },
+  { icon: <HandshakeIcon size={24} />, title: 'Statement of Work Confirmed', desc: "Once the SOW and consultant offers are signed, we charge a monthly fee consisting of the consultant's salary + the Somewhere fee." },
+  { icon: <ShieldCheck size={24} />, title: 'Performance Guarantee', desc: "Unlimited free replacements if you're not satisfied with the consultant's performance." },
+  { icon: <UsersIcon size={24} />, title: 'Custom Plans', desc: 'Hiring multiple consultants? Contact us for custom pricing and volume discounts.' },
+]
+
+const comparisonRows = [
+  { label: 'Hiring Model', direct: 'One-time hire', onDemand: 'Monthly support & infrastructure' },
+  { label: 'Fee Structure', direct: 'A one time fee', onDemand: "The contractor's salary cost + our Somewhere service fee" },
+  { label: 'Admin & Compliance', direct: 'You handle everything', onDemand: 'We handle compliance, payroll & more' },
+  { label: 'IT & Equipment', direct: 'You provide and manage', onDemand: 'We provide and support' },
+  { label: 'Best For', direct: 'Permanent roles with internal ops', onDemand: 'Pilot roles and scaling fast' },
+  { label: 'Support', direct: 'No ongoing support', onDemand: 'Includes ongoing support & replacements' },
+  { label: 'Time to Hire', direct: '21-30 days', onDemand: '10-20 Days' },
+  { label: 'Guarantee', direct: '6 Months Perfect Hire Guarantee', onDemand: 'Unlimited replacements within contract period' },
 ]
 
 const candidateAvatars = [1, 5, 12, 32]
@@ -139,6 +157,133 @@ export default function TalentOnDemandPage() {
               </AnimateOnScroll>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ──── Pricing breakdown ─────────────────── */}
+      <section className="py-24 px-6 section-ambient">
+        <div className="max-w-5xl mx-auto text-center">
+          <AnimateOnScroll variant="fade-up">
+            <span className="inline-block border border-white/40 text-white/90 text-xs font-semibold px-4 py-1.5 rounded-full mb-4 backdrop-blur-md bg-white/10">
+              Pricing
+            </span>
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 font-display drop-shadow-lg">
+              How Talent-On-Demand Pricing Works
+            </h2>
+            <p className="text-white/80 max-w-xl mx-auto mb-16 leading-relaxed">
+              Simple monthly pricing with no hidden costs.
+            </p>
+          </AnimateOnScroll>
+
+          {/* Timeline */}
+          <div className="hidden md:block relative mb-16">
+            <div className="absolute top-6 left-[12%] right-[12%] h-0.5 bg-white/20" />
+            <div className="grid grid-cols-4 gap-6">
+              {pricingSteps.map((step, i) => (
+                <AnimateOnScroll key={i} variant="fade-up" delay={i * 100} duration={500}>
+                  <div className="flex flex-col items-center text-center relative z-10">
+                    <div className="glass-card w-12 h-12 rounded-xl flex items-center justify-center mb-5 text-white transition-transform duration-300 hover:scale-110 hover:shadow-md">
+                      {step.icon}
+                    </div>
+                    <h3 className="font-bold text-white text-sm mb-2">{step.title}</h3>
+                    <p className="text-white/70 text-xs leading-relaxed">{step.desc}</p>
+                  </div>
+                </AnimateOnScroll>
+              ))}
+            </div>
+          </div>
+
+          {/* Mobile: stacked */}
+          <div className="md:hidden space-y-6 mb-12">
+            {pricingSteps.map((step, i) => (
+              <AnimateOnScroll key={i} variant="fade-right" delay={i * 80} duration={500}>
+                <div className="flex gap-4 text-left">
+                  <div className="glass-card w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 text-white">
+                    {step.icon}
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-white text-sm mb-1">{step.title}</h3>
+                    <p className="text-white/70 text-xs leading-relaxed">{step.desc}</p>
+                  </div>
+                </div>
+              </AnimateOnScroll>
+            ))}
+          </div>
+
+          <AnimateOnScroll variant="zoom-in" delay={300}>
+            <button className="glass-button text-white px-8 py-3.5 rounded-full font-semibold text-sm">
+              Get Started
+            </button>
+            <p className="text-white/55 text-sm mt-4 italic">
+              Zero Risk: You pay nothing if you don't hire anyone.
+            </p>
+          </AnimateOnScroll>
+        </div>
+      </section>
+
+      {/* ──── Comparison table ──────────────────── */}
+      <section className="py-24 px-6 section-ambient">
+        <div className="max-w-5xl mx-auto">
+          <AnimateOnScroll variant="fade-up" className="text-center mb-14">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 font-display drop-shadow-lg">
+              Which Hiring Model<br className="hidden sm:block" /> Fits Your Team Best?
+            </h2>
+            <p className="text-white/80 max-w-2xl mx-auto leading-relaxed">
+              Compare our Direct Hire and On-Demand Talent services side by side to see which one aligns with your current goals and team structure.
+            </p>
+          </AnimateOnScroll>
+
+          <AnimateOnScroll variant="fade-up" delay={100} duration={600}>
+            {/* Desktop table */}
+            <div className="hidden sm:grid grid-cols-3 glass-card-tinted rounded-2xl overflow-hidden">
+              {/* Header row */}
+              <div className="p-5 text-white/70 text-sm font-medium border-b border-white/15">
+                Product comparison
+              </div>
+              <div className="p-5 text-center text-white text-lg font-bold font-display border-b border-white/15">
+                Direct Hire
+              </div>
+              <div className="p-5 text-center text-white text-lg font-bold font-display border-b border-white/15 bg-white/10">
+                Talent On-Demand
+              </div>
+
+              {comparisonRows.map((row, i) => {
+                const isLast = i === comparisonRows.length - 1
+                return (
+                  <div key={row.label} className="contents">
+                    <div className={`p-5 font-semibold text-white text-sm ${isLast ? '' : 'border-b border-white/10'}`}>
+                      {row.label}
+                    </div>
+                    <div className={`p-5 text-center text-white/85 text-sm ${isLast ? '' : 'border-b border-white/10'}`}>
+                      {row.direct}
+                    </div>
+                    <div className={`p-5 text-center text-white text-sm bg-white/10 ${isLast ? '' : 'border-b border-white/10'}`}>
+                      {row.onDemand}
+                    </div>
+                  </div>
+                )
+              })}
+            </div>
+
+            {/* Mobile cards */}
+            <div className="sm:hidden space-y-4">
+              {comparisonRows.map((row) => (
+                <div key={row.label} className="glass-card-tinted rounded-2xl p-5">
+                  <h3 className="font-bold text-white text-sm mb-3">{row.label}</h3>
+                  <div className="space-y-3 text-sm">
+                    <div>
+                      <p className="text-white/55 text-xs mb-1">Direct Hire</p>
+                      <p className="text-white/90">{row.direct}</p>
+                    </div>
+                    <div className="pt-2 border-t border-white/10">
+                      <p className="text-white/55 text-xs mb-1">Talent On-Demand</p>
+                      <p className="text-white">{row.onDemand}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </AnimateOnScroll>
         </div>
       </section>
     </>
