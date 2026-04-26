@@ -19,8 +19,15 @@ const isNumericStep = (s: string) => /^[0-9]+$/.test(s)
 
 const ProcessSteps: React.FC<ProcessStepsProps> = ({ title, subtitle, steps }) => {
   return (
-    <section className="bg-black py-20 px-6">
-      <div className="max-w-7xl mx-auto">
+    <section className="relative section-dark-tint py-20 px-6 section-ambient-dark overflow-hidden">
+      {/* Ambient color glows */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-10 left-10 w-96 h-96 rounded-full" style={{ background: 'radial-gradient(circle, rgba(126, 196, 190, 0.50), transparent 70%)' }} />
+        <div className="absolute top-40 right-20 w-[28rem] h-[28rem] rounded-full" style={{ background: 'radial-gradient(circle, rgba(196, 154, 181, 0.45), transparent 70%)' }} />
+        <div className="absolute bottom-10 left-1/3 w-[32rem] h-[32rem] rounded-full" style={{ background: 'radial-gradient(circle, rgba(168, 143, 173, 0.35), transparent 70%)' }} />
+        <div className="absolute bottom-20 right-1/4 w-80 h-80 rounded-full" style={{ background: 'radial-gradient(circle, rgba(126, 196, 190, 0.30), transparent 70%)' }} />
+      </div>
+      <div className="max-w-7xl mx-auto relative z-10">
         <AnimateOnScroll variant="fade-up">
           <h2 className="text-white text-center text-3xl sm:text-4xl md:text-5xl font-bold mb-4 font-display">
             {title}
@@ -37,13 +44,13 @@ const ProcessSteps: React.FC<ProcessStepsProps> = ({ title, subtitle, steps }) =
                 <div
                   className={`rounded-2xl p-7 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl h-full ${
                     isLast
-                      ? 'bg-white text-gray-900 shadow-xl'
-                      : 'border border-white/15 bg-white/5 text-white backdrop-blur-sm hover:border-white/30'
+                      ? 'glass-card text-white'
+                      : 'glass-card-dark text-white'
                   }`}
                 >
                   <span
-                    className={`inline-flex items-center justify-center w-9 h-9 rounded-lg text-sm font-bold mb-5 ${
-                      isLast ? 'bg-black text-white' : 'bg-white text-black'
+                    className={`inline-flex items-center justify-center w-9 h-9 rounded-lg text-sm font-bold mb-5 backdrop-blur-md ${
+                      isLast ? 'bg-white/30 border border-white/40 text-white' : 'bg-white/20 border border-white/30 text-white'
                     }`}
                   >
                     {isNumericStep(step.num) ? (
@@ -57,7 +64,7 @@ const ProcessSteps: React.FC<ProcessStepsProps> = ({ title, subtitle, steps }) =
                   <h3 className="text-lg font-bold mb-3 leading-tight">{step.title}</h3>
                   <p
                     className={`text-sm leading-relaxed ${
-                      isLast ? 'text-gray-600' : 'text-white/65'
+                      isLast ? 'text-white/75' : 'text-white/65'
                     }`}
                   >
                     {step.desc}
@@ -65,7 +72,7 @@ const ProcessSteps: React.FC<ProcessStepsProps> = ({ title, subtitle, steps }) =
                   {step.note && (
                     <p
                       className={`text-xs mt-4 italic ${
-                        isLast ? 'text-gray-400' : 'text-white/40'
+                        isLast ? 'text-white/55' : 'text-white/40'
                       }`}
                     >
                       {step.note}

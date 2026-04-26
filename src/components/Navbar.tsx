@@ -29,7 +29,7 @@ export default function Navbar() {
       </div> */}
 
       {/* Main navbar */}
-      <nav className="sticky top-0 z-50 border-b border-white/10 bg-black">
+      <nav className="sticky top-0 z-50 border-b border-white/15 section-dark-tint backdrop-blur-xl">
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-16">
           {/* Logo */}
           <Link to="/" className="flex items-baseline gap-2.5 text-white group">
@@ -51,16 +51,16 @@ export default function Navbar() {
                 Products & Services <ChevronDown />
               </button>
               {dropdown === 'products' && (
-                <div className="absolute top-full left-0 bg-white rounded-xl shadow-2xl py-2 w-52 animate-fade-in border border-gray-100">
+                <div className="glass-card absolute top-full left-0 rounded-xl py-2 w-52 animate-fade-in">
                   <Link
                     to="/direct-hire"
-                    className="block px-5 py-2.5 text-gray-700 hover:bg-gray-50 hover:text-black text-sm transition-colors"
+                    className="block px-5 py-2.5 text-white/80 hover:bg-white/15 hover:text-white text-sm transition-colors"
                   >
                     Direct Hire
                   </Link>
                   <Link
                     to="/talent-on-demand"
-                    className="block px-5 py-2.5 text-gray-700 hover:bg-gray-50 hover:text-black text-sm transition-colors"
+                    className="block px-5 py-2.5 text-white/80 hover:bg-white/15 hover:text-white text-sm transition-colors"
                   >
                     Talent On-Demand
                   </Link>
@@ -95,16 +95,16 @@ export default function Navbar() {
                 Resources <ChevronDown />
               </button>
               {dropdown === 'resources' && (
-                <div className="absolute top-full right-0 bg-white rounded-xl shadow-2xl py-2 w-60 animate-fade-in border border-gray-100">
+                <div className="glass-card absolute top-full right-0 rounded-xl py-2 w-60 animate-fade-in">
                   <Link
                     to="/hiring-philippines"
-                    className="block px-5 py-2.5 text-gray-700 hover:bg-gray-50 hover:text-black text-sm transition-colors"
+                    className="block px-5 py-2.5 text-white/80 hover:bg-white/15 hover:text-white text-sm transition-colors"
                   >
                     Hiring in the Philippines
                   </Link>
                   <Link
                     to="/savings"
-                    className="block px-5 py-2.5 text-gray-700 hover:bg-gray-50 hover:text-black text-sm transition-colors"
+                    className="block px-5 py-2.5 text-white/80 hover:bg-white/15 hover:text-white text-sm transition-colors"
                   >
                     How much you can save
                   </Link>
@@ -114,7 +114,7 @@ export default function Navbar() {
 
             <Link
               to="/find-a-job"
-              className="ml-3 bg-white hover:bg-gray-200 text-black px-6 py-2 rounded-full text-sm font-semibold transition-all hover:shadow-lg hover:shadow-white/10"
+              className="glass-button ml-3 text-white px-6 py-2 rounded-full text-sm font-semibold"
             >
               Find a Job
             </Link>
@@ -136,7 +136,7 @@ export default function Navbar() {
 
       {/* Mobile full-page overlay */}
       {mobileOpen && (
-        <div className="lg:hidden fixed inset-0 z-40 bg-zinc-950 flex flex-col pt-20 pb-10 animate-fade-in overflow-y-auto">
+        <div className="lg:hidden fixed inset-0 z-40 section-dark-tint backdrop-blur-xl flex flex-col pt-20 pb-10 animate-fade-in overflow-y-auto">
           <div className="flex flex-col flex-1 px-6">
 
             {/* Products & Services accordion */}
@@ -229,7 +229,7 @@ export default function Navbar() {
           <div className="px-6 mt-8">
             <Link
               onClick={closeMobile} to="/find-a-job"
-              className="block w-full bg-white text-black text-sm font-semibold text-center py-3.5 rounded-2xl hover:bg-gray-100 active:scale-95 transition-all"
+              className="glass-button block w-full text-white text-sm font-semibold text-center py-3.5 rounded-2xl active:scale-95"
             >
               Find a Job
             </Link>

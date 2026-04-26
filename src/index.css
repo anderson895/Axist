@@ -19,6 +19,12 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: clip;
+  background:
+    radial-gradient(ellipse 80% 100% at 0% 50%, #6FC0BC 0%, transparent 60%),
+    radial-gradient(ellipse 80% 100% at 100% 50%, #C99FB5 0%, transparent 60%),
+    linear-gradient(90deg, #7BC4BE 0%, #A491AE 50%, #C49AB5 100%);
+  background-attachment: fixed;
+  min-height: 100vh;
 }
 
 html {
@@ -51,6 +57,110 @@ html {
 
   .text-balance {
     text-wrap: balance;
+  }
+
+  /* ─── Glassmorphism ──────────────────────────── */
+  .glass-card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0.08));
+    backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    box-shadow: 0 8px 32px rgba(40, 20, 60, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+    color: #ffffff;
+  }
+
+  .glass-card-dark {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.06));
+    backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    box-shadow: 0 8px 32px rgba(40, 20, 60, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+  }
+
+  .glass-card-tinted {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.20), rgba(255, 255, 255, 0.07));
+    backdrop-filter: blur(22px) saturate(180%);
+    -webkit-backdrop-filter: blur(22px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 32px rgba(40, 20, 60, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.22);
+    color: #ffffff;
+  }
+
+  .glass-button {
+    background: rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(18px) saturate(180%);
+    -webkit-backdrop-filter: blur(18px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    box-shadow: 0 8px 24px rgba(40, 20, 60, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+    transition: all 0.3s ease;
+  }
+  .glass-button:hover {
+    background: rgba(255, 255, 255, 0.28);
+    border-color: rgba(255, 255, 255, 0.55);
+    box-shadow: 0 12px 32px rgba(40, 20, 60, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+    transform: translateY(-1px);
+  }
+
+  .glass-button-dark {
+    background: rgba(20, 10, 30, 0.35);
+    backdrop-filter: blur(18px) saturate(180%);
+    -webkit-backdrop-filter: blur(18px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    transition: all 0.3s ease;
+  }
+  .glass-button-dark:hover {
+    background: rgba(30, 15, 45, 0.55);
+    border-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+    transform: translateY(-1px);
+  }
+
+  .section-transparent {
+    background: transparent !important;
+  }
+
+  .section-light-tint {
+    background: rgba(255, 255, 255, 0.12) !important;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+
+  .section-dark-tint {
+    background: linear-gradient(135deg, rgba(40, 30, 60, 0.55), rgba(80, 30, 70, 0.55)) !important;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+
+  .section-ambient {
+    position: relative;
+    isolation: isolate;
+  }
+
+  .section-ambient::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background:
+      radial-gradient(circle at 15% 20%, rgba(126, 196, 190, 0.35), transparent 45%),
+      radial-gradient(circle at 85% 80%, rgba(196, 154, 181, 0.32), transparent 50%),
+      radial-gradient(circle at 50% 50%, rgba(168, 143, 173, 0.18), transparent 60%);
+    pointer-events: none;
+  }
+
+  .section-ambient-dark::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background:
+      radial-gradient(circle at 15% 20%, rgba(126, 196, 190, 0.38), transparent 45%),
+      radial-gradient(circle at 85% 30%, rgba(196, 154, 181, 0.34), transparent 50%),
+      radial-gradient(circle at 50% 80%, rgba(168, 143, 173, 0.28), transparent 55%),
+      radial-gradient(circle at 30% 70%, rgba(126, 196, 190, 0.22), transparent 45%);
+    pointer-events: none;
   }
 }
 

@@ -48,7 +48,7 @@ export default function RolesPage() {
   return (
     <>
       {/* Header */}
-      <section className="bg-brand-800 py-14 px-6">
+      <section className="section-dark-tint py-14 px-6">
         <AnimateOnScroll variant="fade-up" threshold={0.1}>
           <div className="max-w-7xl mx-auto text-center">
             <h1 className="text-white text-3xl sm:text-4xl md:text-5xl font-bold mb-3 font-display">Roles We Source</h1>
@@ -58,15 +58,15 @@ export default function RolesPage() {
       </section>
 
       {/* Content */}
-      <section className="py-12 px-6 bg-white">
+      <section className="py-12 px-6 section-ambient">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-10">
           {/* Sidebar */}
           <AnimateOnScroll variant="fade-right" duration={600} className="md:w-64 flex-shrink-0">
             <aside className="sticky top-24 space-y-6">
               <div>
-                <h3 className="font-semibold text-gray-900 mb-3 flex items-center justify-between text-sm">
+                <h3 className="font-semibold text-white mb-3 flex items-center justify-between text-sm">
                   Search
-                  {search && <button onClick={() => setSearch('')} className="text-black text-xs hover:underline">Clear</button>}
+                  {search && <button onClick={() => setSearch('')} className="text-white text-xs hover:underline">Clear</button>}
                 </h3>
                 <div className="relative">
                   <span className="absolute left-3 top-1/2 -translate-y-1/2"><SearchIcon /></span>
@@ -75,15 +75,15 @@ export default function RolesPage() {
                     placeholder="Search roles..."
                     value={search}
                     onChange={(e) => setSearch(e.target.value)}
-                    className="w-full pl-10 pr-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:outline-none focus:border-gray-500 focus:ring-1 focus:ring-black/15 bg-gray-50 transition-colors"
+                    className="glass-card-tinted w-full pl-10 pr-4 py-2.5 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-black/20 transition-colors"
                   />
                 </div>
               </div>
 
               <div>
-                <h3 className="font-semibold text-gray-900 mb-3 flex items-center justify-between text-sm">
+                <h3 className="font-semibold text-white mb-3 flex items-center justify-between text-sm">
                   Category
-                  {filter !== 'All' && <button onClick={() => setFilter('All')} className="text-black text-xs hover:underline">Clear</button>}
+                  {filter !== 'All' && <button onClick={() => setFilter('All')} className="text-white text-xs hover:underline">Clear</button>}
                 </h3>
                 <div className="flex flex-wrap gap-2">
                   {categories.map((c) => (
@@ -92,8 +92,8 @@ export default function RolesPage() {
                       onClick={() => setFilter(c)}
                       className={`px-3.5 py-1.5 rounded-full text-xs font-medium border transition-all ${
                         filter === c
-                          ? 'bg-black text-white border-black shadow-sm'
-                          : 'border-gray-200 text-gray-600 hover:border-gray-500 hover:text-black'
+                          ? 'bg-white/25 text-white border-white/40 shadow-sm backdrop-blur-md'
+                          : 'border-white/20 text-white/70 hover:border-white/50 hover:text-white'
                       }`}
                     >
                       {c}
@@ -108,10 +108,10 @@ export default function RolesPage() {
           <div className="flex-1">
             <AnimateOnScroll variant="fade-in" duration={400}>
               <div className="flex items-center justify-between mb-6">
-                <p className="text-sm text-gray-500">
+                <p className="text-sm text-white/60">
                   Showing {filtered.length} of {allRoles.length} roles
                 </p>
-                <select className="text-sm border border-gray-200 rounded-lg px-3 py-1.5 text-gray-600 focus:outline-none">
+                <select className="glass-card-tinted text-sm rounded-lg px-3 py-1.5 text-white/70 focus:outline-none">
                   <option>Sort by</option>
                   <option>Savings: High to Low</option>
                   <option>Savings: Low to High</option>
@@ -123,7 +123,7 @@ export default function RolesPage() {
             <div className="grid md:grid-cols-2 gap-6">
               {filtered.map((role, i) => (
                 <AnimateOnScroll key={role.title} variant="fade-up" delay={i * 60} duration={500} threshold={0.08}>
-                  <div className="border border-gray-100 rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300 cursor-pointer group hover:-translate-y-0.5 h-full">
+                  <div className="glass-card-tinted rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-300 cursor-pointer group hover:-translate-y-0.5 h-full">
                     <div className="h-44 relative overflow-hidden" style={{ background: GRADIENTS[i % GRADIENTS.length] }}>
                       <img
                         src={role.image}
@@ -132,30 +132,30 @@ export default function RolesPage() {
                         className="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
-                      <span className="absolute bottom-3 right-3 bg-white text-black text-xs font-bold px-3 py-1 rounded-full shadow-sm">
+                      <span className="absolute bottom-3 right-3 bg-black/40 backdrop-blur-md border border-white/30 text-white text-xs font-bold px-3 py-1 rounded-full shadow-sm">
                         {role.savings} average savings
                       </span>
                     </div>
                     <div className="p-6">
                       <div className="flex flex-wrap gap-2 mb-3">
-                        <span className="text-xs bg-gray-50 text-black px-2.5 py-1 rounded-full font-medium">{role.price}</span>
-                        <span className="text-xs bg-gray-100 text-gray-600 px-2.5 py-1 rounded-full font-medium">{role.category}</span>
+                        <span className="text-xs bg-black/40 backdrop-blur-md border border-white/30 text-white px-2.5 py-1 rounded-full font-medium">{role.price}</span>
+                        <span className="text-xs bg-white/10 backdrop-blur-md border border-white/20 text-white/80 px-2.5 py-1 rounded-full font-medium">{role.category}</span>
                       </div>
-                      <h3 className="font-bold text-gray-900 text-lg mb-4 group-hover:text-black transition-colors">
+                      <h3 className="font-bold text-white text-lg mb-4 group-hover:text-white transition-colors">
                         {role.title}
                       </h3>
                       <div className="space-y-2 text-sm">
                         <div className="flex flex-wrap justify-between gap-x-2">
-                          <span className="font-semibold text-black">Philippine Avg. Salary</span>
-                          <span className="text-gray-500">{role.salaries.PH}/month</span>
+                          <span className="font-semibold text-white">Philippine Avg. Salary</span>
+                          <span className="text-white/60">{role.salaries.PH}/month</span>
                         </div>
                         <div className="flex flex-wrap justify-between gap-x-2">
-                          <span className="font-semibold text-black">LatAm Avg. Salary</span>
-                          <span className="text-gray-500">{role.salaries.LatAm}/month</span>
+                          <span className="font-semibold text-white">LatAm Avg. Salary</span>
+                          <span className="text-white/60">{role.salaries.LatAm}/month</span>
                         </div>
                         <div className="flex flex-wrap justify-between gap-x-2">
-                          <span className="font-semibold text-black">South Africa Avg. Salary</span>
-                          <span className="text-gray-500">{role.salaries.SA}/month</span>
+                          <span className="font-semibold text-white">South Africa Avg. Salary</span>
+                          <span className="text-white/60">{role.salaries.SA}/month</span>
                         </div>
                       </div>
                     </div>
@@ -164,21 +164,11 @@ export default function RolesPage() {
               ))}
             </div>
 
-            {filtered.length > 0 && (
-              <AnimateOnScroll variant="fade-up" delay={200}>
-                <div className="text-center mt-12">
-                  <button className="bg-brand-800 hover:bg-brand-700 text-white px-8 py-3 rounded-xl font-semibold text-sm transition-colors inline-flex items-center gap-2">
-                    Load more <span className="text-lg leading-none">+</span>
-                  </button>
-                </div>
-              </AnimateOnScroll>
-            )}
-
             {filtered.length === 0 && (
               <AnimateOnScroll variant="fade-in">
                 <div className="text-center py-20">
-                  <p className="text-gray-400 text-lg">No roles match your search.</p>
-                  <button onClick={() => { setFilter('All'); setSearch(''); }} className="text-black text-sm mt-2 hover:underline">Clear filters</button>
+                  <p className="text-white/50 text-lg">No roles match your search.</p>
+                  <button onClick={() => { setFilter('All'); setSearch(''); }} className="text-white text-sm mt-2 hover:underline">Clear filters</button>
                 </div>
               </AnimateOnScroll>
             )}

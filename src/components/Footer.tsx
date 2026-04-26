@@ -58,7 +58,7 @@ const socials = [
 
 export default function Footer() {
   return (
-    <footer className="bg-black text-white pt-16 pb-8 border-t border-white/10">
+    <footer className="section-dark-tint text-white pt-16 pb-8 border-t border-white/15">
       <div className="max-w-7xl mx-auto px-6">
         {/* Logo */}
         <div className="mb-12">

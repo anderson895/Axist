@@ -36,10 +36,7 @@ export default function FindJobPage() {
   return (
     <>
       {/* ──── Hero ──────────────────────────────── */}
-      <section
-        className="py-24 px-6 text-center"
-        style={{ background: 'linear-gradient(160deg, #000000, #18181b)' }}
-      >
+      <section className="py-24 px-6 text-center section-dark-tint">
         <h1 className="text-white text-3xl sm:text-4xl md:text-6xl font-bold mb-5 font-display">
           Find Your Next Remote Job
         </h1>
@@ -55,16 +52,16 @@ export default function FindJobPage() {
             placeholder="Search roles, skills, or keywords..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-full pl-13 pr-6 py-4 rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-white/40 shadow-xl"
+            className="glass-card-tinted w-full pl-13 pr-6 py-4 rounded-full text-sm text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/40 shadow-xl"
             style={{ paddingLeft: '3rem' }}
           />
         </div>
       </section>
 
       {/* ──── Job listings ──────────────────────── */}
-      <section className="py-14 px-6 bg-white">
+      <section className="py-14 px-6 section-ambient">
         <div className="max-w-3xl mx-auto">
-          <p className="text-sm text-gray-500 mb-6">
+          <p className="text-sm text-white/70 mb-6">
             {filtered.length} open positions
           </p>
 
@@ -72,7 +69,7 @@ export default function FindJobPage() {
             {filtered.map((job, i) => (
               <div
                 key={i}
-                className="border border-gray-100 rounded-2xl p-4 sm:p-6 hover:shadow-lg transition-all duration-300 cursor-pointer group hover:border-gray-300"
+                className="glass-card-tinted rounded-2xl p-4 sm:p-6 hover:shadow-xl transition-all duration-300 cursor-pointer group"
               >
                 <div className="flex items-center justify-between gap-3">
                   <div className="flex items-center gap-3 min-w-0">
@@ -83,15 +80,15 @@ export default function FindJobPage() {
                       className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl object-cover flex-shrink-0 bg-gray-900"
                     />
                     <div className="min-w-0">
-                      <h3 className="font-bold text-gray-900 text-base sm:text-lg group-hover:text-black transition-colors truncate">
+                      <h3 className="font-bold text-white text-base sm:text-lg group-hover:text-white transition-colors truncate">
                         {job.title}
                       </h3>
-                      <p className="text-gray-500 text-xs sm:text-sm mt-0.5 truncate">{job.location}</p>
+                      <p className="text-white/70 text-xs sm:text-sm mt-0.5 truncate">{job.location}</p>
                     </div>
                   </div>
                   <div className="text-right flex-shrink-0">
-                    <span className="text-black font-semibold text-xs sm:text-sm whitespace-nowrap">{job.salary}</span>
-                    <p className="text-gray-400 text-xs mt-1">{job.type}</p>
+                    <span className="text-white font-semibold text-xs sm:text-sm whitespace-nowrap">{job.salary}</span>
+                    <p className="text-white/55 text-xs mt-1">{job.type}</p>
                   </div>
                 </div>
               </div>
@@ -100,23 +97,16 @@ export default function FindJobPage() {
 
           {filtered.length === 0 && (
             <div className="text-center py-20">
-              <p className="text-gray-400 text-lg">No jobs match your search.</p>
+              <p className="text-white/55 text-lg">No jobs match your search.</p>
               <button
                 onClick={() => setSearch('')}
-                className="text-black text-sm mt-2 hover:underline"
+                className="text-white text-sm mt-2 hover:underline"
               >
                 Clear search
               </button>
             </div>
           )}
 
-          {filtered.length > 0 && (
-            <div className="text-center mt-12">
-              <button className="bg-brand-800 hover:bg-brand-700 text-white px-8 py-3 rounded-xl font-semibold text-sm transition-colors inline-flex items-center gap-2">
-                Load more <span className="text-lg leading-none">+</span>
-              </button>
-            </div>
-          )}
         </div>
       </section>
     </>

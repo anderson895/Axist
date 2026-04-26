@@ -11,7 +11,7 @@ export default function Layout() {
   }, [pathname])
 
   return (
-    <div className="min-h-screen bg-white font-body">
+    <div className="min-h-screen font-body">
       <Navbar />
       <main>
         <Outlet />

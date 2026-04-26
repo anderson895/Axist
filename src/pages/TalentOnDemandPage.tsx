@@ -13,7 +13,7 @@ export default function TalentOnDemandPage() {
   return (
     <>
       {/* ──── Hero ──────────────────────────────── */}
-      <section className="py-16 md:py-20 px-6 overflow-hidden" style={{ background: 'linear-gradient(160deg, #000000 0%, #18181b 100%)' }}>
+      <section className="py-16 md:py-20 px-6 overflow-hidden section-dark-tint">
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-8 md:gap-14 items-center">
           <AnimateOnScroll variant="fade-right" duration={700}>
             <div>
@@ -26,7 +26,7 @@ export default function TalentOnDemandPage() {
               <p className="text-white/55 text-lg mb-10 leading-relaxed max-w-lg">
                 Get highly skilled offshore contractors with payroll and compliance handled for you. Perfect for scaling up a team without the up-front cost or onboarding headache.
               </p>
-              <button className="bg-white hover:bg-gray-200 text-black px-8 py-3.5 rounded-full font-semibold transition-all hover:shadow-lg hover:shadow-white/10 text-sm">
+              <button className="glass-button text-white px-8 py-3.5 rounded-full font-semibold text-sm">
                 Get Started Today
               </button>
               <p className="text-white/35 text-sm mt-4 italic">
@@ -40,8 +40,8 @@ export default function TalentOnDemandPage() {
             <div className="relative flex items-center justify-center">
               <div className="w-full max-w-md mx-auto space-y-5">
                 {/* Candidates card */}
-                <div className="bg-white rounded-2xl p-5 shadow-2xl">
-                  <p className="text-sm font-semibold text-gray-800 mb-3">Candidates Available</p>
+                <div className="glass-card-dark rounded-2xl p-5">
+                  <p className="text-sm font-semibold text-white/90 mb-3">Candidates Available</p>
                   <div className="flex -space-x-2">
                     {candidateAvatars.map((n, i) => (
                       <img
@@ -49,35 +49,35 @@ export default function TalentOnDemandPage() {
                         src={`https://i.pravatar.cc/80?img=${n}`}
                         alt={`Candidate ${i + 1}`}
                         loading="lazy"
-                        className="w-10 h-10 rounded-full object-cover border-2 border-white shadow-sm bg-gray-100"
+                        className="w-10 h-10 rounded-full object-cover border-2 border-white/30 shadow-sm bg-gray-100"
                         style={{ filter: 'grayscale(1)' }}
                       />
                     ))}
-                    <span className="w-10 h-10 rounded-full bg-black text-white text-xs flex items-center justify-center font-bold border-2 border-white shadow-sm">+42</span>
+                    <span className="w-10 h-10 rounded-full bg-white/20 backdrop-blur-md text-white text-xs flex items-center justify-center font-bold border-2 border-white/30 shadow-sm">+42</span>
                   </div>
                 </div>
 
                 {/* Contract card */}
-                <div className="bg-white rounded-2xl p-5 shadow-2xl">
+                <div className="glass-card-dark rounded-2xl p-5">
                   <div className="flex items-center justify-between mb-3">
-                    <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider">Contract Details</p>
-                    <span className="text-gray-300">•••</span>
+                    <p className="text-xs font-semibold text-white/50 uppercase tracking-wider">Contract Details</p>
+                    <span className="text-white/40">•••</span>
                   </div>
                   <div className="grid grid-cols-3 gap-4 text-sm">
                     <div>
-                      <span className="text-gray-400 text-xs">Location</span>
-                      <p className="font-bold text-gray-800 mt-0.5 flex items-center gap-1">
+                      <span className="text-white/50 text-xs">Location</span>
+                      <p className="font-bold text-white mt-0.5 flex items-center gap-1">
                         <span className="material-icons" style={{ fontSize: '16px' }}>public</span>
                         Brazil
                       </p>
                     </div>
                     <div>
-                      <span className="text-gray-400 text-xs">Team</span>
-                      <p className="font-bold text-gray-800 mt-0.5">Design</p>
+                      <span className="text-white/50 text-xs">Team</span>
+                      <p className="font-bold text-white mt-0.5">Design</p>
                     </div>
                     <div>
-                      <span className="text-gray-400 text-xs">Compensation</span>
-                      <p className="font-bold text-gray-800 mt-0.5">$3,000</p>
+                      <span className="text-white/50 text-xs">Compensation</span>
+                      <p className="font-bold text-white mt-0.5">$3,000</p>
                     </div>
                   </div>
                 </div>
@@ -88,22 +88,22 @@ export default function TalentOnDemandPage() {
       </section>
 
       {/* ──── Benefits ──────────────────────────── */}
-      <section className="py-24 px-6 bg-white">
+      <section className="py-24 px-6 section-ambient">
         <div className="max-w-5xl mx-auto text-center">
           <AnimateOnScroll variant="fade-up">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-14 font-display">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-14 font-display drop-shadow-lg">
               Why Talent On-Demand?
             </h2>
           </AnimateOnScroll>
           <div className="grid md:grid-cols-3 gap-8">
             {benefits.map((item, i) => (
               <AnimateOnScroll key={i} variant="fade-up" delay={i * 100} duration={550}>
-                <div className="p-8 rounded-2xl bg-gray-50 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 group h-full">
+                <div className="glass-card-tinted p-8 rounded-2xl hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group h-full">
                   <div className="flex justify-center mb-6 opacity-70 group-hover:opacity-100 transition-opacity">
                     {item.icon}
                   </div>
-                  <h3 className="font-bold text-gray-900 text-lg mb-3">{item.title}</h3>
-                  <p className="text-gray-500 text-sm leading-relaxed">{item.desc}</p>
+                  <h3 className="font-bold text-white text-lg mb-3">{item.title}</h3>
+                  <p className="text-white/70 text-sm leading-relaxed">{item.desc}</p>
                 </div>
               </AnimateOnScroll>
             ))}
@@ -112,8 +112,14 @@ export default function TalentOnDemandPage() {
       </section>
 
       {/* ──── How it works ──────────────────────── */}
-      <section className="bg-black py-20 px-6">
-        <div className="max-w-5xl mx-auto text-center">
+      <section className="relative section-dark-tint py-20 px-6 section-ambient-dark overflow-hidden">
+        {/* Ambient color glows */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-10 left-10 w-96 h-96 rounded-full" style={{ background: 'radial-gradient(circle, rgba(126, 196, 190, 0.45), transparent 70%)' }} />
+          <div className="absolute bottom-10 right-20 w-[28rem] h-[28rem] rounded-full" style={{ background: 'radial-gradient(circle, rgba(196, 154, 181, 0.40), transparent 70%)' }} />
+          <div className="absolute top-1/2 left-1/3 w-80 h-80 rounded-full" style={{ background: 'radial-gradient(circle, rgba(168, 143, 173, 0.35), transparent 70%)' }} />
+        </div>
+        <div className="max-w-5xl mx-auto text-center relative z-10">
           <AnimateOnScroll variant="fade-up">
             <h2 className="text-white text-3xl sm:text-4xl md:text-5xl font-bold mb-4 font-display">How It Works</h2>
             <p className="text-white/50 mb-14 max-w-xl mx-auto">Three simple steps to build your on-demand global team.</p>
@@ -125,7 +131,7 @@ export default function TalentOnDemandPage() {
               { step: '03', title: 'Start Working', desc: 'Your contractor starts immediately. Scale up or down anytime with no long-term commitment.' },
             ].map((s, i) => (
               <AnimateOnScroll key={i} variant="fade-up" delay={i * 100} duration={550}>
-                <div className="text-left border border-white/15 bg-white/5 rounded-2xl p-7 transition-all duration-300 hover:border-white/30 hover:-translate-y-1 h-full">
+                <div className="glass-card-dark text-left rounded-2xl p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl h-full">
                   <span className="text-white text-3xl font-bold font-display">{s.step}</span>
                   <h3 className="text-white font-bold text-lg mt-4 mb-3">{s.title}</h3>
                   <p className="text-white/55 text-sm leading-relaxed">{s.desc}</p>

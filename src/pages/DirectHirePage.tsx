@@ -34,16 +34,16 @@ export default function DirectHirePage() {
   return (
     <>
       {/* ──── Hero ──────────────────────────────── */}
-      <section className="py-24 px-6 bg-white">
+      <section className="py-24 px-6 section-ambient">
         <div className="max-w-4xl mx-auto text-center">
           <AnimateOnScroll variant="fade-up">
-            <span className="inline-block border border-black text-black text-xs font-semibold px-5 py-1.5 rounded-full mb-6">
+            <span className="inline-block border border-white/40 text-white/90 text-xs font-semibold px-5 py-1.5 rounded-full mb-6 backdrop-blur-md bg-white/10">
               Axis Direct Hire
             </span>
-            <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold text-gray-900 mb-5 font-display leading-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold text-white mb-5 font-display leading-tight drop-shadow-lg">
               What Axis Direct Hire Can Do For You
             </h1>
-            <p className="text-gray-500 mb-16 text-lg">
+            <p className="text-white/80 mb-16 text-lg">
               Here's why companies choose us over traditional recruiters.
             </p>
           </AnimateOnScroll>
@@ -51,12 +51,12 @@ export default function DirectHirePage() {
           <div className="grid md:grid-cols-3 gap-6">
             {features.map((f, i) => (
               <AnimateOnScroll key={i} variant="fade-up" delay={i * 100} duration={550}>
-                <div className="bg-gray-50 rounded-2xl p-8 text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-1 group h-full">
+                <div className="glass-card-tinted rounded-2xl p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group h-full">
                   <div className="flex justify-center mb-6 opacity-70 group-hover:opacity-100 transition-opacity">
                     {f.icon}
                   </div>
-                  <h3 className="font-bold text-gray-900 mb-3 text-lg">{f.title}</h3>
-                  <p className="text-gray-500 text-sm leading-relaxed">{f.desc}</p>
+                  <h3 className="font-bold text-white mb-3 text-lg">{f.title}</h3>
+                  <p className="text-white/70 text-sm leading-relaxed">{f.desc}</p>
                 </div>
               </AnimateOnScroll>
             ))}

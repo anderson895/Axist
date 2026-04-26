@@ -28,11 +28,11 @@ export default function LandingPage() {
   return (
     <>
       {/* ──── Hero ──────────────────────────────────────── */}
-      <section className="relative overflow-hidden" style={{ background: 'linear-gradient(160deg, #000000 0%, #09090b 40%, #18181b 100%)' }}>
+      <section className="relative overflow-hidden section-dark-tint">
         {/* Ambient glows */}
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-20 left-10 w-72 h-72 rounded-full animate-pulse-slow" style={{ background: 'radial-gradient(circle, rgba(255,255,255,0.25) 0%, transparent 70%)' }} />
-          <div className="absolute bottom-10 right-20 w-96 h-96 rounded-full animate-pulse-slow" style={{ background: 'radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%)', animationDelay: '2s' }} />
+          <div className="absolute top-20 left-10 w-72 h-72 rounded-full animate-pulse-slow" style={{ background: 'radial-gradient(circle, rgba(126,196,190,0.45) 0%, transparent 70%)' }} />
+          <div className="absolute bottom-10 right-20 w-96 h-96 rounded-full animate-pulse-slow" style={{ background: 'radial-gradient(circle, rgba(196,154,181,0.40) 0%, transparent 70%)', animationDelay: '2s' }} />
         </div>
         <div className="max-w-4xl mx-auto text-center py-20 md:py-44 px-6 relative">
           <p className="text-white/40 text-sm font-semibold tracking-widest uppercase mb-5 animate-fade-in-up" style={{ animationDelay: '0ms' }}>
@@ -49,13 +49,13 @@ export default function LandingPage() {
       </section>
 
       {/* ──── Security ──────────────────────────────────── */}
-      <section className="py-24 px-6 bg-white">
+      <section className="py-24 px-6 section-ambient">
         <div className="max-w-3xl mx-auto text-center">
           <AnimateOnScroll variant="fade-up">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-5 font-display">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-5 font-display drop-shadow-lg">
               Axis is Secure by Design
             </h2>
-            <p className="text-gray-500 mb-14 max-w-xl mx-auto leading-relaxed">
+            <p className="text-white/80 mb-14 max-w-xl mx-auto leading-relaxed">
               Thousands of customers trust Axis to process their data securely and reliably. Our robust security and privacy practices are deeply integrated into everything we do. Axis is fully SOC2, ISO27001, and GDPR compliant.
             </p>
           </AnimateOnScroll>
@@ -63,13 +63,13 @@ export default function LandingPage() {
             {['SOC 2\nType II', 'ISO\n27001', 'GDPR\nCompliant'].map((badge, i) => (
               <AnimateOnScroll key={badge} variant="zoom-in" delay={i * 100} duration={500}>
                 <div className="relative">
-                  <div className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-full flex items-center justify-center border-[4px] sm:border-[5px] border-gray-300 shadow-lg transition-transform duration-300 hover:scale-105 hover:shadow-xl" style={{ background: 'linear-gradient(135deg, #000000, #3f3f46)' }}>
+                  <div className="glass-card w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-full flex items-center justify-center transition-transform duration-300 hover:scale-105 hover:shadow-xl">
                     <span className="text-white text-xs font-bold text-center leading-tight whitespace-pre-line">
                       {badge}
                     </span>
                   </div>
-                  <div className="absolute -top-1 -right-1 w-4 h-4 bg-gray-300 rounded-full" />
-                  <div className="absolute -bottom-1 -left-1 w-4 h-4 bg-gray-300 rounded-full" />
+                  <div className="absolute -top-1 -right-1 w-4 h-4 bg-white/60 backdrop-blur-md border border-white/70 rounded-full" />
+                  <div className="absolute -bottom-1 -left-1 w-4 h-4 bg-white/60 backdrop-blur-md border border-white/70 rounded-full" />
                 </div>
               </AnimateOnScroll>
             ))}
@@ -81,24 +81,24 @@ export default function LandingPage() {
       </section>
 
       {/* ──── Did you know? ──────────────────────────────── */}
-      <section className="py-24 px-6 bg-gray-50 overflow-hidden">
+      <section className="py-24 px-6 overflow-hidden section-ambient">
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-8 md:gap-14 items-center">
           <AnimateOnScroll variant="fade-right" duration={700}>
             <div>
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 font-display">
+              <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 font-display drop-shadow-lg">
                 Did you know?
               </h2>
-              <p className="text-gray-600 text-lg mb-8 leading-relaxed">
+              <p className="text-white/85 text-lg mb-8 leading-relaxed">
                 For as little as $12,000 per year, you can hire highly skilled, full-time remote employees who offer:
               </p>
               <ul className="space-y-4">
                 {benefits.map((item, i) => (
                   <AnimateOnScroll key={i} variant="fade-right" delay={i * 80} duration={500}>
                     <li className="flex items-start gap-3">
-                      <span className="w-5 h-5 rounded-full bg-black flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <span className="glass-card w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                         <CheckIcon />
                       </span>
-                      <span className="text-gray-700">{item}</span>
+                      <span className="text-white/90">{item}</span>
                     </li>
                   </AnimateOnScroll>
                 ))}
@@ -115,7 +115,7 @@ export default function LandingPage() {
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-tr from-black/40 via-transparent to-transparent" />
-                <div className="absolute top-4 right-4 bg-white rounded-xl px-3 py-2 shadow-lg text-xs font-bold text-black">
+                <div className="glass-card absolute top-4 right-4 rounded-xl px-3 py-2 text-xs font-bold text-white">
                   From $12k/yr
                 </div>
               </div>
@@ -132,16 +132,16 @@ export default function LandingPage() {
       />
 
       {/* ──── Roles carousel ───────────────────────────── */}
-      <section className="py-24 px-6 bg-white">
+      <section className="py-24 px-6 section-ambient">
         <div className="max-w-7xl mx-auto">
           <AnimateOnScroll variant="fade-up" className="text-center mb-14">
-            <span className="inline-block border border-gray-300 text-gray-600 text-xs font-semibold px-4 py-1.5 rounded-full mb-4">
+            <span className="inline-block border border-white/40 text-white/90 text-xs font-semibold px-4 py-1.5 rounded-full mb-4 backdrop-blur-md bg-white/10">
               What's possible
             </span>
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-3 font-display">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-3 font-display drop-shadow-lg">
               Lower your costs by up to 80%
             </h2>
-            <p className="text-gray-500">Here are some of the roles we can fill with amazing people</p>
+            <p className="text-white/80">Here are some of the roles we can fill with amazing people</p>
           </AnimateOnScroll>
           <AnimateOnScroll variant="fade-up" delay={100}>
             <RoleCarousel roles={landingRoles} />
@@ -149,7 +149,7 @@ export default function LandingPage() {
           <AnimateOnScroll variant="fade-up" delay={200} className="text-center mt-12">
             <Link
               to="/roles"
-              className="inline-block bg-black hover:bg-gray-800 text-white px-8 py-3.5 rounded-full font-semibold transition-all hover:shadow-lg text-sm"
+              className="glass-button inline-block text-white px-8 py-3.5 rounded-full font-semibold text-sm"
             >
               View All Roles
             </Link>

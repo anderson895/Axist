@@ -15,7 +15,7 @@ export default function HiringPHPage() {
   return (
     <>
       {/* ──── Hero ──────────────────────────────── */}
-      <section className="py-14 md:py-20 px-6 overflow-hidden" style={{ background: 'linear-gradient(160deg, #000000, #18181b)' }}>
+      <section className="py-14 md:py-20 px-6 overflow-hidden section-dark-tint">
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-8 md:gap-14 items-center">
           <AnimateOnScroll variant="fade-right" duration={700}>
             <div>
@@ -55,14 +55,14 @@ export default function HiringPHPage() {
       </section>
 
       {/* ──── Why Philippines ──────────────────── */}
-      <section className="py-24 px-6 bg-white">
+      <section className="py-24 px-6 section-ambient">
         <div className="max-w-6xl mx-auto">
           <AnimateOnScroll variant="fade-up">
             <div className="text-center mb-14">
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 font-display">
+              <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 font-display drop-shadow-lg">
                 Why Hire in the Philippines?
               </h2>
-              <p className="text-gray-500 max-w-xl mx-auto">
+              <p className="text-white/80 max-w-xl mx-auto">
                 The Philippines consistently ranks as one of the best countries for offshore hiring.
               </p>
             </div>
@@ -70,10 +70,10 @@ export default function HiringPHPage() {
           <div className="grid md:grid-cols-3 gap-6">
             {whyPhilippines.map((item, i) => (
               <AnimateOnScroll key={i} variant="fade-up" delay={i * 80} duration={550} threshold={0.08}>
-                <div className="bg-gray-50 rounded-2xl p-7 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 h-full">
-                  <span className="material-icons text-black mb-4 block" style={{ fontSize: '36px' }}>{item.icon}</span>
-                  <h3 className="font-bold text-gray-900 mb-2">{item.title}</h3>
-                  <p className="text-gray-500 text-sm leading-relaxed">{item.desc}</p>
+                <div className="glass-card-tinted rounded-2xl p-7 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 h-full">
+                  <span className="material-icons text-white mb-4 block" style={{ fontSize: '36px' }}>{item.icon}</span>
+                  <h3 className="font-bold text-white mb-2">{item.title}</h3>
+                  <p className="text-white/70 text-sm leading-relaxed">{item.desc}</p>
                 </div>
               </AnimateOnScroll>
             ))}
@@ -82,16 +82,16 @@ export default function HiringPHPage() {
       </section>
 
       {/* ──── Roles ──────────────────────────────── */}
-      <section className="py-24 px-6 bg-gray-50">
+      <section className="py-24 px-6 section-ambient">
         <div className="max-w-7xl mx-auto">
           <AnimateOnScroll variant="fade-up" className="text-center mb-14">
-            <span className="inline-block border border-gray-300 text-gray-600 text-xs font-semibold px-4 py-1.5 rounded-full mb-4">
+            <span className="inline-block border border-white/40 text-white/90 text-xs font-semibold px-4 py-1.5 rounded-full mb-4 backdrop-blur-md bg-white/10">
               What's possible
             </span>
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-3 font-display">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-3 font-display drop-shadow-lg">
               Lower your costs by up to 86%
             </h2>
-            <p className="text-gray-500">Here are some of the roles we can fill with amazing people</p>
+            <p className="text-white/80">Here are some of the roles we can fill with amazing people</p>
           </AnimateOnScroll>
           <AnimateOnScroll variant="fade-up" delay={100}>
             <RoleCarousel roles={hiringPHRoles} />

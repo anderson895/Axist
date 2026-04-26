@@ -57,7 +57,6 @@ src/
 │   ├── TalentOnDemandPage.tsx
 │   ├── RolesPage.tsx
 │   ├── PricingPage.tsx
-│   ├── BlogPage.tsx
 │   ├── HiringPHPage.tsx
 │   ├── SavingsPage.tsx
 │   └── FindJobPage.tsx

@@ -79,7 +79,7 @@ const RoleCarousel: React.FC<RoleCarouselProps> = ({ roles }) => {
         {roles.map((role, i) => (
           <div
             key={i}
-            className="min-w-[260px] max-w-[260px] bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden flex-shrink-0 hover:shadow-xl transition-all duration-300 group cursor-pointer hover:-translate-y-1"
+            className="glass-card-tinted min-w-[260px] max-w-[260px] rounded-2xl overflow-hidden flex-shrink-0 hover:shadow-2xl transition-all duration-300 group cursor-pointer hover:-translate-y-1"
           >
             <div
               className="relative h-40 overflow-hidden"
@@ -92,20 +92,20 @@ const RoleCarousel: React.FC<RoleCarouselProps> = ({ roles }) => {
                 className="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
-              <span className="absolute bottom-3 left-3 bg-white text-black text-xs font-semibold px-3 py-1 rounded-full shadow-sm">
+              <span className="absolute bottom-3 left-3 bg-black/40 backdrop-blur-md border border-white/30 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-sm">
                 {role.savings} average savings
               </span>
               {role.price && (
-                <span className="absolute top-3 right-3 bg-white/90 text-black text-xs font-bold px-2.5 py-1 rounded-full">
+                <span className="absolute top-3 right-3 bg-black/40 backdrop-blur-md border border-white/30 text-white text-xs font-bold px-2.5 py-1 rounded-full">
                   {role.price}
                 </span>
               )}
             </div>
             <div className="p-5">
-              <h3 className="font-bold text-gray-900 mb-2 group-hover:text-black transition-colors">
+              <h3 className="font-bold text-white mb-2 group-hover:text-white transition-colors">
                 {role.title}
               </h3>
-              <p className="text-gray-500 text-sm leading-relaxed line-clamp-2">{role.desc}</p>
+              <p className="text-white/70 text-sm leading-relaxed line-clamp-2">{role.desc}</p>
             </div>
           </div>
         ))}
@@ -116,14 +116,14 @@ const RoleCarousel: React.FC<RoleCarouselProps> = ({ roles }) => {
         <button
           onClick={() => scroll(-1)}
           disabled={atStart}
-          className="w-10 h-10 rounded-full border-2 border-black flex items-center justify-center text-black hover:bg-black hover:text-white transition-all disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:bg-transparent disabled:hover:text-black"
+          className="w-10 h-10 rounded-full border-2 border-white/60 flex items-center justify-center text-white hover:bg-white/20 hover:border-white transition-all disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:bg-transparent"
           aria-label="Scroll left"
         >
           <ChevronLeft />
         </button>
-        <div className="w-64 h-1 bg-gray-200 rounded-full overflow-hidden relative">
+        <div className="w-64 h-1 bg-white/20 rounded-full overflow-hidden relative">
           <div
-            className="absolute h-full bg-black rounded-full transition-[left,width] duration-100 ease-out"
+            className="absolute h-full bg-white rounded-full transition-[left,width] duration-100 ease-out"
             style={{
               width: `${thumb.width}%`,
               left: `${thumb.left}%`,
@@ -133,7 +133,7 @@ const RoleCarousel: React.FC<RoleCarouselProps> = ({ roles }) => {
         <button
           onClick={() => scroll(1)}
           disabled={atEnd}
-          className="w-10 h-10 rounded-full border-2 border-black flex items-center justify-center text-black hover:bg-black hover:text-white transition-all disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:bg-transparent disabled:hover:text-black"
+          className="w-10 h-10 rounded-full border-2 border-white/60 flex items-center justify-center text-white hover:bg-white/20 hover:border-white transition-all disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:bg-transparent"
           aria-label="Scroll right"
         >
           <ChevronRight />

@@ -28,7 +28,7 @@ export default function PricingPage() {
   return (
     <>
       {/* ──── Hero ──────────────────────────────── */}
-      <section className="py-24 px-6 text-center" style={{ background: 'linear-gradient(160deg, #000000, #18181b)' }}>
+      <section className="py-24 px-6 text-center section-dark-tint">
         <AnimateOnScroll variant="fade-up" threshold={0.1}>
           <h1 className="text-white text-3xl sm:text-4xl md:text-6xl font-bold leading-tight max-w-4xl mx-auto font-display">
             Last month we helped over 275 companies save 80% on hiring costs.
@@ -37,32 +37,32 @@ export default function PricingPage() {
       </section>
 
       {/* ──── Pricing breakdown ─────────────────── */}
-      <section className="py-24 px-6 bg-white">
+      <section className="py-24 px-6 section-ambient">
         <div className="max-w-5xl mx-auto text-center">
           <AnimateOnScroll variant="fade-up">
-            <span className="inline-block border border-gray-300 text-gray-600 text-xs font-semibold px-4 py-1.5 rounded-full mb-4">
+            <span className="inline-block border border-white/40 text-white/90 text-xs font-semibold px-4 py-1.5 rounded-full mb-4 backdrop-blur-md bg-white/10">
               Pricing
             </span>
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 font-display">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 font-display drop-shadow-lg">
               How Direct Hire Pricing Works
             </h2>
-            <p className="text-gray-500 max-w-xl mx-auto mb-16 leading-relaxed">
+            <p className="text-white/80 max-w-xl mx-auto mb-16 leading-relaxed">
               Pay only when you hire — no subscriptions, no retainers, no risk. Here's exactly what to expect when you work with Axis.
             </p>
           </AnimateOnScroll>
 
           {/* Timeline */}
           <div className="hidden md:block relative mb-16">
-            <div className="absolute top-6 left-[12%] right-[12%] h-0.5 bg-gray-200" />
+            <div className="absolute top-6 left-[12%] right-[12%] h-0.5 bg-white/20" />
             <div className="grid grid-cols-4 gap-6">
               {pricingSteps.map((step, i) => (
                 <AnimateOnScroll key={i} variant="fade-up" delay={i * 100} duration={500}>
                   <div className="flex flex-col items-center text-center relative z-10">
-                    <div className="w-12 h-12 rounded-xl border-2 border-black bg-white flex items-center justify-center mb-5 shadow-sm text-black transition-transform duration-300 hover:scale-110 hover:shadow-md">
+                    <div className="glass-card w-12 h-12 rounded-xl flex items-center justify-center mb-5 text-white transition-transform duration-300 hover:scale-110 hover:shadow-md">
                       {step.icon}
                     </div>
-                    <h3 className="font-bold text-gray-900 text-sm mb-2">{step.title}</h3>
-                    <p className="text-gray-500 text-xs leading-relaxed">{step.desc}</p>
+                    <h3 className="font-bold text-white text-sm mb-2">{step.title}</h3>
+                    <p className="text-white/70 text-xs leading-relaxed">{step.desc}</p>
                   </div>
                 </AnimateOnScroll>
               ))}
@@ -74,12 +74,12 @@ export default function PricingPage() {
             {pricingSteps.map((step, i) => (
               <AnimateOnScroll key={i} variant="fade-right" delay={i * 80} duration={500}>
                 <div className="flex gap-4 text-left">
-                  <div className="w-10 h-10 rounded-lg border-2 border-black bg-white flex items-center justify-center flex-shrink-0 text-black">
+                  <div className="glass-card w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 text-white">
                     {step.icon}
                   </div>
                   <div>
-                    <h3 className="font-bold text-gray-900 text-sm mb-1">{step.title}</h3>
-                    <p className="text-gray-500 text-xs leading-relaxed">{step.desc}</p>
+                    <h3 className="font-bold text-white text-sm mb-1">{step.title}</h3>
+                    <p className="text-white/70 text-xs leading-relaxed">{step.desc}</p>
                   </div>
                 </div>
               </AnimateOnScroll>
@@ -87,7 +87,7 @@ export default function PricingPage() {
           </div>
 
           <AnimateOnScroll variant="zoom-in" delay={300}>
-            <button className="bg-black hover:bg-gray-800 text-white px-8 py-3.5 rounded-full font-semibold text-sm transition-all hover:shadow-lg hover:shadow-black/15">
+            <button className="glass-button text-white px-8 py-3.5 rounded-full font-semibold text-sm">
               Get Started
             </button>
           </AnimateOnScroll>
@@ -95,8 +95,14 @@ export default function PricingPage() {
       </section>
 
       {/* ──── Talent showcase ──────────────────── */}
-      <section className="bg-brand-800 py-20 px-6">
-        <div className="max-w-7xl mx-auto">
+      <section className="relative section-dark-tint py-20 px-6 section-ambient-dark overflow-hidden">
+        {/* Ambient color glows */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-10 left-10 w-96 h-96 rounded-full" style={{ background: 'radial-gradient(circle, rgba(126, 196, 190, 0.45), transparent 70%)' }} />
+          <div className="absolute bottom-10 right-20 w-[28rem] h-[28rem] rounded-full" style={{ background: 'radial-gradient(circle, rgba(196, 154, 181, 0.40), transparent 70%)' }} />
+          <div className="absolute top-1/2 right-1/3 w-80 h-80 rounded-full" style={{ background: 'radial-gradient(circle, rgba(168, 143, 173, 0.35), transparent 70%)' }} />
+        </div>
+        <div className="max-w-7xl mx-auto relative z-10">
           <AnimateOnScroll variant="fade-up">
             <h2 className="text-white text-center text-4xl md:text-5xl font-bold mb-14 font-display">
               Meet Our Talent
@@ -106,8 +112,7 @@ export default function PricingPage() {
             {candidates.map((c, i) => (
               <AnimateOnScroll key={i} variant="fade-up" delay={i * 80} duration={500}>
                 <div
-                  className="min-w-[220px] rounded-2xl overflow-hidden flex-shrink-0 group cursor-pointer hover:-translate-y-1 transition-transform duration-300"
-                  style={{ background: GRADIENTS[i % GRADIENTS.length] }}
+                  className="glass-card-dark min-w-[220px] rounded-2xl overflow-hidden flex-shrink-0 group cursor-pointer hover:-translate-y-1 hover:shadow-2xl transition-all duration-300"
                 >
                   <div className="h-56 relative overflow-hidden">
                     <img
