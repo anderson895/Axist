@@ -47,6 +47,13 @@ export default function LandingPage() {
         </div>
       </section>
 
+      {/* ──── Process ──────────────────────────────────── */}
+      <ProcessSteps
+        title="Our Process"
+        subtitle="Fast, supported, and flexible. We help you hire top global talent without the usual complexity."
+        steps={steps}
+      />
+
       {/* ──── Did you know? ──────────────────────────────── */}
       <section className="py-24 px-6 overflow-hidden section-ambient">
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-8 md:gap-14 items-center">
@@ -90,13 +97,6 @@ export default function LandingPage() {
           </AnimateOnScroll>
         </div>
       </section>
-
-      {/* ──── Process ──────────────────────────────────── */}
-      <ProcessSteps
-        title="Our Process"
-        subtitle="Fast, supported, and flexible. We help you hire top global talent without the usual complexity."
-        steps={steps}
-      />
 
       {/* ──── Roles carousel ───────────────────────────── */}
       <section className="py-24 px-6 section-ambient">
