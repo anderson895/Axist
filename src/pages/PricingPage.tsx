@@ -1,5 +1,6 @@
 import { DollarSign, HandshakeIcon, ShieldCheck, UsersIcon } from '../components/Icons'
 import AnimateOnScroll from '../components/AnimateOnScroll'
+import HiringModelComparison from '../components/HiringModelComparison'
 
 const pricingSteps = [
   { icon: <DollarSign size={24} />, title: 'Refundable Deposit and Search', desc: 'We take a $500 deposit to begin a search and start meeting candidates. This deposit is deducted from your final recruiting fee.' },
@@ -141,6 +142,8 @@ export default function PricingPage() {
           </AnimateOnScroll>
         </div>
       </section>
+
+      <HiringModelComparison highlight="product" />
     </>
   )
 }

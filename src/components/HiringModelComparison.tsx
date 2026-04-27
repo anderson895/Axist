@@ -13,7 +13,7 @@ const comparisonRows = [
 ]
 
 interface Props {
-  highlight: 'direct' | 'onDemand'
+  highlight: 'direct' | 'onDemand' | 'product'
 }
 
 const ACTIVE_BG = 'bg-gray-200/85 backdrop-blur-md'
@@ -22,6 +22,7 @@ const INACTIVE_BG = 'bg-white/10'
 export default function HiringModelComparison({ highlight }: Props) {
   const directActive = highlight === 'direct'
   const onDemandActive = highlight === 'onDemand'
+  const productActive = highlight === 'product'
 
   return (
     <section className="py-24 px-6 section-ambient">
@@ -39,7 +40,11 @@ export default function HiringModelComparison({ highlight }: Props) {
           {/* Desktop table */}
           <div className="hidden sm:grid grid-cols-3 glass-card-tinted rounded-2xl overflow-hidden">
             {/* Header row */}
-            <div className={`p-5 text-white/85 text-sm font-medium border-b border-white/15 ${INACTIVE_BG}`}>
+            <div
+              className={`p-5 text-sm font-medium border-b border-white/15 ${
+                productActive ? `${ACTIVE_BG} text-gray-900 font-bold shadow-xl` : `${INACTIVE_BG} text-white/85`
+              }`}
+            >
               Product comparison
             </div>
             <div
@@ -62,7 +67,11 @@ export default function HiringModelComparison({ highlight }: Props) {
               const border = isLast ? '' : 'border-b border-white/10'
               return (
                 <div key={row.label} className="contents">
-                  <div className={`p-5 font-semibold text-white text-sm ${border} ${INACTIVE_BG}`}>
+                  <div
+                    className={`p-5 font-semibold text-sm ${border} ${
+                      productActive ? `${ACTIVE_BG} text-gray-900` : `${INACTIVE_BG} text-white`
+                    }`}
+                  >
                     {row.label}
                   </div>
                   <div
@@ -88,7 +97,9 @@ export default function HiringModelComparison({ highlight }: Props) {
           <div className="sm:hidden space-y-4">
             {comparisonRows.map((row) => (
               <div key={row.label} className="glass-card-tinted rounded-2xl p-5">
-                <h3 className="font-bold text-white text-sm mb-4">{row.label}</h3>
+                <div className={`rounded-xl px-3 py-2 mb-4 inline-block ${productActive ? ACTIVE_BG + ' shadow-lg' : ''}`}>
+                  <h3 className={`font-bold text-sm ${productActive ? 'text-gray-900' : 'text-white'}`}>{row.label}</h3>
+                </div>
                 <div className="space-y-3">
                   <div className={`rounded-xl p-3 ${directActive ? ACTIVE_BG + ' shadow-lg' : INACTIVE_BG}`}>
                     <p className={`text-xs mb-1 font-semibold tracking-wide ${directActive ? 'text-gray-700' : 'text-white/65'}`}>DIRECT HIRE</p>
