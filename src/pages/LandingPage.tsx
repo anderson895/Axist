@@ -23,6 +23,12 @@ const benefits = [
   'Dedicated, full-time commitment to your company',
 ]
 
+const wherewecomein = [
+  { title: 'Hassle-free remote hiring.', desc: 'Our professional headhunting team will find, screen, and vet candidates for you.' },
+  { title: 'No recurring fees or hidden costs.', desc: "Once you've selected the perfect candidate, a single, straightforward fee is all you'll pay." },
+  { title: 'Top remote talent, guaranteed.', desc: "Our 6-month Perfect Hire Guarantee gives you plenty of time to evaluate hires and see if they're a good fit." },
+]
+
 export default function LandingPage() {
   return (
     <>
@@ -93,6 +99,52 @@ export default function LandingPage() {
                   From $12k/yr
                 </div>
               </div>
+            </div>
+          </AnimateOnScroll>
+        </div>
+      </section>
+
+      {/* ──── That's where we come in ────────────── */}
+      <section className="py-24 px-6 overflow-hidden section-ambient">
+        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-8 md:gap-14 items-center">
+          {/* Image first on desktop */}
+          <AnimateOnScroll variant="fade-up" duration={700} delay={150} className="md:order-1">
+            <div className="relative w-full">
+              <div className="aspect-[4/3] w-full rounded-3xl overflow-hidden relative bg-gray-900">
+                <img
+                  src="https://picsum.photos/seed/axis-headhunting-team/960/720?grayscale"
+                  alt="Remote professional at work"
+                  loading="lazy"
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-tr from-black/40 via-transparent to-transparent" />
+              </div>
+            </div>
+          </AnimateOnScroll>
+
+          <AnimateOnScroll variant="fade-right" duration={700} className="md:order-2">
+            <div>
+              <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 font-display drop-shadow-lg leading-tight">
+                That's where<br className="hidden sm:block" /> we come in.
+              </h2>
+              <p className="text-white/85 text-lg mb-8 leading-relaxed">
+                Let us find your next favorite employee.
+              </p>
+              <ul className="space-y-5">
+                {wherewecomein.map((item, i) => (
+                  <AnimateOnScroll key={i} variant="fade-right" delay={i * 80} duration={500}>
+                    <li className="flex items-start gap-3">
+                      <span className="glass-card w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                        <CheckIcon />
+                      </span>
+                      <div>
+                        <p className="text-white font-bold">{item.title}</p>
+                        <p className="text-white/75 text-sm leading-relaxed mt-0.5">{item.desc}</p>
+                      </div>
+                    </li>
+                  </AnimateOnScroll>
+                ))}
+              </ul>
             </div>
           </AnimateOnScroll>
         </div>
