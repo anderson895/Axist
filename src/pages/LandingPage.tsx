@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom'
 import ProcessSteps, { type Step } from '../components/ProcessSteps'
 import RoleCarousel from '../components/RoleCarousel'
 import { landingRoles } from '../data/roles'
-import CTABanner from '../components/CTABanner'
 import { CheckIcon } from '../components/Icons'
 import AnimateOnScroll from '../components/AnimateOnScroll'
 
@@ -45,38 +44,6 @@ export default function LandingPage() {
             We've saved 4,000+ companies over $300 million in payroll and present candidates in 5 days.
           </p>
           <p className="text-white/40 text-sm italic animate-fade-in-up" style={{ animationDelay: '300ms' }}>You Don't Pay If You Don't Hire</p>
-        </div>
-      </section>
-
-      {/* ──── Security ──────────────────────────────────── */}
-      <section className="py-24 px-6 section-ambient">
-        <div className="max-w-3xl mx-auto text-center">
-          <AnimateOnScroll variant="fade-up">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-5 font-display drop-shadow-lg">
-              Axis is Secure by Design
-            </h2>
-            <p className="text-white/80 mb-14 max-w-xl mx-auto leading-relaxed">
-              Thousands of customers trust Axis to process their data securely and reliably. Our robust security and privacy practices are deeply integrated into everything we do. Axis is fully SOC2, ISO27001, and GDPR compliant.
-            </p>
-          </AnimateOnScroll>
-          <div className="flex justify-center gap-6 md:gap-14 mb-12">
-            {['SOC 2\nType II', 'ISO\n27001', 'GDPR\nCompliant'].map((badge, i) => (
-              <AnimateOnScroll key={badge} variant="zoom-in" delay={i * 100} duration={500}>
-                <div className="relative">
-                  <div className="glass-card w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-full flex items-center justify-center transition-transform duration-300 hover:scale-105 hover:shadow-xl">
-                    <span className="text-white text-xs font-bold text-center leading-tight whitespace-pre-line">
-                      {badge}
-                    </span>
-                  </div>
-                  <div className="absolute -top-1 -right-1 w-4 h-4 bg-white/60 backdrop-blur-md border border-white/70 rounded-full" />
-                  <div className="absolute -bottom-1 -left-1 w-4 h-4 bg-white/60 backdrop-blur-md border border-white/70 rounded-full" />
-                </div>
-              </AnimateOnScroll>
-            ))}
-          </div>
-          <AnimateOnScroll variant="fade-up" delay={200}>
-            <CTABanner />
-          </AnimateOnScroll>
         </div>
       </section>
 
