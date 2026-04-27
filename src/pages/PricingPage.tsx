@@ -9,6 +9,13 @@ const pricingSteps = [
   { icon: <UsersIcon size={24} />, title: 'Custom Plans', desc: 'We also offer custom plans where we handle compliance, equipment, training and more to help your team scale quickly without the up-front fees.' },
 ]
 
+const talentOnDemandSteps = [
+  { icon: <DollarSign size={24} />, title: 'Refundable Deposit and Search', desc: 'A deposit and signed MSA starts your search. The deposit is deducted from your first invoice.' },
+  { icon: <HandshakeIcon size={24} />, title: 'Statement of Work Confirmed', desc: "Once the SOW and consultant offers are signed, we charge a monthly fee consisting of the consultant's salary + the Somewhere fee." },
+  { icon: <ShieldCheck size={24} />, title: 'Performance Guarantee', desc: "Unlimited free replacements if you're not satisfied with the consultant's performance." },
+  { icon: <UsersIcon size={24} />, title: 'Custom Plans', desc: 'Hiring multiple consultants? Contact us for custom pricing and volume discounts.' },
+]
+
 const candidates = [
   { name: 'Anton', price: '$1,700', role: 'Executive Assistant' },
   { name: 'Dané', price: '$1,600', role: 'Sales Development Rep' },
@@ -91,6 +98,67 @@ export default function PricingPage() {
             <button className="glass-button text-white px-8 py-3.5 rounded-full font-semibold text-sm">
               Get Started
             </button>
+          </AnimateOnScroll>
+        </div>
+      </section>
+
+      {/* ──── Talent-On-Demand pricing ──────────── */}
+      <section className="py-24 px-6 section-ambient">
+        <div className="max-w-5xl mx-auto text-center">
+          <AnimateOnScroll variant="fade-up">
+            <span className="inline-block border border-white/40 text-white/90 text-xs font-semibold px-4 py-1.5 rounded-full mb-4 backdrop-blur-md bg-white/10">
+              Pricing
+            </span>
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 font-display drop-shadow-lg">
+              How Talent-On-Demand Pricing Works
+            </h2>
+            <p className="text-white/80 max-w-xl mx-auto mb-16 leading-relaxed">
+              Simple monthly pricing with no hidden costs.
+            </p>
+          </AnimateOnScroll>
+
+          {/* Timeline */}
+          <div className="hidden md:block relative mb-16">
+            <div className="absolute top-6 left-[12%] right-[12%] h-0.5 bg-white/20" />
+            <div className="grid grid-cols-4 gap-6">
+              {talentOnDemandSteps.map((step, i) => (
+                <AnimateOnScroll key={i} variant="fade-up" delay={i * 100} duration={500}>
+                  <div className="flex flex-col items-center text-center relative z-10">
+                    <div className="glass-card w-12 h-12 rounded-xl flex items-center justify-center mb-5 text-white transition-transform duration-300 hover:scale-110 hover:shadow-md">
+                      {step.icon}
+                    </div>
+                    <h3 className="font-bold text-white text-sm mb-2">{step.title}</h3>
+                    <p className="text-white/70 text-xs leading-relaxed">{step.desc}</p>
+                  </div>
+                </AnimateOnScroll>
+              ))}
+            </div>
+          </div>
+
+          {/* Mobile: stacked */}
+          <div className="md:hidden space-y-6 mb-12">
+            {talentOnDemandSteps.map((step, i) => (
+              <AnimateOnScroll key={i} variant="fade-right" delay={i * 80} duration={500}>
+                <div className="flex gap-4 text-left">
+                  <div className="glass-card w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 text-white">
+                    {step.icon}
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-white text-sm mb-1">{step.title}</h3>
+                    <p className="text-white/70 text-xs leading-relaxed">{step.desc}</p>
+                  </div>
+                </div>
+              </AnimateOnScroll>
+            ))}
+          </div>
+
+          <AnimateOnScroll variant="zoom-in" delay={300}>
+            <button className="glass-button text-white px-8 py-3.5 rounded-full font-semibold text-sm">
+              Get Started
+            </button>
+            <p className="text-white/55 text-sm mt-4 italic">
+              Zero Risk: You pay nothing if you don't hire anyone.
+            </p>
           </AnimateOnScroll>
         </div>
       </section>
