@@ -1,7 +1,8 @@
 import ProcessSteps, { type Step } from '../components/ProcessSteps'
 import CTABanner from '../components/CTABanner'
-import { UsersIcon, ClockIcon, ShieldCheck } from '../components/Icons'
+import { UsersIcon, ClockIcon, ShieldCheck, DollarSign, HandshakeIcon } from '../components/Icons'
 import AnimateOnScroll from '../components/AnimateOnScroll'
+import HiringModelComparison from '../components/HiringModelComparison'
 
 const features = [
   {
@@ -19,6 +20,13 @@ const features = [
     title: 'Risk-Free Hiring',
     desc: 'Only pay when you make a hire. No upfront costs. Plus, every placement is backed by a 6 month guarantee for your peace of mind.',
   },
+]
+
+const pricingSteps = [
+  { icon: <DollarSign size={24} />, title: 'Refundable Deposit and Search', desc: 'We charge a one-time, fully refundable deposit to kick off your search and introduce you to candidates. This amount is credited toward your final hiring fee.' },
+  { icon: <HandshakeIcon size={24} />, title: 'Offer Signed', desc: 'When an offer is signed by your future team member, we charge a one time fee depending on how many hires you make.' },
+  { icon: <ShieldCheck size={24} />, title: '6 month guarantee', desc: 'Each hire comes with a 6 month perfect-hire guarantee which includes a replacement hire if you are unhappy with the performance of your new team member.' },
+  { icon: <UsersIcon size={24} />, title: 'Custom Plans', desc: 'We also offer custom plans where we handle compliance, equipment, training and more to help your team scale quickly without the up-front fees.' },
 ]
 
 const steps: Step[] = [
@@ -74,6 +82,69 @@ export default function DirectHirePage() {
         subtitle="Hiring through Axis is simple. You tell us what you need, we send vetted candidates, and you hire the right fit. Fast, with zero risk."
         steps={steps}
       />
+
+      {/* ──── Pricing breakdown ─────────────────── */}
+      <section className="py-24 px-6 section-ambient">
+        <div className="max-w-5xl mx-auto text-center">
+          <AnimateOnScroll variant="fade-up">
+            <span className="inline-block border border-white/40 text-white/90 text-xs font-semibold px-4 py-1.5 rounded-full mb-4 backdrop-blur-md bg-white/10">
+              Pricing
+            </span>
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 font-display drop-shadow-lg">
+              Understanding Direct Hire Pricing
+            </h2>
+            <p className="text-white/80 max-w-xl mx-auto mb-16 leading-relaxed">
+              Pay only when you hire, no subscriptions, no retainers, no risk. Here's exactly what to expect when you work with Somewhere.
+            </p>
+          </AnimateOnScroll>
+
+          {/* Timeline */}
+          <div className="hidden md:block relative mb-16">
+            <div className="absolute top-6 left-[12%] right-[12%] h-0.5 bg-white/20" />
+            <div className="grid grid-cols-4 gap-6">
+              {pricingSteps.map((step, i) => (
+                <AnimateOnScroll key={i} variant="fade-up" delay={i * 100} duration={500}>
+                  <div className="flex flex-col items-center text-center relative z-10">
+                    <div className="glass-card w-12 h-12 rounded-xl flex items-center justify-center mb-5 text-white transition-transform duration-300 hover:scale-110 hover:shadow-md">
+                      {step.icon}
+                    </div>
+                    <h3 className="font-bold text-white text-sm mb-2">{step.title}</h3>
+                    <p className="text-white/70 text-xs leading-relaxed">{step.desc}</p>
+                  </div>
+                </AnimateOnScroll>
+              ))}
+            </div>
+          </div>
+
+          {/* Mobile: stacked */}
+          <div className="md:hidden space-y-6 mb-12">
+            {pricingSteps.map((step, i) => (
+              <AnimateOnScroll key={i} variant="fade-right" delay={i * 80} duration={500}>
+                <div className="flex gap-4 text-left">
+                  <div className="glass-card w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 text-white">
+                    {step.icon}
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-white text-sm mb-1">{step.title}</h3>
+                    <p className="text-white/70 text-xs leading-relaxed">{step.desc}</p>
+                  </div>
+                </div>
+              </AnimateOnScroll>
+            ))}
+          </div>
+
+          <AnimateOnScroll variant="zoom-in" delay={300}>
+            <button className="glass-button text-white px-8 py-3.5 rounded-full font-semibold text-sm">
+              Start Hiring
+            </button>
+            <p className="text-white/55 text-sm mt-4 italic">
+              Zero Risk: You pay nothing if you don't hire anyone.
+            </p>
+          </AnimateOnScroll>
+        </div>
+      </section>
+
+      <HiringModelComparison highlight="direct" />
     </>
   )
 }

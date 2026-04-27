@@ -1,5 +1,6 @@
 import { GlobeIcon, DollarSign, HandshakeIcon, ShieldCheck, UsersIcon } from '../components/Icons'
 import AnimateOnScroll from '../components/AnimateOnScroll'
+import HiringModelComparison from '../components/HiringModelComparison'
 
 const benefits = [
   { icon: <GlobeIcon />, title: 'Global Reach', desc: 'Access talent in 18+ countries. From Latin America to South Africa and Southeast Asia.' },
@@ -12,17 +13,6 @@ const pricingSteps = [
   { icon: <HandshakeIcon size={24} />, title: 'Statement of Work Confirmed', desc: "Once the SOW and consultant offers are signed, we charge a monthly fee consisting of the consultant's salary + the Somewhere fee." },
   { icon: <ShieldCheck size={24} />, title: 'Performance Guarantee', desc: "Unlimited free replacements if you're not satisfied with the consultant's performance." },
   { icon: <UsersIcon size={24} />, title: 'Custom Plans', desc: 'Hiring multiple consultants? Contact us for custom pricing and volume discounts.' },
-]
-
-const comparisonRows = [
-  { label: 'Hiring Model', direct: 'One-time hire', onDemand: 'Monthly support & infrastructure' },
-  { label: 'Fee Structure', direct: 'A one time fee', onDemand: "The contractor's salary cost + our Somewhere service fee" },
-  { label: 'Admin & Compliance', direct: 'You handle everything', onDemand: 'We handle compliance, payroll & more' },
-  { label: 'IT & Equipment', direct: 'You provide and manage', onDemand: 'We provide and support' },
-  { label: 'Best For', direct: 'Permanent roles with internal ops', onDemand: 'Pilot roles and scaling fast' },
-  { label: 'Support', direct: 'No ongoing support', onDemand: 'Includes ongoing support & replacements' },
-  { label: 'Time to Hire', direct: '21-30 days', onDemand: '10-20 Days' },
-  { label: 'Guarantee', direct: '6 Months Perfect Hire Guarantee', onDemand: 'Unlimited replacements within contract period' },
 ]
 
 const candidateAvatars = [1, 5, 12, 32]
@@ -221,71 +211,7 @@ export default function TalentOnDemandPage() {
         </div>
       </section>
 
-      {/* ──── Comparison table ──────────────────── */}
-      <section className="py-24 px-6 section-ambient">
-        <div className="max-w-5xl mx-auto">
-          <AnimateOnScroll variant="fade-up" className="text-center mb-14">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 font-display drop-shadow-lg">
-              Which Hiring Model<br className="hidden sm:block" /> Fits Your Team Best?
-            </h2>
-            <p className="text-white/80 max-w-2xl mx-auto leading-relaxed">
-              Compare our Direct Hire and On-Demand Talent services side by side to see which one aligns with your current goals and team structure.
-            </p>
-          </AnimateOnScroll>
-
-          <AnimateOnScroll variant="fade-up" delay={100} duration={600}>
-            {/* Desktop table */}
-            <div className="hidden sm:grid grid-cols-3 glass-card-tinted rounded-2xl overflow-hidden">
-              {/* Header row */}
-              <div className="p-5 text-white/70 text-sm font-medium border-b border-white/15">
-                Product comparison
-              </div>
-              <div className="p-5 text-center text-white text-lg font-bold font-display border-b border-white/15">
-                Direct Hire
-              </div>
-              <div className="p-5 text-center text-white text-lg font-bold font-display border-b border-white/15 bg-white/10">
-                Talent On-Demand
-              </div>
-
-              {comparisonRows.map((row, i) => {
-                const isLast = i === comparisonRows.length - 1
-                return (
-                  <div key={row.label} className="contents">
-                    <div className={`p-5 font-semibold text-white text-sm ${isLast ? '' : 'border-b border-white/10'}`}>
-                      {row.label}
-                    </div>
-                    <div className={`p-5 text-center text-white/85 text-sm ${isLast ? '' : 'border-b border-white/10'}`}>
-                      {row.direct}
-                    </div>
-                    <div className={`p-5 text-center text-white text-sm bg-white/10 ${isLast ? '' : 'border-b border-white/10'}`}>
-                      {row.onDemand}
-                    </div>
-                  </div>
-                )
-              })}
-            </div>
-
-            {/* Mobile cards */}
-            <div className="sm:hidden space-y-4">
-              {comparisonRows.map((row) => (
-                <div key={row.label} className="glass-card-tinted rounded-2xl p-5">
-                  <h3 className="font-bold text-white text-sm mb-3">{row.label}</h3>
-                  <div className="space-y-3 text-sm">
-                    <div>
-                      <p className="text-white/55 text-xs mb-1">Direct Hire</p>
-                      <p className="text-white/90">{row.direct}</p>
-                    </div>
-                    <div className="pt-2 border-t border-white/10">
-                      <p className="text-white/55 text-xs mb-1">Talent On-Demand</p>
-                      <p className="text-white">{row.onDemand}</p>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </AnimateOnScroll>
-        </div>
-      </section>
+      <HiringModelComparison highlight="onDemand" />
     </>
   )
 }
