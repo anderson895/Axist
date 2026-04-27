@@ -34,7 +34,7 @@ export default function Navbar() {
           {/* Logo */}
           <Link to="/" className="flex items-baseline gap-2.5 text-white group">
             <span className="text-2xl tracking-tight font-display font-bold">Axis</span>
-            <span className="hidden sm:inline text-[10px] tracking-[0.2em] uppercase text-white/55 group-hover:text-white/80 transition-colors">
+            <span className="hidden sm:inline text-[10px] tracking-[0.2em]  text-white/55 group-hover:text-white/80 transition-colors">
               Embedded Ops
             </span>
           </Link>
