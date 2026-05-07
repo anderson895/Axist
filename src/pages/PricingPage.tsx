@@ -3,10 +3,10 @@ import AnimateOnScroll from '../components/AnimateOnScroll'
 import HiringModelComparison from '../components/HiringModelComparison'
 
 const pricingSteps = [
-  { icon: <DollarSign size={24} />, title: 'Refundable Deposit and Search', desc: 'We take a $500 deposit to begin a search and start meeting candidates. This deposit is deducted from your final recruiting fee.' },
-  { icon: <HandshakeIcon size={24} />, title: 'Offer Signed', desc: 'When an offer is signed by your future team member, we charge a one time fee equal to 25–35% of the year 1 salary, depending on how many hires you make.' },
-  { icon: <ShieldCheck size={24} />, title: '6 month guarantee', desc: 'Each hire comes with a 6 month perfect-hire guarantee which includes a replacement hire if you are unhappy with the performance of your new team member.' },
-  { icon: <UsersIcon size={24} />, title: 'Custom Plans', desc: 'We also offer custom plans where we handle compliance, equipment, training and more to help your team scale quickly without the up-front fees.' },
+  { icon: <DollarSign size={24} />, title: 'Role Strategy & Search Kickoff', desc: 'We begin with a focused role strategy session to understand your hiring needs, responsibilities, workflow, compensation range, and success criteria. A refundable search deposit may be used to begin sourcing and is applied toward your final placement fee.' },
+  { icon: <HandshakeIcon size={24} />, title: 'Hire Confirmed', desc: 'You only pay the placement fee once you select a candidate and the offer is accepted. The fee is based on the role, compensation level, and number of hires—your investment is tied directly to successful hiring outcomes.' },
+  { icon: <ShieldCheck size={24} />, title: 'Built-In Replacement Support', desc: 'Every AXIS placement is supported by a replacement window designed to reduce hiring risk. If the hire is not the right long-term fit within the agreed period, we help source a replacement based on the terms of your plan.' },
+  { icon: <UsersIcon size={24} />, title: 'Custom Growth Plans', desc: 'For businesses building multiple global roles, AXIS can create a custom hiring plan that supports role planning, sourcing, onboarding coordination, team expansion, and operational scaling.' },
 ]
 
 const talentOnDemandSteps = [
@@ -39,8 +39,11 @@ export default function PricingPage() {
       <section className="py-24 px-6 text-center section-dark-tint">
         <AnimateOnScroll variant="fade-up" threshold={0.1}>
           <h1 className="text-white text-3xl sm:text-4xl md:text-6xl font-bold leading-tight max-w-4xl mx-auto font-display">
-            Last month we helped over 275 companies save 80% on hiring costs.
+            Simple Pricing for Embedded Offshore Hiring
           </h1>
+          <p className="text-white/70 text-lg md:text-xl mt-6 max-w-2xl mx-auto leading-relaxed">
+            Transparent, success-aligned pricing designed to help you build offshore capacity without retainers, subscriptions, or unnecessary hiring risk.
+          </p>
         </AnimateOnScroll>
       </section>
 
@@ -52,10 +55,10 @@ export default function PricingPage() {
               Pricing
             </span>
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 font-display drop-shadow-lg">
-              How Direct Hire Pricing Works
+              Choose the Offshore Hiring Model Built for Your Team
             </h2>
             <p className="text-white/80 max-w-xl mx-auto mb-16 leading-relaxed">
-              Pay only when you hire — no subscriptions, no retainers, no risk. Here's exactly what to expect when you work with Axis.
+              Whether you want a direct long-term hire or a supported offshore team structure, AXIS helps you scale with the right level of control, support, and flexibility.
             </p>
           </AnimateOnScroll>
 
@@ -96,8 +99,11 @@ export default function PricingPage() {
 
           <AnimateOnScroll variant="zoom-in" delay={300}>
             <button className="glass-button text-white px-8 py-3.5 rounded-full font-semibold text-sm">
-              Get Started
+              Start Hiring With AXIS
             </button>
+            <p className="text-white/55 text-sm mt-4 italic">
+              Zero-Risk Engagement — You only pay once you've made a successful hire.
+            </p>
           </AnimateOnScroll>
         </div>
       </section>
@@ -154,10 +160,10 @@ export default function PricingPage() {
 
           <AnimateOnScroll variant="zoom-in" delay={300}>
             <button className="glass-button text-white px-8 py-3.5 rounded-full font-semibold text-sm">
-              Get Started
+              Start Hiring With AXIS
             </button>
             <p className="text-white/55 text-sm mt-4 italic">
-              Zero Risk: You pay nothing if you don't hire anyone.
+              Zero-Risk Engagement — You only pay once you've made a successful hire.
             </p>
           </AnimateOnScroll>
         </div>
@@ -205,7 +211,7 @@ export default function PricingPage() {
           </div>
           <AnimateOnScroll variant="fade-up" delay={400}>
             <p className="text-center text-white/35 text-sm mt-10 italic">
-              Zero Risk: You pay nothing if you don't hire anyone.
+              Zero-Risk Engagement — You only pay once you've made a successful hire.
             </p>
           </AnimateOnScroll>
         </div>

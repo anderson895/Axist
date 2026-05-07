@@ -7,26 +7,24 @@ import AnimateOnScroll from '../components/AnimateOnScroll'
 
 
 const steps: Step[] = [
-  { num: '1', title: 'Book a Call & Start Hiring', desc: "Tell us what roles you're hiring for in a quick intro call. We'll align on countries, salary ranges, and skill needs. A $500 refundable deposit secures your search and goes toward your final invoice.", note: "Zero Risk: You pay nothing if you don't hire anyone." },
-  { num: '2', title: 'Meet Our Team & Get Matched Fast', desc: "Once your search kicks off, our recruiters start sharing carefully vetted candidates. With your input, we'll zero in on the right fit — whether that's sales talent in Latin America, developers in Eastern Europe, or assistants in Sri Lanka. Last month, we placed 220 candidates — just 0.5% of those screened." },
-  { num: '3', title: 'Interview Candidates & Make the Hire', desc: "We'll send you top candidates to interview and collect your feedback after each round. This continues until we find the right match. We'll assist with salary negotiation, onboarding, and candidate engagement — so you can build your team quickly and confidently." },
-  { num: '4', title: 'Ongoing Support to Help You Scale', desc: 'As your team grows, we help you scale efficiently, often saving 70–80% on payroll compared to U.S. hires. Need talent in a new region or with a specific skill set? Just say the word, we\'ll source and deliver top candidates globally.' },
-  { num: '5', title: 'Hire Globally, Strategically', desc: "We've placed talent in 18+ countries — from developers in Eastern Europe to accountants in South Africa, finance pros in Egypt, support teams in Pakistan, and assistants in the Philippines. Whether it's Colombia or Portugal, we help you hire where talent is strong and costs make sense." },
-  { num: 'check', title: 'Start Hiring Right Now', desc: "Ready to build your global team? We'll guide you every step of the way — from role scoping to onboarding. Kick things off today and see how fast you can scale with pre-vetted international talent.", note: "Zero Risk: You pay nothing if you don't hire anyone." },
+  { num: '1', title: 'Align & Scope the Role', desc: 'We start with discovery and a focused strategy call to understand your business, workflows, and hiring objectives. From there, we define the role, expectations, and success metrics—so every candidate is aligned from day one.', note: "Zero-Risk Engagement — You only pay once you've made a successful hire." },
+  { num: '2', title: 'Source & Curate Top Talent', desc: "Our team activates a global sourcing engine and rigorously vets candidates for skill, communication, and operational fit. You don't review hundreds of applicants—we deliver a curated shortlist built for performance." },
+  { num: '3', title: 'Interview & Select with Confidence', desc: 'You meet only high-probability candidates already aligned with your needs. We guide the process, collect feedback, and refine quickly—so you can make the right hire without delays.' },
+  { num: '4', title: 'Embed into Your Operations', desc: 'This is where AXIS is different. We support onboarding and ensure your hire is fully integrated into your tools, workflows, and team—so they operate like a true extension of your business.' },
+  { num: '5', title: 'Scale with Ongoing Support', desc: "As your business grows, we help you expand your team with the same level of precision and consistency. Whether it's new roles, new regions, or specialized talent—we keep your operations moving forward." },
+  { num: 'check', title: 'Start Building Your Team', desc: 'Ready to scale with embedded global talent? We guide you through every step—from role definition to full integration—so you can build a reliable, high-performing team without the complexity of traditional hiring. Get started today and see how quickly you can expand your operational capacity.', note: "Zero-Risk Engagement — You only pay once you've made a successful hire." },
 ]
 
 const benefits = [
-  'College-educated professionals',
-  'Fluent English speakers',
-  'Expertise across tech, finance, marketing & more',
-  'Overlap with US time zones',
-  'Dedicated, full-time commitment to your company',
+  'Reduce hiring costs by up to 70% without compromising quality',
+  'Access experienced talent across operations, sales, support, and more',
+  'Work with professionals aligned to your workflows, standards, and culture',
 ]
 
 const wherewecomein = [
-  { title: 'Hassle-free remote hiring.', desc: 'Our professional headhunting team will find, screen, and vet candidates for you.' },
-  { title: 'No recurring fees or hidden costs.', desc: "Once you've selected the perfect candidate, a single, straightforward fee is all you'll pay." },
-  { title: 'Top remote talent, guaranteed.', desc: "Our 6-month Perfect Hire Guarantee gives you plenty of time to evaluate hires and see if they're a good fit." },
+  { title: 'Embedded hiring model, not traditional outsourcing.', desc: 'We integrate talent directly into your systems and workflows.' },
+  { title: 'Transparent, one-time engagement structure.', desc: 'No recurring placement fees or hidden costs.' },
+  { title: 'Performance-backed placements.', desc: 'We stand behind every hire with a structured guarantee and ongoing support.' },
 ]
 
 export default function LandingPage() {
@@ -41,22 +39,22 @@ export default function LandingPage() {
         </div>
         <div className="max-w-4xl mx-auto text-center py-20 md:py-44 px-6 relative">
           <p className="text-white/40 text-sm font-semibold tracking-widest uppercase mb-5 animate-fade-in-up" style={{ animationDelay: '0ms' }}>
-            Global Talent Recruitment
+            Embedded Global Workforce Solutions
           </p>
           <h1 className="text-white text-4xl sm:text-5xl md:text-7xl font-bold leading-[1.1] mb-7 font-display animate-fade-in-up" style={{ animationDelay: '100ms' }}>
-            Hire the Top 1% of Global Talent and Save 80% on Payroll
+            Access Top-Tier Global Talent — Embedded into Your Team While Reducing Payroll Costs by Up to 70%
           </h1>
           <p className="text-white/60 text-base sm:text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed animate-fade-in-up" style={{ animationDelay: '200ms' }}>
-            We've saved 4,000+ companies over $300 million in payroll and present candidates in 5 days.
+            We help business owners build high-performing remote teams that scale operations without the overhead of local hiring.
           </p>
-          <p className="text-white/40 text-sm italic animate-fade-in-up" style={{ animationDelay: '300ms' }}>You Don't Pay If You Don't Hire</p>
+          <p className="text-white/40 text-sm italic animate-fade-in-up" style={{ animationDelay: '300ms' }}>Zero-Risk Engagement — You only pay once you've made a successful hire.</p>
         </div>
       </section>
 
       {/* ──── Process ──────────────────────────────────── */}
       <ProcessSteps
         title="Our Process"
-        subtitle="Fast, supported, and flexible. We help you hire top global talent without the usual complexity."
+        subtitle="Structured. Embedded. Built for Scale. We don't just help you hire—we integrate high-performing global talent directly into your operations, without the friction of traditional hiring."
         steps={steps}
       />
 
@@ -66,10 +64,10 @@ export default function LandingPage() {
           <AnimateOnScroll variant="fade-right" duration={700}>
             <div>
               <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 font-display drop-shadow-lg">
-                Did you know?
+                Rethinking How Teams Are Built
               </h2>
               <p className="text-white/85 text-lg mb-8 leading-relaxed">
-                For as little as $12,000 per year, you can hire highly skilled, full-time remote employees who offer:
+                High-performing companies are no longer limited by local hiring. With the right system, you can access skilled global professionals who operate as a seamless extension of your team—at a significantly more efficient cost structure.
               </p>
               <ul className="space-y-4">
                 {benefits.map((item, i) => (
@@ -96,7 +94,7 @@ export default function LandingPage() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-tr from-black/40 via-transparent to-transparent" />
                 <div className="glass-card absolute top-4 right-4 rounded-xl px-3 py-2 text-xs font-bold text-white">
-                  From $12k/yr
+                  Save up to 70%
                 </div>
               </div>
             </div>
@@ -125,10 +123,10 @@ export default function LandingPage() {
           <AnimateOnScroll variant="fade-right" duration={700} className="md:order-2">
             <div>
               <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 font-display drop-shadow-lg leading-tight">
-                That's where<br className="hidden sm:block" /> we come in.
+                This Is Where<br className="hidden sm:block" /> AXIS Comes In
               </h2>
               <p className="text-white/85 text-lg mb-8 leading-relaxed">
-                Let us find your next favorite employee.
+                We don't just help you find talent—we embed it into your operations. From sourcing and vetting to onboarding and integration, AXIS ensures every hire is aligned, reliable, and built for long-term performance.
               </p>
               <ul className="space-y-5">
                 {wherewecomein.map((item, i) => (
@@ -155,17 +153,20 @@ export default function LandingPage() {
         <div className="max-w-7xl mx-auto">
           <AnimateOnScroll variant="fade-up" className="text-center mb-14">
             <span className="inline-block border border-white/40 text-white/90 text-xs font-semibold px-4 py-1.5 rounded-full mb-4 backdrop-blur-md bg-white/10">
-              What's possible
+              What You Can Unlock
             </span>
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-3 font-display drop-shadow-lg">
-              Lower your costs by up to 80%
+              Lower your costs by up to 70%
             </h2>
-            <p className="text-white/80">Here are some of the roles we can fill with amazing people</p>
+            <p className="text-white/80">The roles our clients rely on to run and scale their operations.</p>
           </AnimateOnScroll>
           <AnimateOnScroll variant="fade-up" delay={100}>
             <RoleCarousel roles={landingRoles} />
           </AnimateOnScroll>
           <AnimateOnScroll variant="fade-up" delay={200} className="text-center mt-12">
+            <p className="text-white/70 text-sm mb-5 max-w-xl mx-auto">
+              Don't see the exact role you need? We tailor every hire to your specific business requirements.
+            </p>
             <Link
               to="/roles"
               className="glass-button inline-block text-white px-8 py-3.5 rounded-full font-semibold text-sm"

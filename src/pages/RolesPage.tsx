@@ -5,21 +5,25 @@ import AnimateOnScroll from '../components/AnimateOnScroll'
 interface Role {
   title: string
   category: string
-  price: string
+  desc: string
   savings: string
   salaries: { PH: string; LatAm: string; SA: string }
   image: string
 }
 
-const categories = ['All', 'Assistant', 'Sales', 'Technology', 'Marketing']
+const categories = ['All', 'Executive Support', 'Operations', 'Customer Experience', 'Sales', 'Marketing', 'Finance', 'Data', 'CRM & Admin', 'E-commerce', 'Project Coordination']
 
 const allRoles: Role[] = [
-  { title: 'Executive Assistant', category: 'Assistant', price: '$2,500–$5,000/mo', savings: '86%', salaries: { PH: '$1,200', LatAm: '$1,600', SA: '$1,400' }, image: '/images/roles/executive-assistant.png' },
-  { title: 'Sales Development Rep (SDR)', category: 'Sales', price: '$3,000–$6,000/mo', savings: '86%', salaries: { PH: '$1,300', LatAm: '$1,700', SA: '$1,500' }, image: '/images/roles/sales-development-rep.png' },
-  { title: 'Product Manager', category: 'Technology', price: '$4,500–$9,000/mo', savings: '86%', salaries: { PH: '$1,800', LatAm: '$2,400', SA: '$2,000' }, image: '/images/roles/product-manager.png' },
-  { title: 'Social Media Manager', category: 'Marketing', price: '$3,500–$7,000/mo', savings: '86%', salaries: { PH: '$1,400', LatAm: '$1,800', SA: '$1,600' }, image: '/images/roles/social-media-manager.png' },
-  { title: 'Account Executive', category: 'Sales', price: '$3,500–$7,000/mo', savings: '86%', salaries: { PH: '$1,500', LatAm: '$2,000', SA: '$1,700' }, image: '/images/roles/account-executive.png' },
-  { title: 'Sales Manager', category: 'Sales', price: '$4,000–$8,000/mo', savings: '82%', salaries: { PH: '$1,600', LatAm: '$2,100', SA: '$1,800' }, image: '/images/roles/sales-manager.png' },
+  { title: 'Executive Assistants', category: 'Executive Support', desc: 'Keep your schedule, inbox, and priorities organized so you can focus on high-impact decisions.', savings: '70%', salaries: { PH: '$1,200', LatAm: '$1,600', SA: '$1,400' }, image: '/images/roles/executive-assistant.png' },
+  { title: 'Operations Coordinators', category: 'Operations', desc: 'Ensure your day-to-day processes run smoothly and nothing falls through the cracks.', savings: '70%', salaries: { PH: '$1,400', LatAm: '$1,800', SA: '$1,600' }, image: '/images/roles/sales-manager.png' },
+  { title: 'Customer Support Specialists', category: 'Customer Experience', desc: 'Deliver fast, reliable support that improves customer satisfaction and retention.', savings: '70%', salaries: { PH: '$1,100', LatAm: '$1,500', SA: '$1,300' }, image: '/images/roles/social-media-manager.png' },
+  { title: 'Sales Development Representatives (SDRs)', category: 'Sales', desc: 'Qualify leads, manage outreach, and keep your pipeline consistently moving.', savings: '70%', salaries: { PH: '$1,300', LatAm: '$1,700', SA: '$1,500' }, image: '/images/roles/sales-development-rep.png' },
+  { title: 'Marketing Assistants', category: 'Marketing', desc: 'Execute campaigns, manage content, and support your marketing engine without delays.', savings: '70%', salaries: { PH: '$1,200', LatAm: '$1,600', SA: '$1,400' }, image: '/images/roles/account-executive.png' },
+  { title: 'Bookkeepers & Finance Support', category: 'Finance', desc: 'Maintain accurate financials, manage invoices, and keep your cash flow organized.', savings: '70%', salaries: { PH: '$1,400', LatAm: '$1,900', SA: '$1,600' }, image: '/images/roles/product-manager.png' },
+  { title: 'Data & Reporting Analysts', category: 'Data', desc: 'Turn your data into clear insights so you can make smarter business decisions.', savings: '70%', salaries: { PH: '$1,500', LatAm: '$2,000', SA: '$1,700' }, image: '/images/roles/product-manager.png' },
+  { title: 'CRM & Admin Support', category: 'CRM & Admin', desc: 'Keep your systems clean, updated, and functioning efficiently.', savings: '70%', salaries: { PH: '$1,200', LatAm: '$1,600', SA: '$1,400' }, image: '/images/roles/sales-manager.png' },
+  { title: 'E-commerce Support', category: 'E-commerce', desc: 'Manage orders, product listings, and customer inquiries to keep your store running smoothly.', savings: '70%', salaries: { PH: '$1,200', LatAm: '$1,600', SA: '$1,400' }, image: '/images/roles/social-media-manager.png' },
+  { title: 'Project Coordinators', category: 'Project Coordination', desc: 'Track tasks, align teams, and ensure projects are delivered on time.', savings: '70%', salaries: { PH: '$1,500', LatAm: '$2,000', SA: '$1,700' }, image: '/images/roles/account-executive.png' },
 ]
 
 const GRADIENTS = [
@@ -50,9 +54,11 @@ export default function RolesPage() {
       {/* Header */}
       <section className="section-dark-tint py-14 px-6">
         <AnimateOnScroll variant="fade-up" threshold={0.1}>
-          <div className="max-w-7xl mx-auto text-center">
-            <h1 className="text-white text-3xl sm:text-4xl md:text-5xl font-bold mb-3 font-display">Roles We Source</h1>
-            <p className="text-white/55">Find the perfect remote talent for your business</p>
+          <div className="max-w-3xl mx-auto text-center">
+            <h1 className="text-white text-3xl sm:text-4xl md:text-5xl font-bold mb-4 font-display">Roles We Embed</h1>
+            <p className="text-white/70 text-lg leading-relaxed">
+              Find offshore talent built to support the way your business operates. AXIS sources professionals around the responsibilities your team actually needs covered—not just a job title.
+            </p>
           </div>
         </AnimateOnScroll>
       </section>
@@ -138,23 +144,25 @@ export default function RolesPage() {
                     </div>
                     <div className="p-6">
                       <div className="flex flex-wrap gap-2 mb-3">
-                        <span className="text-xs bg-black/40 backdrop-blur-md border border-white/30 text-white px-2.5 py-1 rounded-full font-medium">{role.price}</span>
                         <span className="text-xs bg-white/10 backdrop-blur-md border border-white/20 text-white/80 px-2.5 py-1 rounded-full font-medium">{role.category}</span>
                       </div>
-                      <h3 className="font-bold text-white text-lg mb-4 group-hover:text-white transition-colors">
+                      <h3 className="font-bold text-white text-lg mb-3 group-hover:text-white transition-colors">
                         {role.title}
                       </h3>
-                      <div className="space-y-2 text-sm">
+                      <p className="text-white/70 text-sm leading-relaxed mb-4">
+                        {role.desc}
+                      </p>
+                      <div className="space-y-2 text-sm border-t border-white/10 pt-4">
                         <div className="flex flex-wrap justify-between gap-x-2">
-                          <span className="font-semibold text-white">Philippine Avg. Salary</span>
+                          <span className="font-semibold text-white">Philippines Avg.</span>
                           <span className="text-white/60">{role.salaries.PH}/month</span>
                         </div>
                         <div className="flex flex-wrap justify-between gap-x-2">
-                          <span className="font-semibold text-white">LatAm Avg. Salary</span>
+                          <span className="font-semibold text-white">LatAm Avg.</span>
                           <span className="text-white/60">{role.salaries.LatAm}/month</span>
                         </div>
                         <div className="flex flex-wrap justify-between gap-x-2">
-                          <span className="font-semibold text-white">South Africa Avg. Salary</span>
+                          <span className="font-semibold text-white">South Africa Avg.</span>
                           <span className="text-white/60">{role.salaries.SA}/month</span>
                         </div>
                       </div>
@@ -172,6 +180,98 @@ export default function RolesPage() {
                 </div>
               </AnimateOnScroll>
             )}
+          </div>
+        </div>
+      </section>
+
+      {/* ──── Roles AXIS Can Help You Build Around ──────────── */}
+      <section className="py-24 px-6 section-ambient">
+        <div className="max-w-4xl mx-auto text-center">
+          <AnimateOnScroll variant="fade-up">
+            <h2 className="text-3xl md:text-5xl font-bold text-white mb-5 font-display drop-shadow-lg">
+              Roles AXIS Can Help You Build Around
+            </h2>
+            <p className="text-white/80 text-lg leading-relaxed mb-4">
+              AXIS helps businesses hire offshore professionals for the roles that create real operational leverage—from executive support and customer operations to sales, marketing, finance, recruiting, administration, and project coordination.
+            </p>
+            <p className="text-white/65 leading-relaxed">
+              Need a role that is not listed? AXIS can help define the scope, clarify success metrics, and source candidates based on your tools, workflows, communication needs, and performance expectations.
+            </p>
+          </AnimateOnScroll>
+          <AnimateOnScroll variant="zoom-in" delay={200}>
+            <div className="mt-10">
+              <button className="glass-button text-white px-8 py-3.5 rounded-full font-semibold text-sm">
+                Start Building Your Team
+              </button>
+              <p className="text-white/55 text-sm mt-4 italic">
+                Hire offshore talent matched to your operations, your standards, and your growth goals.
+              </p>
+            </div>
+          </AnimateOnScroll>
+        </div>
+      </section>
+
+      {/* ──── FAQ ─────────────────────────────── */}
+      <section className="py-24 px-6 section-dark-tint">
+        <div className="max-w-4xl mx-auto">
+          <AnimateOnScroll variant="fade-up" className="text-center mb-14">
+            <h2 className="text-3xl md:text-5xl font-bold text-white mb-4 font-display drop-shadow-lg">
+              Questions About Direct Hiring With AXIS?
+            </h2>
+            <p className="text-white/75 leading-relaxed max-w-2xl mx-auto">
+              Here are the most common questions companies ask before building an embedded offshore team with AXIS.
+            </p>
+          </AnimateOnScroll>
+
+          <div className="space-y-4">
+            {[
+              {
+                q: 'What if the hire does not work out?',
+                a: 'Every hiring engagement is designed to reduce risk through structured vetting, expectation alignment, and onboarding support. If a hire is not the right fit within the agreed replacement period, AXIS will help source another qualified candidate at no extra cost.',
+              },
+              {
+                q: 'What types of roles can AXIS help us hire?',
+                a: 'AXIS helps businesses hire offshore professionals across operations, executive support, customer service, sales support, marketing, finance, recruiting, administration, project coordination, and other business support roles. If you are not sure which role to hire first, we can help identify where offshore talent will create the most immediate operational leverage.',
+              },
+              {
+                q: 'Who manages the employee after they are hired?',
+                a: 'That depends on your hiring model. With Embedded Direct Hire, the team member works directly inside your business, and your team manages day-to-day responsibilities, tools, performance, and communication. Through Managed Direct Hire Plus, pricing may include a monthly manager cost.',
+              },
+              {
+                q: 'How does AXIS pricing work?',
+                a: 'AXIS offers simple, success-aligned pricing based on the hiring model you choose. For direct hire placements, the fee is typically tied to a successful hire. For managed offshore support, pricing may include monthly talent cost plus AXIS support and infrastructure. We will walk you through the right structure before any search begins, so there are no surprises.',
+              },
+              {
+                q: 'How quickly can we hire offshore talent?',
+                a: 'Timelines vary by role complexity, required skill set, compensation range, and interview speed. Many roles can move from search kickoff to final interviews within a few weeks when expectations are clear and feedback is timely.',
+              },
+              {
+                q: 'Can AXIS help us decide which role to hire first?',
+                a: 'Yes. Many clients come to AXIS knowing their team is stretched, but not knowing which role should come first. We help map your workload, identify bottlenecks, and recommend offshore roles that can create the fastest capacity relief.',
+              },
+              {
+                q: 'Will the offshore hire work in our time zone?',
+                a: 'AXIS can source candidates based on the schedule overlap your business needs. Some roles require full business-hour alignment, while others can succeed with partial overlap and clear deliverables.',
+              },
+              {
+                q: 'How does AXIS vet candidates?',
+                a: 'We evaluate candidates based on role experience, communication ability, reliability, work style, salary alignment, and fit with your operating environment. The goal is not just to find someone qualified—it is to find someone who can succeed inside your team.',
+              },
+            ].map((item, i) => (
+              <AnimateOnScroll key={i} variant="fade-up" delay={i * 60} duration={500}>
+                <details className="glass-card-dark rounded-2xl p-6 group">
+                  <summary className="flex items-center justify-between cursor-pointer list-none">
+                    <h3 className="font-bold text-white text-base md:text-lg pr-6">{item.q}</h3>
+                    <span className="material-icons text-white/70 transition-transform group-open:rotate-180" style={{ fontSize: '24px' }}>
+                      expand_more
+                    </span>
+                  </summary>
+                  <p className="text-white/75 text-sm md:text-base leading-relaxed mt-4">
+                    {item.a}
+                  </p>
+                </details>
+              </AnimateOnScroll>
+            ))}
           </div>
         </div>
       </section>
