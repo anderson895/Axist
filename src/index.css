@@ -10,6 +10,25 @@
   scrollbar-color: #18181b transparent;
 }
 
+/* ─── Futura for all bold text ─────────────────────── */
+b,
+strong,
+.font-bold,
+.font-extrabold,
+.font-black,
+.font-semibold,
+[class*=" font-bold"],
+[class*=" font-extrabold"],
+[class*=" font-black"],
+[class*=" font-semibold"],
+[class^="font-bold"],
+[class^="font-extrabold"],
+[class^="font-black"],
+[class^="font-semibold"] {
+  font-family: 'Futura', 'Futura PT', 'Trebuchet MS', 'Jost', 'Century Gothic', sans-serif;
+  letter-spacing: 0.01em;
+}
+
 html {
   scroll-behavior: smooth;
 }

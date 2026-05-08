@@ -36,6 +36,7 @@ export default {
       fontFamily: {
         display: ['"Playfair Display"', 'Georgia', 'serif'],
         body: ['"DM Sans"', '"Segoe UI"', 'sans-serif'],
+        futura: ['Futura', '"Futura PT"', '"Trebuchet MS"', 'Jost', '"Century Gothic"', 'sans-serif'],
       },
       animation: {
         'fade-in': 'fadeIn 0.3s ease-out',
