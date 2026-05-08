@@ -57,7 +57,8 @@ export default function LandingPage() {
       {/* ──── Process ──────────────────────────────────── */}
       <ProcessSteps
         title="Our Process"
-        subtitle="Structured. Embedded. Built for Scale. We don't just help you hire—we integrate high-performing global talent directly into your operations, without the friction of traditional hiring."
+        tagline="Structured. Embedded. Built for Scale."
+        subtitle="We don't just help you hire—we integrate high-performing global talent directly into your operations, without the friction of traditional hiring."
         steps={steps}
       />
 

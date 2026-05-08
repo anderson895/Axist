@@ -12,12 +12,13 @@ export interface Step {
 interface ProcessStepsProps {
   title: string
   subtitle: string
+  tagline?: string
   steps: Step[]
 }
 
 const isNumericStep = (s: string) => /^[0-9]+$/.test(s)
 
-const ProcessSteps: React.FC<ProcessStepsProps> = ({ title, subtitle, steps }) => {
+const ProcessSteps: React.FC<ProcessStepsProps> = ({ title, subtitle, tagline, steps }) => {
   return (
     <section className="relative section-dark-tint py-20 px-6 section-ambient-dark overflow-hidden">
       {/* Ambient color glows */}
@@ -32,7 +33,12 @@ const ProcessSteps: React.FC<ProcessStepsProps> = ({ title, subtitle, steps }) =
           <h2 className="text-white text-center text-3xl sm:text-4xl md:text-5xl font-bold mb-4 font-display">
             {title}
           </h2>
-          <p className="text-white/55 text-center mb-14 max-w-2xl mx-auto leading-relaxed">
+          {tagline && (
+            <p className="text-white text-center text-sm sm:text-base font-bold mb-3">
+              {tagline}
+            </p>
+          )}
+          <p className="text-white/55 text-center mb-14 max-w-3xl mx-auto leading-relaxed">
             {subtitle}
           </p>
         </AnimateOnScroll>
