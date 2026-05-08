@@ -42,7 +42,7 @@ export default function LandingPage() {
             Embedded Global Workforce Solutions
           </p>
           <h1 className="text-white text-4xl sm:text-5xl md:text-7xl font-bold leading-[1.1] mb-7 font-display animate-fade-in-up" style={{ animationDelay: '100ms' }}>
-            Access Top Global Talent — Embedded into Your Team While Reducing Payroll Costs by Up to 70%
+            <span className="whitespace-nowrap">Access Top Global Talent</span> — Embedded into Your Team While Reducing Payroll Costs by Up to 70%
           </h1>
           <p className="text-white/60 text-base sm:text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed animate-fade-in-up" style={{ animationDelay: '200ms' }}>
             We help business owners build high-performing remote teams that scale operations without the overhead of local hiring.
