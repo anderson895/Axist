@@ -28,7 +28,7 @@ const ProcessSteps: React.FC<ProcessStepsProps> = ({ title, subtitle, tagline, s
         <div className="absolute bottom-10 left-1/3 w-[32rem] h-[32rem] rounded-full" style={{ background: 'radial-gradient(circle, rgba(168, 143, 173, 0.35), transparent 70%)' }} />
         <div className="absolute bottom-20 right-1/4 w-80 h-80 rounded-full" style={{ background: 'radial-gradient(circle, rgba(126, 196, 190, 0.30), transparent 70%)' }} />
       </div>
-      <div className="max-w-7xl mx-auto relative z-10">
+      <div className="max-w-5xl mx-auto relative z-10">
         <AnimateOnScroll variant="fade-up">
           <h2 className="text-white text-center text-3xl sm:text-4xl md:text-5xl font-bold mb-4 font-display">
             {title}
@@ -48,28 +48,28 @@ const ProcessSteps: React.FC<ProcessStepsProps> = ({ title, subtitle, tagline, s
             return (
               <AnimateOnScroll key={i} variant="fade-up" delay={i * 80} duration={550} threshold={0.08}>
                 <div
-                  className={`rounded-2xl p-7 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl h-full ${
+                  className={`rounded-xl p-5 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl h-full ${
                     isLast
                       ? 'glass-card text-white'
                       : 'glass-card-dark text-white'
                   }`}
                 >
                   <span
-                    className={`inline-flex items-center justify-center w-9 h-9 rounded-lg text-sm font-bold mb-5 backdrop-blur-md ${
+                    className={`inline-flex items-center justify-center w-7 h-7 rounded-md text-xs font-bold mb-3 backdrop-blur-md ${
                       isLast ? 'bg-white/30 border border-white/40 text-white' : 'bg-white/20 border border-white/30 text-white'
                     }`}
                   >
                     {isNumericStep(step.num) ? (
                       step.num
                     ) : (
-                      <span className="material-icons" style={{ fontSize: '18px' }}>
+                      <span className="material-icons" style={{ fontSize: '15px' }}>
                         {step.num}
                       </span>
                     )}
                   </span>
-                  <h3 className="text-lg font-bold mb-3 leading-tight">{step.title}</h3>
+                  <h3 className="text-base font-bold mb-2 leading-tight">{step.title}</h3>
                   <p
-                    className={`text-sm leading-relaxed ${
+                    className={`text-xs leading-relaxed ${
                       isLast ? 'text-white/75' : 'text-white/65'
                     }`}
                   >
@@ -77,7 +77,7 @@ const ProcessSteps: React.FC<ProcessStepsProps> = ({ title, subtitle, tagline, s
                   </p>
                   {step.note && (
                     <p
-                      className={`text-xs mt-4 italic ${
+                      className={`text-[11px] mt-3 italic ${
                         isLast ? 'text-white/55' : 'text-white/40'
                       }`}
                     >
